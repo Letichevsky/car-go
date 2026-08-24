@@ -261,3 +261,26 @@
   outline-color: var(--color-info);
   z-index: 300 !important;
 }
+
+/*
+ * Кадр в куполе: наклеен на сферу, поэтому изнанку прячем — снимки с дальней
+ * стороны просто не видны, как на настоящем глобусе.
+ */
+.dome-frame {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  transition: outline-color 140ms ease-out;
+}
+
+.dome-frame picture {
+  display: block;
+  height: 100%;
+}
+
+.dome-frame:hover,
+.dome-frame:focus-visible,
+.dome-frame:active {
+  outline-color: var(--color-info);
+}

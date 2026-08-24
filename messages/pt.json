@@ -87,7 +87,8 @@
     "tabSphere": "Esfera",
     "tabMosaic": "Grelha",
     "hintMouse": "Aproxime o cursor — a esfera gira nessa direção. Toque numa foto para a trazer à frente.",
-    "hintTouch": "Deslize o dedo para girar. Toque numa foto para a trazer à frente."
+    "hintTouch": "Deslize o dedo para girar. Toque numa foto para a trazer à frente.",
+    "tabDome": "Cúpula"
   },
   "about": {
     "title": "Quem vai fazer a sua mudança",

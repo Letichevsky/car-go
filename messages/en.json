@@ -87,7 +87,8 @@
     "tabSphere": "Sphere",
     "tabMosaic": "Grid",
     "hintMouse": "Move the cursor — the sphere turns that way. Click a frame to bring it to the front.",
-    "hintTouch": "Swipe to spin it. Tap a frame to bring it to the front."
+    "hintTouch": "Swipe to spin it. Tap a frame to bring it to the front.",
+    "tabDome": "Dome"
   },
   "about": {
     "title": "Who will handle your move",

@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Gallery } from "@/components/site/Gallery";
+import { PhotoDome } from "@/components/site/PhotoDome";
 import { PhotoSphere } from "@/components/site/PhotoSphere";
 
-type View = "sphere" | "mosaic";
+type View = "sphere" | "dome" | "mosaic";
 
 /**
  * Две подачи одной галереи рядом: сфера и мозаика.
@@ -17,6 +18,7 @@ export function GalleryTabs() {
 
   const tabs: { id: View; label: string }[] = [
     { id: "sphere", label: t("tabSphere") },
+    { id: "dome", label: t("tabDome") },
     { id: "mosaic", label: t("tabMosaic") },
   ];
 
@@ -45,7 +47,9 @@ export function GalleryTabs() {
         ))}
       </div>
 
-      {view === "sphere" ? <PhotoSphere /> : <Gallery />}
+      {view === "sphere" && <PhotoSphere />}
+      {view === "dome" && <PhotoDome />}
+      {view === "mosaic" && <Gallery />}
     </div>
   );
 }

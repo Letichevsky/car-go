@@ -25,6 +25,8 @@ const IDLE_SPEED = 0.06;
 const EASING = 0.08;
 /** Затухание после свайпа */
 const FRICTION = 0.94;
+/** Во сколько раз медленнее крутится облако, пока курсор стоит на кадре */
+const HOVER_BRAKE = 0.12;
 
 /**
  * Ступени тени по глубине. Меняем не каждый кадр, а только при переходе через порог:
@@ -133,6 +135,8 @@ export function PhotoSphere() {
   const target = useRef({ pitch: 0, yaw: IDLE_SPEED });
   const focused = useRef<number | null>(null);
   const dragging = useRef(false);
+  /** Курсор стоит на кадре — почти останавливаемся, иначе снимок уезжает и подсветка слетает */
+  const hovering = useRef(false);
 
   const points = useMemo(() => fibonacciSphere(count), [count]);
   /** Живые координаты: их и вращаем, чтобы не копить углы */
@@ -176,8 +180,9 @@ export function PhotoSphere() {
         speed.current.yaw = 0;
         if (Math.abs(yaw) < 0.0004 && Math.abs(pitch) < 0.0004) focused.current = null;
       } else if (!dragging.current && !reduced) {
-        speed.current.pitch += (target.current.pitch - speed.current.pitch) * EASING;
-        speed.current.yaw += (target.current.yaw - speed.current.yaw) * EASING;
+        const brake = hovering.current ? HOVER_BRAKE : 1;
+        speed.current.pitch += (target.current.pitch * brake - speed.current.pitch) * EASING;
+        speed.current.yaw += (target.current.yaw * brake - speed.current.yaw) * EASING;
         yaw = speed.current.yaw * dt;
         pitch = speed.current.pitch * dt;
       }
@@ -274,6 +279,7 @@ export function PhotoSphere() {
 
   function onPointerLeave() {
     dragging.current = false;
+    hovering.current = false;
     target.current = { pitch: 0, yaw: IDLE_SPEED };
   }
 
@@ -333,6 +339,8 @@ export function PhotoSphere() {
               onClick={() => {
                 focused.current = index;
               }}
+              onPointerEnter={() => (hovering.current = true)}
+              onPointerLeave={() => (hovering.current = false)}
               aria-label={t(`gallery.alt.${photo.category}`)}
               className="sphere-frame rounded-control absolute top-1/2 left-1/2 cursor-pointer overflow-hidden will-change-transform"
               style={
