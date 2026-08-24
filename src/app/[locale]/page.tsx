@@ -7,6 +7,7 @@ import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
+import { Stats } from "@/components/site/Stats";
 import { contacts } from "@/lib/contacts";
 import type { Locale } from "@/i18n/routing";
 
@@ -40,6 +41,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <SiteHeader />
       <main>
         <Hero />
+        <Stats />
         <WorksSection />
         <Services />
         <About />
