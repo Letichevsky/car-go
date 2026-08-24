@@ -240,8 +240,8 @@
   },
   "stats": {
     "yearsLabel": "years of crew experience",
-    "movesLabel": "moves and deliveries in that time",
+    "movesLabel": "completed moves",
     "extrasLabel": "in surcharges for stairs, weekends or holidays",
-    "languagesLabel": "languages the crew speaks"
+    "clientsLabel": "happy customers"
   }
 }

@@ -240,8 +240,8 @@
   },
   "stats": {
     "yearsLabel": "anos de experiência da equipa",
-    "movesLabel": "mudanças e entregas neste período",
+    "movesLabel": "mudanças realizadas",
     "extrasLabel": "de custos extra por escadas, fins de semana ou feriados",
-    "languagesLabel": "idiomas falados pela equipa"
+    "clientsLabel": "clientes satisfeitos"
   }
 }

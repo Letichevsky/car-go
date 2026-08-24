@@ -6,6 +6,8 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 
 type CountUpProps = {
   to: number;
+  /** Откуда начинать счёт. Больше `to` — цифра бежит вниз */
+  from?: number;
   /** Сколько знаков после запятой показывать (для целых — ноль) */
   fractionDigits?: number;
   durationMs?: number;
@@ -24,7 +26,7 @@ function easeOutCubic(progress: number): number {
  * в кадр — к этому времени секция ещё проявляется, поэтому подмены не видно.
  * При системной настройке «уменьшить движение» число просто стоит на месте.
  */
-export function CountUp({ to, fractionDigits = 0, durationMs = 1500 }: CountUpProps) {
+export function CountUp({ to, from = 0, fractionDigits = 0, durationMs = 1500 }: CountUpProps) {
   const locale = useLocale();
   const reduced = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
@@ -40,7 +42,7 @@ export function CountUp({ to, fractionDigits = 0, durationMs = 1500 }: CountUpPr
     const step = (time: number) => {
       if (!start) start = time;
       const progress = Math.min((time - start) / durationMs, 1);
-      setValue(to * easeOutCubic(progress));
+      setValue(from + (to - from) * easeOutCubic(progress));
       if (progress < 1) frame = requestAnimationFrame(step);
     };
 
@@ -48,7 +50,7 @@ export function CountUp({ to, fractionDigits = 0, durationMs = 1500 }: CountUpPr
       (entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return;
         observer.disconnect();
-        setValue(0);
+        setValue(from);
         frame = requestAnimationFrame(step);
       },
       { threshold: 0.01, rootMargin: "0px 0px -10% 0px" },
@@ -60,7 +62,7 @@ export function CountUp({ to, fractionDigits = 0, durationMs = 1500 }: CountUpPr
       observer.disconnect();
       cancelAnimationFrame(frame);
     };
-  }, [to, durationMs, reduced]);
+  }, [to, from, durationMs, reduced]);
 
   const formatted = new Intl.NumberFormat(locale, {
     minimumFractionDigits: fractionDigits,

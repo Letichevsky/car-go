@@ -6,15 +6,17 @@ import { Reveal } from "@/components/ui/Reveal";
  * Полоса с крупными цифрами между первым экраном и работами.
  * Числа добегают до значения, когда полоса появляется на экране.
  *
- * «Больше 5000 переездов» — это оценка: пять лет работы, в среднем три выезда
- * в день без выходных, округлено вниз. Заказчику стоит подтвердить цифру,
- * прежде чем она уйдёт в прод (вопрос в §12 журнала).
+ * Счётчик доплат идёт в обратную сторону — от десяти тысяч к нулю: так «0 €»
+ * читается не как пустое место, а как обещание.
+ *
+ * Цифры по переездам и клиентам — оценка со слов заказчика, их нужно
+ * подтвердить перед запуском (вопрос в §12 журнала).
  */
 const stats = [
-  { key: "years", value: 5, suffix: "+" },
-  { key: "moves", value: 5000, suffix: "+" },
-  { key: "extras", value: 0, suffix: " €", accent: true },
-  { key: "languages", value: 4, suffix: "" },
+  { key: "years", value: 5, from: 0, suffix: "+" },
+  { key: "moves", value: 3000, from: 0, suffix: "+" },
+  { key: "extras", value: 0, from: 10000, suffix: " €", accent: true },
+  { key: "clients", value: 400, from: 0, suffix: "+" },
 ] as const;
 
 export function Stats() {
@@ -34,11 +36,11 @@ export function Stats() {
           >
             <div className="flex flex-col gap-2">
               <span
-                className={`text-[2.25rem] leading-none font-bold tracking-[-0.04em] lg:text-[3rem] ${
+                className={`text-[2rem] leading-none font-bold tracking-[-0.04em] whitespace-nowrap sm:text-[2.25rem] lg:text-[3rem] ${
                   stat.accent ? "text-action" : ""
                 }`}
               >
-                <CountUp to={stat.value} />
+                <CountUp to={stat.value} from={stat.from} />
                 {stat.suffix}
               </span>
               <span className="text-text-muted text-[0.9375rem] leading-snug">
