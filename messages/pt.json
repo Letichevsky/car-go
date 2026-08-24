@@ -85,7 +85,10 @@
       "result": "Apartamento depois da mudança"
     },
     "tabMosaic": "Grelha",
-    "tabFlow": "Em movimento"
+    "tabFlow": "Em movimento",
+    "close": "Fechar",
+    "prev": "Foto anterior",
+    "next": "Próxima foto"
   },
   "about": {
     "title": "Quem vai fazer a sua mudança",

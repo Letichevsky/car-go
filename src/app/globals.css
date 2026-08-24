@@ -270,9 +270,26 @@
   will-change: transform;
 }
 
-/* Курсор на ленте — останавливаем, чтобы можно было рассмотреть кадр */
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
+/*
+ * Кадр под курсором подсвечивается; лента при этом не останавливается.
+ * Обводка идёт по внешнему краю: внутренняя перекрывалась бы самим снимком,
+ * потому что грани кадра лежат абсолютным слоем поверх фона плитки.
+ */
+.tile-pickable {
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  transition:
+    outline-color 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+
+.tile-pickable:hover,
+.tile-pickable:focus-visible {
+  outline-color: var(--color-info);
+  box-shadow:
+    0 0 0 4px color-mix(in oklab, var(--color-info) 28%, transparent),
+    0 0 20px 2px color-mix(in oklab, var(--color-info) 55%, transparent);
+  z-index: 5;
 }
 
 @media (prefers-reduced-motion: reduce) {

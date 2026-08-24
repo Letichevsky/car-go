@@ -85,7 +85,10 @@
       "result": "The apartment after the move"
     },
     "tabMosaic": "Grid",
-    "tabFlow": "In motion"
+    "tabFlow": "In motion",
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo"
   },
   "about": {
     "title": "Who will handle your move",

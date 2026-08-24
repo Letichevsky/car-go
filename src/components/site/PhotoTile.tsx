@@ -15,6 +15,7 @@ export function Tile({
   alt,
   delay,
   onHover,
+  onSelect,
 }: {
   slug: string;
   span: string;
@@ -22,6 +23,8 @@ export function Tile({
   alt: string;
   delay: number;
   onHover?: () => void;
+  /** Если передан — плитку можно открыть в просмотре, и она подсвечивается рамкой */
+  onSelect?: () => void;
 }) {
   const frame = useRef<HTMLElement>(null);
   const [base, setBase] = useState(slug);
@@ -79,12 +82,26 @@ export function Tile({
   return (
     <figure
       ref={frame}
-      className={`bg-surface-strong relative overflow-hidden ${span}`}
+      className={`bg-surface-strong relative overflow-hidden ${span} ${onSelect ? "tile-pickable cursor-pointer" : ""}`}
       style={{
         animation: `tile-in 600ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms both`,
         perspective: "40rem",
       }}
       onMouseEnter={onHover}
+      onClick={onSelect}
+      onKeyDown={
+        onSelect
+          ? (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                onSelect();
+              }
+            }
+          : undefined
+      }
+      role={onSelect ? "button" : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      aria-label={onSelect ? alt : undefined}
     >
       <div
         className="relative size-full"

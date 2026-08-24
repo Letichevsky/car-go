@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import { useTranslations } from "next-intl";
+import { PhotoLightbox } from "@/components/site/PhotoLightbox";
 import { Tile } from "@/components/site/PhotoTile";
 import { photos as allPhotos } from "@/lib/photos";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -97,6 +98,7 @@ export function GalleryFlow() {
   const initial = useMemo(() => pickInitial(), []);
   const [slots, setSlots] = useState<string[]>(initial);
   const reduced = useReducedMotion();
+  const [opened, setOpened] = useState<number | null>(null);
 
   const rotateAt = useCallback((index: number) => {
     setSlots((current) => {
@@ -153,21 +155,27 @@ export function GalleryFlow() {
           sizes={TILE_SIZES}
           alt={copy === 0 ? t(`gallery.alt.${categoryOf(slots[index])}`) : ""}
           delay={index * 24}
-          onHover={reduced ? undefined : () => rotateAt(index)}
+          onSelect={() => setOpened(allPhotos.findIndex((photo) => photo.slug === slots[index]))}
         />
       ))}
     </div>
   );
 
   return (
-    <div className="marquee overflow-hidden">
-      <div
-        className="marquee-track flex w-max gap-1.5 lg:gap-2"
-        style={{ "--marquee-duration": `${TRAVEL_SECONDS}s` } as CSSProperties}
-      >
-        {strip(0)}
-        {strip(1)}
+    <>
+      {opened !== null && (
+        <PhotoLightbox index={opened} onClose={() => setOpened(null)} onChange={setOpened} />
+      )}
+
+      <div className="marquee overflow-hidden">
+        <div
+          className="marquee-track flex w-max gap-1.5 lg:gap-2"
+          style={{ "--marquee-duration": `${TRAVEL_SECONDS}s` } as CSSProperties}
+        >
+          {strip(0)}
+          {strip(1)}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
