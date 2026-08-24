@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { MobileActionBar } from "@/components/site/MobileActionBar";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { Photo } from "@/components/ui/Photo";
@@ -78,6 +79,7 @@ export default async function WorksPage({ params }: { params: Promise<{ locale: 
         </Link>
       </main>
       <SiteFooter />
+      <MobileActionBar />
     </>
   );
 }

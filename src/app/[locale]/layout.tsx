@@ -4,6 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { routing, type Locale } from "@/i18n/routing";
+import { siteUrl } from "@/lib/site";
 import "../globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -29,6 +30,7 @@ export async function generateMetadata({
   const languages = Object.fromEntries(routing.locales.map((item) => [item, `/${item}`]));
 
   return {
+    metadataBase: new URL(siteUrl),
     title: t("title"),
     description: t("description"),
     alternates: { canonical: `/${locale}`, languages },

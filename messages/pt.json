@@ -5,10 +5,10 @@
   },
   "nav": {
     "services": "Serviços",
-    "prices": "Preços",
     "works": "Trabalhos",
     "contacts": "Contactos",
-    "about": "Sobre nós"
+    "about": "Sobre nós",
+    "home": "Início"
   },
   "hero": {
     "eyebrow": "Lisboa · Mudanças & multi serviço",
@@ -36,7 +36,7 @@
   },
   "services": {
     "title": "Serviços",
-    "all": "Todos os serviços e preços",
+    "all": "Pedir orçamento",
     "homeTitle": "Mudanças residenciais",
     "homeText": "Chave na mão: embalagem, filme aderente, desmontagem e montagem de móveis.",
     "officeTitle": "Escritórios e lojas",
@@ -103,5 +103,139 @@
     "title": "Os nossos trabalhos",
     "subtitle": "Cada fotografia é de um trabalho real: como embalamos, como carregamos e como deixamos a casa.",
     "back": "Voltar à página inicial"
+  },
+  "servicePages": {
+    "common": {
+      "includesTitle": "O que está incluído",
+      "stepsTitle": "Como decorre",
+      "faqTitle": "Perguntas frequentes",
+      "otherTitle": "Outros serviços",
+      "steps": [
+        {
+          "title": "Avaliação",
+          "text": "Vamos ter consigo à hora que lhe der jeito ou falamos por WhatsApp. Vemos o volume e indicamos o preço antes de começar."
+        },
+        {
+          "title": "Execução",
+          "text": "Chega a nossa equipa fixa, com equipamento e materiais próprios. Pode acompanhar ou tratar da sua vida."
+        },
+        {
+          "title": "Entrega",
+          "text": "Confirmamos consigo que está tudo no sítio e montado. As embalagens levamos connosco."
+        }
+      ]
+    },
+    "items": {
+      "home": {
+        "title": "Mudanças residenciais chave na mão",
+        "lead": "Levamos os nossos materiais, desmontamos os móveis, transportamos tudo e montamos no novo espaço. A si resta abrir a porta e dizer onde fica cada coisa.",
+        "metaTitle": "Mudanças residenciais em Lisboa — Car-Go!",
+        "metaDescription": "Mudanças de casa chave na mão em Lisboa e em Portugal: embalagem, desmontagem e montagem de móveis, carga, transporte e arrumação. Avaliação gratuita.",
+        "includes": [
+          "Embalagem de bens, loiça e eletrodomésticos, filme e cantoneiras",
+          "Desmontagem e montagem de armários, camas e mesas",
+          "Transporte para a rua e carga, também em prédios sem elevador",
+          "Arrumação no novo espaço conforme o seu plano"
+        ],
+        "faq": [
+          {
+            "q": "Com quantos dias devo marcar?",
+            "a": "Normalmente dois ou três dias chegam, mas no fim do mês as datas esgotam mais depressa. Se for urgente, escreva — vemos o que dá para ajustar."
+          },
+          {
+            "q": "Tenho de comprar caixas e filme?",
+            "a": "Não, levamos os materiais connosco e já entram na avaliação. Se já tiver caixas em casa, usamos as suas."
+          }
+        ]
+      },
+      "office": {
+        "title": "Mudança de escritório, loja ou espaço comercial",
+        "lead": "Trabalhamos ao final do dia, à noite e ao fim de semana para o negócio não parar. Equipamento, documentos e mobiliário seguem com inventário.",
+        "metaTitle": "Mudança de escritório e loja em Lisboa — Car-Go!",
+        "metaDescription": "Mudanças de escritórios, lojas e espaços comerciais em Lisboa: trabalho fora do horário, inventário, embalagem de equipamento, montagem no novo espaço.",
+        "includes": [
+          "Mudança à noite ou ao fim de semana — sem custos adicionais",
+          "Inventário dos bens e caixas marcadas por sala",
+          "Embalagem separada para equipamento e documentos",
+          "Montagem do mobiliário conforme a planta do novo espaço"
+        ],
+        "faq": [
+          {
+            "q": "É possível mudar numa só noite?",
+            "a": "Na maioria dos casos sim: medimos o volume na avaliação gratuita e colocamos as pessoas e as carrinhas necessárias para abrir de manhã como sempre."
+          },
+          {
+            "q": "Trabalham com empresas?",
+            "a": "Sim. O formato dos documentos combinamos na avaliação — diga-nos o que a contabilidade precisa."
+          }
+        ]
+      },
+      "delivery": {
+        "title": "Compras e entregas: IKEA, AKI, Conforama, Makro, OLX",
+        "lead": "Levantamos a encomenda na loja ou num particular, trazemos, subimos a casa e, se precisar, montamos.",
+        "metaTitle": "Entregas do IKEA e AKI em Lisboa — Car-Go!",
+        "metaDescription": "Levantamos e entregamos compras do IKEA, AKI, Conforama, Makro e do OLX em Lisboa e em Portugal: subida ao andar, montagem, recolha das embalagens.",
+        "includes": [
+          "Levantamento da encomenda com procuração ou fatura",
+          "Entregas do IKEA, AKI, Conforama, Makro e do OLX",
+          "Subida ao andar, também sem elevador",
+          "Montagem da compra e recolha das embalagens"
+        ],
+        "faq": [
+          {
+            "q": "Quanto custa a entrega?",
+            "a": "Depende do volume, da zona e do andar. Diga-nos o que levamos e de onde — indicamos o preço antes de sair."
+          },
+          {
+            "q": "Levantam artigos a vendedores particulares?",
+            "a": "Sim, trazemos muitas compras do OLX: combinamos a hora, levantamos e entregamos em sua casa."
+          }
+        ]
+      },
+      "loading": {
+        "title": "Carga e descarga",
+        "lead": "Se o transporte já é seu, vai apenas a equipa — com porta-cargas, cintas e filme aderente.",
+        "metaTitle": "Carga e descarga em Lisboa — Car-Go!",
+        "metaDescription": "Equipa com equipamento próprio em Lisboa: carga e descarga de carrinhas, camiões e contentores, trabalho com peças pesadas e volumosas.",
+        "includes": [
+          "Carga e descarga de carrinhas, camiões e contentores",
+          "Trabalho com peças pesadas e volumosas",
+          "Cintas, porta-cargas, proteção de vãos e móveis",
+          "Arrumação e empilhamento em armazém"
+        ],
+        "faq": [
+          {
+            "q": "Quantas pessoas vão?",
+            "a": "Normalmente duas; para volumes maiores reforçamos a equipa — definimos isso na avaliação gratuita."
+          },
+          {
+            "q": "Existe um mínimo de horas?",
+            "a": "Sim, o tempo mínimo de trabalho combinamos na avaliação: depende da zona e da hora do dia."
+          }
+        ]
+      },
+      "assembly": {
+        "title": "Montagem de móveis e pequenos reparos",
+        "lead": "Montamos cozinha, roupeiro, cama ou estante — com instruções ou sem elas. Já agora fixamos prateleiras e ajudamos com pequenos reparos.",
+        "metaTitle": "Montagem de móveis em Lisboa — Car-Go!",
+        "metaDescription": "Montagem de móveis de qualquer complexidade em Lisboa: cozinhas, roupeiros, camas, estantes. Fixação de prateleiras e televisores, pequenos reparos.",
+        "includes": [
+          "Montagem e desmontagem de móveis de qualquer complexidade",
+          "Fixação de prateleiras, espelhos, televisores e varões",
+          "Pequenos reparos: retocar, apertar, trocar ferragens",
+          "Limpeza e recolha das embalagens no fim"
+        ],
+        "faq": [
+          {
+            "q": "Montam móveis comprados por mim?",
+            "a": "Claro. Diga-nos que móveis são e quantas peças — calculamos o tempo."
+          },
+          {
+            "q": "E se faltarem peças na caixa?",
+            "a": "Conferimos tudo antes de começar. Se faltar alguma coisa, ajudamos a tratar disso na loja e voltamos quando a peça chegar."
+          }
+        ]
+      }
+    }
   }
 }

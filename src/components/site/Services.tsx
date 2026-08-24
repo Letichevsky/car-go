@@ -8,6 +8,8 @@ import {
   ToolIcon,
 } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
+import { Link } from "@/i18n/navigation";
+import { services as serviceRoutes } from "@/data/services";
 import { contacts } from "@/lib/contacts";
 
 const services = [
@@ -45,8 +47,8 @@ export function Services() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {services.map(({ key, Icon }, index) => (
           <Reveal key={key} from="up" delay={index * 80}>
-            <a
-              href="#contacts"
+            <Link
+              href={`/services/${serviceRoutes.find((route) => route.key === key)!.slug}`}
               className="group border-border hover:border-info/60 hover:shadow-card rounded-card flex h-full cursor-pointer flex-col gap-3 border p-6 transition duration-300 ease-out hover:-translate-y-1.5"
             >
               <Icon className="text-info size-[1.625rem] transition duration-300 ease-out group-hover:scale-110" />
@@ -58,7 +60,7 @@ export function Services() {
                 {t("services.more")}
                 <ArrowRightIcon className="size-4 transition duration-300 ease-out group-hover:translate-x-1" />
               </span>
-            </a>
+            </Link>
           </Reveal>
         ))}
 

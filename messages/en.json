@@ -5,10 +5,10 @@
   },
   "nav": {
     "services": "Services",
-    "prices": "Pricing",
     "works": "Our work",
     "contacts": "Contact",
-    "about": "About"
+    "about": "About",
+    "home": "Home"
   },
   "hero": {
     "eyebrow": "Lisbon · Mudanças & multi serviço",
@@ -36,7 +36,7 @@
   },
   "services": {
     "title": "Services",
-    "all": "All services and pricing",
+    "all": "Get a quote",
     "homeTitle": "Apartment moves",
     "homeText": "Turnkey: packing, stretch wrap, furniture disassembly and assembly.",
     "officeTitle": "Offices and shops",
@@ -103,5 +103,139 @@
     "title": "Our work",
     "subtitle": "Every frame is from a real job: how we pack, how we load and how we leave the place behind.",
     "back": "Back to the homepage"
+  },
+  "servicePages": {
+    "common": {
+      "includesTitle": "What the service includes",
+      "stepsTitle": "How it works",
+      "faqTitle": "Frequent questions",
+      "otherTitle": "Other services",
+      "steps": [
+        {
+          "title": "Estimate",
+          "text": "We come at a time that suits you, or sort out the details on WhatsApp. We look at the volume and name the price before any work starts."
+        },
+        {
+          "title": "The job",
+          "text": "Our permanent crew arrives with its own equipment and materials. You can stay around or get on with your day."
+        },
+        {
+          "title": "Handover",
+          "text": "We go through it together: everything in place and assembled. The packaging leaves with us."
+        }
+      ]
+    },
+    "items": {
+      "home": {
+        "title": "Full-service apartment moves",
+        "lead": "We arrive with our own materials, take the furniture apart, carry it out, drive it over and put it back together at the new place. You open the door and say where things go.",
+        "metaTitle": "Apartment moves in Lisbon — Car-Go!",
+        "metaDescription": "Full-service home moves in Lisbon and across Portugal: packing, furniture disassembly and assembly, loading, transport and arranging. Free estimate.",
+        "includes": [
+          "Packing of belongings, dishes and appliances, stretch wrap and corner guards",
+          "Taking apart and reassembling wardrobes, beds and tables",
+          "Carrying out and loading, including buildings without a lift",
+          "Arranging everything at the new place to your plan"
+        ],
+        "faq": [
+          {
+            "q": "How far ahead should I book?",
+            "a": "Two or three days is usually enough, though end-of-month dates fill up faster. If the move is urgent, write to us and we will see what can be shifted."
+          },
+          {
+            "q": "Do I need to buy boxes and wrap?",
+            "a": "No, we bring the materials and include them in the estimate. If you already have boxes at home, we use yours."
+          }
+        ]
+      },
+      "office": {
+        "title": "Office, shop and commercial moves",
+        "lead": "We work evenings, nights and weekends so the business keeps running. Equipment, documents and furniture travel with an inventory.",
+        "metaTitle": "Office and shop moves in Lisbon — Car-Go!",
+        "metaDescription": "Moving offices, shops and commercial spaces in Lisbon: work outside business hours, inventory, packing of equipment, assembly at the new address.",
+        "includes": [
+          "Moving in the evening, at night or on weekends — no surcharge",
+          "Inventory of the assets and boxes labelled per room",
+          "Separate packing for equipment and documents",
+          "Furniture assembly and layout to the new floor plan"
+        ],
+        "faq": [
+          {
+            "q": "Can the move happen in one night?",
+            "a": "Usually yes: we measure the volume during the free estimate and put in as many people and vans as it takes for you to open as usual in the morning."
+          },
+          {
+            "q": "Do you work with companies?",
+            "a": "Yes. We agree the paperwork during the estimate — tell us what your accounting needs."
+          }
+        ]
+      },
+      "delivery": {
+        "title": "Shopping and delivery: IKEA, AKI, Conforama, Makro, OLX",
+        "lead": "We collect the order from the shop or from a private seller, bring it over, carry it into the flat and assemble it if you want.",
+        "metaTitle": "IKEA and AKI delivery in Lisbon — Car-Go!",
+        "metaDescription": "We collect and deliver purchases from IKEA, AKI, Conforama, Makro and OLX across Lisbon and Portugal: carrying upstairs, assembly, packaging taken away.",
+        "includes": [
+          "Collecting the order with your authorisation or receipt",
+          "Delivery from IKEA, AKI, Conforama, Makro and OLX",
+          "Carrying up to your floor, lift or no lift",
+          "Assembling the purchase and taking the packaging away"
+        ],
+        "faq": [
+          {
+            "q": "How much does delivery cost?",
+            "a": "It depends on the volume, the area and the floor. Tell us what we are carrying and from where — we name the price before we set off."
+          },
+          {
+            "q": "Can you pick something up from a private seller?",
+            "a": "Yes, we bring plenty of OLX purchases: we agree a time, collect the item and deliver it to you."
+          }
+        ]
+      },
+      "loading": {
+        "title": "Loading and unloading",
+        "lead": "When the transport is already yours, only the crew comes — with trolleys, straps and stretch wrap of their own.",
+        "metaTitle": "Loading and unloading in Lisbon — Car-Go!",
+        "metaDescription": "A crew with its own equipment in Lisbon: loading and unloading vans, trucks and containers, handling heavy and oversized items.",
+        "includes": [
+          "Loading and unloading vans, trucks and containers",
+          "Handling heavy and oversized items",
+          "Straps, trolleys, protection for doorways and furniture",
+          "Stacking and arranging in storage"
+        ],
+        "faq": [
+          {
+            "q": "How many people will come?",
+            "a": "Usually two; for bigger volumes we add more — we settle that during the free estimate."
+          },
+          {
+            "q": "Is there a minimum booking?",
+            "a": "Yes, we agree the minimum working time during the estimate: it depends on the area and the time of day."
+          }
+        ]
+      },
+      "assembly": {
+        "title": "Furniture assembly and minor repairs",
+        "lead": "We assemble a kitchen, wardrobe, bed or shelving unit — with the manual or without it. While we are there, we hang shelves and help with small fixes.",
+        "metaTitle": "Furniture assembly in Lisbon — Car-Go!",
+        "metaDescription": "Furniture assembly of any complexity in Lisbon: kitchens, wardrobes, beds, shelving. Hanging shelves and televisions, minor repairs, packaging removed.",
+        "includes": [
+          "Assembling and dismantling furniture of any complexity",
+          "Hanging shelves, mirrors, televisions and curtain rails",
+          "Minor repairs: touch up, tighten, replace fittings",
+          "Clearing and taking away the packaging afterwards"
+        ],
+        "faq": [
+          {
+            "q": "Will you assemble furniture I bought myself?",
+            "a": "Of course. Tell us what the furniture is and how many pieces — we will work out the time."
+          },
+          {
+            "q": "What if parts are missing from the box?",
+            "a": "We check the contents before starting. If something is missing, we help sort it with the shop and come back once the part arrives."
+          }
+        ]
+      }
+    }
   }
 }
