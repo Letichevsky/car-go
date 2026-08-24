@@ -18,10 +18,12 @@ const COUNT_DESKTOP = 96;
 const COUNT_MOBILE = 48;
 
 /**
- * Перспектива в радиусах: чем больше значение, тем меньше разброс масштабов.
- * Держим умеренной, чтобы ближние кадры не вылетали за края полосы.
+ * Перспектива в радиусах: чем меньше значение, тем сильнее разница ближних и дальних.
  */
-const PERSPECTIVE = 3.4;
+const PERSPECTIVE = 2.4;
+/** Дальние кадры дополнительно ужимаются и гаснут, чтобы не спорить с передним планом */
+const DEPTH_SCALE = 0.5;
+const DEPTH_FADE = 1.8;
 /** Максимальная скорость от курсора, радиан в секунду */
 const MAX_SPEED = 0.58;
 /** Скорость спокойного вращения, когда курсора нет */
@@ -102,14 +104,18 @@ export function PhotoSphere() {
    */
   const place = useCallback((point: Point, rotX: number, rotY: number) => {
     const turned = rotate(point, rotX, rotY);
-    const scale = PERSPECTIVE / (PERSPECTIVE - turned.z);
+    // 0 у самого дальнего кадра, 1 у самого ближнего
+    const depth = (turned.z + 1) / 2;
+    const perspective = PERSPECTIVE / (PERSPECTIVE - turned.z);
+    const scale = perspective * (1 - DEPTH_SCALE + DEPTH_SCALE * depth);
+
     return {
-      x: turned.x * scale,
-      y: turned.y * scale,
+      x: turned.x * perspective,
+      y: turned.y * perspective,
       scale,
       depth: turned.z,
-      opacity: Number((0.22 + ((turned.z + 1) / 2) * 0.78).toFixed(3)),
-      layer: Math.round((turned.z + 1) * 100),
+      opacity: Number((0.05 + 0.95 * Math.pow(depth, DEPTH_FADE)).toFixed(3)),
+      layer: Math.round(depth * 200),
     };
   }, []);
 
@@ -212,7 +218,8 @@ export function PhotoSphere() {
     if (event.pointerType === "touch") return;
 
     focus.current = null;
-    target.current = { x: -dy * MAX_SPEED, y: dx * MAX_SPEED };
+    // Знаки проверены численно: верх приближается при rotX > 0, правая сторона — при rotY < 0
+    target.current = { x: -dy * MAX_SPEED, y: -dx * MAX_SPEED };
   }
 
   function onPointerLeave() {
@@ -297,7 +304,7 @@ export function PhotoSphere() {
                   "--y": spot.y.toFixed(4),
                   "--s": spot.scale.toFixed(4),
                   transform:
-                    "translate3d(calc(var(--x) * 40cqw), calc(var(--y) * 36cqh), 0) scale(var(--s))",
+                    "translate3d(calc(var(--x) * 36cqw), calc(var(--y) * 32cqh), 0) scale(var(--s))",
                   opacity: spot.opacity,
                   zIndex: spot.layer,
                 } as CSSProperties
