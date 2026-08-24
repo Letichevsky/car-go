@@ -151,7 +151,7 @@ export default async function ServicePage({ params }: { params: Promise<PagePara
         {/* Что входит */}
         <section className="mx-auto w-full max-w-7xl px-5 pb-14 lg:px-14 lg:pb-16">
           <Reveal from="up">
-            <div className="border-border bg-surface flex flex-col gap-6 border p-6 lg:p-10">
+            <div className="border-border bg-surface rounded-card flex flex-col gap-6 border p-6 lg:p-10">
               <h2 className="text-[1.5rem] font-bold tracking-[-0.03em] lg:text-3xl">
                 {t("servicePages.common.includesTitle")}
               </h2>
@@ -248,7 +248,7 @@ export default async function ServicePage({ params }: { params: Promise<PagePara
               <Reveal key={other.slug} from="up" delay={index * 70}>
                 <Link
                   href={`/services/${other.slug}`}
-                  className="group border-border hover:border-info hover:shadow-card flex h-full cursor-pointer flex-col justify-between gap-6 border p-5 transition duration-300 ease-out hover:-translate-y-1.5"
+                  className="group border-border hover:border-info hover:shadow-card rounded-card flex h-full cursor-pointer flex-col justify-between gap-6 border p-5 transition duration-300 ease-out hover:-translate-y-1.5"
                 >
                   <span className="text-[1.0625rem] leading-snug font-bold">
                     {t(`services.${other.key}Title`)}

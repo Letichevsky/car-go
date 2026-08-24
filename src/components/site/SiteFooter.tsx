@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
+import { Link } from "@/i18n/navigation";
 import { PhoneText } from "@/components/ui/PhoneText";
 import { contacts } from "@/lib/contacts";
 
@@ -11,9 +12,9 @@ export function SiteFooter() {
     <footer className="border-border border-t">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-5 py-10 pb-28 lg:flex-row lg:items-start lg:justify-between lg:px-14 lg:pb-10">
         <div className="flex flex-col gap-2">
-          <span className="text-lg font-bold tracking-tight">
+          <Link href="/" className="w-fit text-lg font-bold tracking-tight">
             CAR-<span className="text-action">GO!</span>
-          </span>
+          </Link>
           <p className="text-text-muted max-w-[26rem] text-[0.9375rem]">{t("footer.tagline")}</p>
         </div>
 

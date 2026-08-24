@@ -62,8 +62,11 @@ const spanClass: Record<string, string> = {
   "3x3": "col-span-3 row-span-3 sm:col-span-3 sm:row-span-3",
 };
 
-/** Один кадр меняется раз в этот интервал — сетка живёт, но не мельтешит */
-const ROTATE_MS = 3600;
+/** Раз в этот интервал по сетке проходит волна из трёх кадров */
+const ROTATE_MS = 3400;
+/** Сколько плиток меняется за волну и с какой задержкой друг за другом */
+const WAVE_SIZE = 3;
+const WAVE_STEP_MS = 260;
 
 /** Ширина плитки на экране: от неё зависит, какой вариант файла возьмёт браузер */
 function sizesFor(columns: number): string {
@@ -96,7 +99,6 @@ export function Gallery() {
   const t = useTranslations();
   const initial = useMemo(() => pickInitial(), []);
   const [slots, setSlots] = useState<string[]>(initial);
-  const cursor = useRef(0);
   const reduced = useReducedMotion();
 
   const rotateAt = useCallback((index: number) => {
@@ -120,14 +122,30 @@ export function Gallery() {
   useEffect(() => {
     if (reduced) return;
 
+    let pending: number[] = [];
+
     const timer = window.setInterval(() => {
       // вкладка в фоне — не жжём кадры впустую
       if (document.hidden) return;
-      rotateAt(cursor.current % layout.length);
-      cursor.current += 1;
+
+      // таймеры прошлой волны уже отработали — список можно обнулить
+      pending = [];
+
+      // три случайные разные плитки, одна за другой — получается волна, а не мигание всей сетки
+      const picked = new Set<number>();
+      while (picked.size < WAVE_SIZE) {
+        picked.add(Math.floor(Math.random() * layout.length));
+      }
+
+      [...picked].forEach((index, order) => {
+        pending.push(window.setTimeout(() => rotateAt(index), order * WAVE_STEP_MS));
+      });
     }, ROTATE_MS);
 
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearInterval(timer);
+      pending.forEach(window.clearTimeout);
+    };
   }, [reduced, rotateAt]);
 
   return (
