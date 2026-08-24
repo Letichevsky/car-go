@@ -1,51 +1,49 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { Tile } from "@/components/site/PhotoTile";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import { useTranslations } from "next-intl";
+import { Tile } from "@/components/site/PhotoTile";
 import { photos as allPhotos } from "@/lib/photos";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 /**
- * Раскладка мозаики: сколько колонок и строк занимает плитка.
- * Крупные ячейки достаются горизонтальным кадрам, высокие — вертикальным.
- * Сетка плотная (grid-flow-dense), поэтому дыр между плитками не остаётся.
+ * Та же мозаика, что и в статичном варианте, только выложенная в горизонтальную полосу
+ * и бесконечно едущая влево. Полоса дублируется, и трек сдвигается ровно на половину —
+ * шов не виден, а движение целиком на CSS, то есть на видеокарте.
  */
 const layout = [
-  { c: 3, r: 3, prefer: "landscape" },
+  { c: 2, r: 2, prefer: "landscape" },
   { c: 1, r: 1, prefer: "any" },
   { c: 1, r: 2, prefer: "portrait" },
   { c: 1, r: 1, prefer: "any" },
   { c: 2, r: 1, prefer: "landscape" },
   { c: 1, r: 1, prefer: "any" },
   { c: 1, r: 1, prefer: "any" },
+  { c: 2, r: 2, prefer: "landscape" },
   { c: 1, r: 2, prefer: "portrait" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 2, r: 1, prefer: "landscape" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 2, r: 2, prefer: "landscape" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 1, r: 2, prefer: "portrait" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 2, r: 1, prefer: "landscape" },
+  { c: 2, r: 2, prefer: "landscape" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 1, r: 2, prefer: "portrait" },
+  { c: 1, r: 1, prefer: "any" },
+  { c: 2, r: 1, prefer: "landscape" },
+  { c: 1, r: 1, prefer: "any" },
   { c: 2, r: 2, prefer: "landscape" },
   { c: 1, r: 1, prefer: "any" },
   { c: 1, r: 1, prefer: "any" },
   { c: 1, r: 1, prefer: "any" },
-  { c: 2, r: 1, prefer: "landscape" },
-  { c: 1, r: 2, prefer: "portrait" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 2, r: 1, prefer: "landscape" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 2, prefer: "portrait" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
   { c: 2, r: 2, prefer: "landscape" },
   { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 2, r: 1, prefer: "landscape" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 2, prefer: "portrait" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 1, r: 1, prefer: "any" },
-  { c: 2, r: 1, prefer: "landscape" },
   { c: 1, r: 1, prefer: "any" },
   { c: 1, r: 1, prefer: "any" },
   { c: 1, r: 1, prefer: "any" },
@@ -59,24 +57,18 @@ const spanClass: Record<string, string> = {
   "1x2": "col-span-1 row-span-2",
   "2x1": "col-span-2 row-span-1",
   "2x2": "col-span-2 row-span-2",
-  // единственная крупная плитка: на узких экранах ужимается, иначе съест весь первый ряд
-  "3x3": "col-span-3 row-span-3 sm:col-span-3 sm:row-span-3",
 };
 
-/** Раз в этот интервал по сетке проходит волна из трёх кадров */
-const ROTATE_MS = 3400;
-/** Сколько плиток меняется за волну и с какой задержкой друг за другом */
+/** Кадр в плитке меняется сам раз в этот интервал */
+const ROTATE_MS = 3600;
 const WAVE_SIZE = 3;
 const WAVE_STEP_MS = 260;
 
-/** Ширина плитки на экране: от неё зависит, какой вариант файла возьмёт браузер */
-function sizesFor(columns: number): string {
-  if (columns >= 3) return "(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 38vw";
-  if (columns === 2) return "(max-width: 640px) 50vw, (max-width: 1024px) 34vw, 26vw";
-  return "(max-width: 640px) 25vw, (max-width: 1024px) 17vw, 13vw";
-}
+/** Сколько секунд полоса проезжает свою длину */
+const TRAVEL_SECONDS = 120;
 
-/** Начальная раскладка идёт по категориям по кругу, чтобы рядом не стояли похожие кадры */
+const TILE_SIZES = "(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 14vw";
+
 function pickInitial(): string[] {
   const order = ["team", "process", "packing", "assembly", "result"];
   const used = new Set<string>();
@@ -96,7 +88,11 @@ function pickInitial(): string[] {
   });
 }
 
-export function Gallery() {
+function categoryOf(slug: string): string {
+  return allPhotos.find((photo) => photo.slug === slug)?.category ?? "process";
+}
+
+export function GalleryFlow() {
   const t = useTranslations();
   const initial = useMemo(() => pickInitial(), []);
   const [slots, setSlots] = useState<string[]>(initial);
@@ -126,17 +122,11 @@ export function Gallery() {
     let pending: number[] = [];
 
     const timer = window.setInterval(() => {
-      // вкладка в фоне — не жжём кадры впустую
       if (document.hidden) return;
-
-      // таймеры прошлой волны уже отработали — список можно обнулить
       pending = [];
 
-      // три случайные разные плитки, одна за другой — получается волна, а не мигание всей сетки
       const picked = new Set<number>();
-      while (picked.size < WAVE_SIZE) {
-        picked.add(Math.floor(Math.random() * layout.length));
-      }
+      while (picked.size < WAVE_SIZE) picked.add(Math.floor(Math.random() * layout.length));
 
       [...picked].forEach((index, order) => {
         pending.push(window.setTimeout(() => rotateAt(index), order * WAVE_STEP_MS));
@@ -149,23 +139,35 @@ export function Gallery() {
     };
   }, [reduced, rotateAt]);
 
-  return (
-    <div className="grid grid-flow-dense auto-rows-[3.25rem] grid-cols-4 gap-[0.1875rem] sm:auto-rows-[4rem] sm:grid-cols-6 lg:auto-rows-[4.5rem] lg:grid-cols-8 lg:gap-1">
+  /** Одна копия полосы: сетка растёт вправо, ряды фиксированы */
+  const strip = (copy: number) => (
+    <div
+      className="grid auto-cols-[3.25rem] grid-flow-col-dense [grid-template-rows:repeat(4,3.25rem)] gap-1.5 sm:auto-cols-[4rem] sm:[grid-template-rows:repeat(4,4rem)] lg:auto-cols-[4.5rem] lg:[grid-template-rows:repeat(4,4.5rem)] lg:gap-2"
+      aria-hidden={copy === 1}
+    >
       {layout.map((tile, index) => (
         <Tile
-          key={index}
+          key={`${copy}-${index}`}
           slug={slots[index]}
           span={spanClass[`${tile.c}x${tile.r}`]}
-          sizes={sizesFor(tile.c)}
-          alt={t(`gallery.alt.${categoryOf(slots[index])}`)}
-          delay={index * 28}
+          sizes={TILE_SIZES}
+          alt={copy === 0 ? t(`gallery.alt.${categoryOf(slots[index])}`) : ""}
+          delay={index * 24}
           onHover={reduced ? undefined : () => rotateAt(index)}
         />
       ))}
     </div>
   );
-}
 
-function categoryOf(slug: string): string {
-  return allPhotos.find((photo) => photo.slug === slug)?.category ?? "process";
+  return (
+    <div className="marquee overflow-hidden">
+      <div
+        className="marquee-track flex w-max gap-1.5 lg:gap-2"
+        style={{ "--marquee-duration": `${TRAVEL_SECONDS}s` } as CSSProperties}
+      >
+        {strip(0)}
+        {strip(1)}
+      </div>
+    </div>
+  );
 }

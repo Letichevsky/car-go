@@ -83,7 +83,9 @@
       "packing": "Wrapped belongings and boxes",
       "assembly": "Assembling furniture at the new place",
       "result": "The apartment after the move"
-    }
+    },
+    "tabMosaic": "Grid",
+    "tabFlow": "In motion"
   },
   "about": {
     "title": "Who will handle your move",

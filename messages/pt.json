@@ -83,7 +83,9 @@
       "packing": "Bens e caixas embalados",
       "assembly": "Montagem de móveis no novo espaço",
       "result": "Apartamento depois da mudança"
-    }
+    },
+    "tabMosaic": "Grelha",
+    "tabFlow": "Em movimento"
   },
   "about": {
     "title": "Quem vai fazer a sua mudança",

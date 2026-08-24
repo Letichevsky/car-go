@@ -231,3 +231,56 @@
     transform: rotateY(180deg);
   }
 }
+
+/*
+ * Бегущие ленты кадров.
+ * Края уходят в прозрачность маской, а не наложенным градиентом: так под лентой
+ * не появляется полоса чужого цвета, когда тема светлая.
+ */
+.marquee {
+  --marquee-fade: 1.5rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--marquee-fade),
+    #000 calc(100% - var(--marquee-fade)),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--marquee-fade),
+    #000 calc(100% - var(--marquee-fade)),
+    transparent
+  );
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* половина трека плюс половина зазора — вторая копия встаёт ровно на место первой */
+    transform: translate3d(calc(-50% - var(--marquee-gap, 0.5rem) / 2), 0, 0);
+  }
+}
+
+.marquee-track {
+  animation: marquee-left var(--marquee-duration, 90s) linear infinite;
+  will-change: transform;
+}
+
+/* Курсор на ленте — останавливаем, чтобы можно было рассмотреть кадр */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+}
