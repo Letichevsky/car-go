@@ -218,8 +218,8 @@ export function PhotoSphere() {
     if (event.pointerType === "touch") return;
 
     focus.current = null;
-    // Знаки проверены численно: верх приближается при rotX > 0, правая сторона — при rotY < 0
-    target.current = { x: -dy * MAX_SPEED, y: -dx * MAX_SPEED };
+    // Оба знака выставлены по ощущению от живого облака: кадры едут навстречу курсору
+    target.current = { x: dy * MAX_SPEED, y: -dx * MAX_SPEED };
   }
 
   function onPointerLeave() {
