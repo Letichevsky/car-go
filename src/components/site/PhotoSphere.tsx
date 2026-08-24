@@ -26,6 +26,24 @@ const EASING = 0.08;
 /** Затухание после свайпа */
 const FRICTION = 0.94;
 
+/**
+ * Ступени тени по глубине. Меняем не каждый кадр, а только при переходе через порог:
+ * пересчёт box-shadow на сотне элементов каждый кадр браузеру дорог.
+ */
+const SHADOWS = [
+  "none",
+  "0 4px 10px rgb(0 0 0 / 0.28)",
+  "0 10px 22px rgb(0 0 0 / 0.45)",
+  "0 18px 40px rgb(0 0 0 / 0.6)",
+];
+
+function shadowLevel(depth: number): number {
+  if (depth > 0.78) return 3;
+  if (depth > 0.6) return 2;
+  if (depth > 0.42) return 1;
+  return 0;
+}
+
 /** Пропорции кадра держим в этих границах: очень узкие снимки в облаке выглядят щепками */
 const MIN_ASPECT = 0.55;
 const MAX_ASPECT = 1.8;
@@ -186,8 +204,14 @@ export function PhotoSphere() {
         element.style.setProperty("--x", spot.x.toFixed(4));
         element.style.setProperty("--y", spot.y.toFixed(4));
         element.style.setProperty("--s", spot.scale.toFixed(4));
-        element.style.opacity = String(spot.opacity);
+        element.style.setProperty("--o", String(spot.opacity));
         element.style.zIndex = String(spot.layer);
+
+        const level = shadowLevel((point.z + 1) / 2);
+        if (element.dataset.shadow !== String(level)) {
+          element.dataset.shadow = String(level);
+          element.style.setProperty("--depth-shadow", SHADOWS[level]);
+        }
       }
 
       frame = requestAnimationFrame(tick);
@@ -310,7 +334,7 @@ export function PhotoSphere() {
                 focused.current = index;
               }}
               aria-label={t(`gallery.alt.${photo.category}`)}
-              className="rounded-control absolute top-1/2 left-1/2 cursor-pointer overflow-hidden will-change-transform"
+              className="sphere-frame rounded-control absolute top-1/2 left-1/2 cursor-pointer overflow-hidden will-change-transform"
               style={
                 {
                   width: box.width,
@@ -320,9 +344,10 @@ export function PhotoSphere() {
                   "--x": spot.x.toFixed(4),
                   "--y": spot.y.toFixed(4),
                   "--s": spot.scale.toFixed(4),
+                  "--o": spot.opacity,
+                  "--depth-shadow": SHADOWS[shadowLevel((point.z + 1) / 2)],
                   transform:
                     "translate3d(calc(var(--x) * 36cqw), calc(var(--y) * 32cqh), 0) scale(var(--s))",
-                  opacity: spot.opacity,
                   zIndex: spot.layer,
                 } as CSSProperties
               }

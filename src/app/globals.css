@@ -231,3 +231,33 @@
     transform: rotateY(180deg);
   }
 }
+
+/*
+ * Кадр в облаке фотографий.
+ * Прозрачность висит на самом снимке, а не на кнопке: иначе рамка при наведении
+ * гасла бы вместе с дальним кадром. Тень усиливается к переднему плану, поэтому
+ * видно, где заканчивается ближний снимок и начинается фон.
+ */
+.sphere-frame {
+  box-shadow: var(--depth-shadow, none);
+}
+
+.sphere-frame picture {
+  display: block;
+  height: 100%;
+  opacity: var(--o, 1);
+}
+
+/* Подсветка кадра: outline не влияет на раскладку и не гасится прозрачностью снимка */
+.sphere-frame {
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  transition: outline-color 140ms ease-out;
+}
+
+.sphere-frame:hover,
+.sphere-frame:focus-visible,
+.sphere-frame:active {
+  outline-color: var(--color-info);
+  z-index: 300 !important;
+}
