@@ -15,7 +15,7 @@
 import { readFile, writeFile, copyFile, mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";
 
-const SMALL_WIDTHS = [480, 960];
+const SMALL_WIDTHS = [240, 480, 960];
 
 /** Кадры, которые где-то показываются крупно — им нужна ширина 1280 */
 const FEATURED = new Set(["IMG_2394.JPG", "IMG_2397.JPG", "IMG_2401.JPG", "IMG_2436.JPG"]);

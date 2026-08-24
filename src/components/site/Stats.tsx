@@ -13,10 +13,10 @@ import { Reveal } from "@/components/ui/Reveal";
  * подтвердить перед запуском (вопрос в §12 журнала).
  */
 const stats = [
-  { key: "years", value: 5, from: 0, suffix: "+" },
-  { key: "moves", value: 3000, from: 0, suffix: "+" },
+  { key: "years", value: 5, from: 0, suffix: "+", accent: false },
+  { key: "moves", value: 3000, from: 0, suffix: "+", accent: false },
   { key: "extras", value: 0, from: 10000, suffix: " €", accent: true },
-  { key: "clients", value: 400, from: 0, suffix: "+" },
+  { key: "clients", value: 400, from: 0, suffix: "+", accent: false },
 ] as const;
 
 export function Stats() {

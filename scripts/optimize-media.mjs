@@ -29,7 +29,7 @@ const RAW = "assets/raw";
 const OUT = "assets/optimized";
 
 /** Ширины под брейкпоинты. Апскейла нет: размер больше исходника пропускается. */
-const WIDTHS = [480, 960, 1280];
+const WIDTHS = [240, 480, 960, 1280];
 const AVIF = { quality: 52, effort: 4 };
 const WEBP = { quality: 78 };
 /** Одновременных задач — по числу ядер минус одно, чтобы машина не вставала колом. */

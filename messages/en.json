@@ -83,7 +83,11 @@
       "packing": "Wrapped belongings and boxes",
       "assembly": "Assembling furniture at the new place",
       "result": "The apartment after the move"
-    }
+    },
+    "tabSphere": "Sphere",
+    "tabMosaic": "Grid",
+    "hintMouse": "Move the cursor — the sphere turns that way. Click a frame to bring it to the front.",
+    "hintTouch": "Swipe to spin it. Tap a frame to bring it to the front."
   },
   "about": {
     "title": "Who will handle your move",
