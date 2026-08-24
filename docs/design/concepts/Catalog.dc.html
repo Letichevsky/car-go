@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+  <style>
+    body { margin: 0; background: #F6F7F8; font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif; color: #16211C; }
+    a { color: #067647; text-decoration: none; }
+    a:hover { color: #045C37; }
+    .ph { background: repeating-linear-gradient(135deg, #E9ECEE 0 12px, #E1E5E8 12px 24px); color: #6F7A80; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; }
+  </style>
+</helmet>
+
+<div style="width: 1280px; background: #F6F7F8;">
+
+  <!-- Верхняя полоса -->
+  <div style="background: #16211C; color: #DCE3DF; display: flex; align-items: center; justify-content: space-between; padding: 9px 40px; font-size: 13px;">
+    <span>Лиссабон и вся Португалия · за пределами Лиссабона — по договорённости</span>
+    <div style="display: flex; gap: 18px;">
+      <span>+351 969 255 579</span>
+      <span>@PavelKyryliuk</span>
+    </div>
+  </div>
+
+  <!-- Шапка -->
+  <div style="background: #FFFFFF; border-bottom: 1px solid #E2E6E8; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px;">
+    <div style="display: flex; align-items: center; gap: 36px;">
+      <div style="font-size: 21px; font-weight: 700; letter-spacing: -0.02em;">Car-Go<span style="color: #067647;">!!!</span></div>
+      <div style="display: flex; gap: 22px; font-size: 15px; color: #46524C;">
+        <span style="color: #16211C; font-weight: 600;">Услуги и цены</span>
+        <span>Как работаем</span>
+        <span>Отзывы</span>
+        <span>Контакты</span>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <div style="display: flex; gap: 12px; font-size: 13px; color: #6F7A80;">
+        <span style="color: #16211C; font-weight: 600;">PT</span><span>EN</span><span>RU</span><span>UK</span>
+      </div>
+      <div style="background: #067647; color: #FFFFFF; padding: 10px 18px; font-size: 14px; font-weight: 600; border-radius: 3px; cursor: pointer;">Бесплатная оценка</div>
+    </div>
+  </div>
+
+  <!-- Компактный первый экран с формой в строку -->
+  <div style="background: #FFFFFF; border-bottom: 1px solid #E2E6E8; padding: 40px 40px 36px 40px; display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; align-items: end; justify-content: space-between; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 44em;">
+        <h1 style="font-size: 40px; font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; margin: 0;">Переезды, доставка и монтаж мебели — с ценой, известной заранее</h1>
+        <p style="font-size: 16px; line-height: 1.5; color: #46524C; margin: 0;">Тип фургона не влияет на стоимость. Без доплат за дом без лифта, выходные и праздники.</p>
+      </div>
+      <div style="display: flex; gap: 22px; padding-bottom: 4px;">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 600; color: #067647;">5+</span>
+          <span style="font-size: 13px; color: #6F7A80;">лет опыта</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; font-weight: 600; color: #067647;">1 ч</span>
+          <span style="font-size: 13px; color: #6F7A80;">срок ответа</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) auto; gap: 10px; align-items: end; background: #F2F5F3; border: 1px solid #DCE3DF; padding: 14px; border-radius: 4px;">
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <label style="font-size: 12px; font-weight: 600; color: #46524C;">Услуга</label>
+        <div style="background: #FFFFFF; border: 1px solid #D5DCD8; border-radius: 3px; padding: 11px 12px; font-size: 14px;">Квартирный переезд</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <label style="font-size: 12px; font-weight: 600; color: #46524C;">Откуда</label>
+        <div style="background: #FFFFFF; border: 1px solid #D5DCD8; border-radius: 3px; padding: 11px 12px; font-size: 14px; color: #98A2A8;">Freguesia, этаж</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <label style="font-size: 12px; font-weight: 600; color: #46524C;">Куда</label>
+        <div style="background: #FFFFFF; border: 1px solid #D5DCD8; border-radius: 3px; padding: 11px 12px; font-size: 14px; color: #98A2A8;">Freguesia, этаж</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <label style="font-size: 12px; font-weight: 600; color: #46524C;">Телефон</label>
+        <div style="background: #FFFFFF; border: 1px solid #D5DCD8; border-radius: 3px; padding: 11px 12px; font-size: 14px; color: #98A2A8;">+351</div>
+      </div>
+      <div style="background: #067647; color: #FFFFFF; padding: 12px 24px; font-size: 15px; font-weight: 600; border-radius: 3px; cursor: pointer;">Рассчитать</div>
+    </div>
+  </div>
+
+  <!-- Каталог услуг -->
+  <div style="padding: 36px 40px 8px 40px; display: flex; align-items: center; justify-content: space-between;">
+    <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin: 0;">Услуги и цены</h2>
+    <div style="display: flex; gap: 8px;">
+      <div style="background: #16211C; color: #FFFFFF; padding: 8px 14px; font-size: 13px; font-weight: 600; border-radius: 999px; cursor: pointer;">Все</div>
+      <div style="background: #FFFFFF; border: 1px solid #DCE3DF; padding: 8px 14px; font-size: 13px; border-radius: 999px; cursor: pointer;">Переезды</div>
+      <div style="background: #FFFFFF; border: 1px solid #DCE3DF; padding: 8px 14px; font-size: 13px; border-radius: 999px; cursor: pointer;">Доставка</div>
+      <div style="background: #FFFFFF; border: 1px solid #DCE3DF; padding: 8px 14px; font-size: 13px; border-radius: 999px; cursor: pointer;">Мебель и ремонт</div>
+    </div>
+  </div>
+
+  <div style="padding: 16px 40px 40px 40px; display: flex; flex-direction: column; gap: 8px;">
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E6E8; border-radius: 4px; display: grid; grid-template-columns: 96px 1fr 190px 150px; gap: 20px; align-items: center; padding: 16px;">
+      <div class="ph" style="height: 72px; border-radius: 3px;">[ФОТО]</div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <div style="font-size: 17px; font-weight: 600;">Квартирный переезд «под ключ»</div>
+        <div style="font-size: 14px; color: #56625C; line-height: 1.45;">Упаковка, стрейч, разборка и сборка мебели, погрузка, перевозка, расстановка на месте.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 21px; font-weight: 600;">[ЦЕНА] €</span>
+        <span style="font-size: 13px; color: #6F7A80;">час бригады, мин. [ЦЕНА] ч</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: #067647; color: #FFFFFF; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; border-radius: 3px; cursor: pointer;">Выбрать</div>
+        <div style="text-align: center; font-size: 13px; color: #6F7A80;">Подробнее</div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E6E8; border-radius: 4px; display: grid; grid-template-columns: 96px 1fr 190px 150px; gap: 20px; align-items: center; padding: 16px;">
+      <div class="ph" style="height: 72px; border-radius: 3px;">[ФОТО]</div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <div style="font-size: 17px; font-weight: 600;">Офис, магазин, коммерческое помещение</div>
+        <div style="font-size: 14px; color: #56625C; line-height: 1.45;">Переезд в нерабочее время, техника и документы под опись, сборка на новом месте.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 21px; font-weight: 600;">[ЦЕНА] €</span>
+        <span style="font-size: 13px; color: #6F7A80;">по объёму, оценка бесплатна</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: #067647; color: #FFFFFF; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; border-radius: 3px; cursor: pointer;">Выбрать</div>
+        <div style="text-align: center; font-size: 13px; color: #6F7A80;">Подробнее</div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E6E8; border-radius: 4px; display: grid; grid-template-columns: 96px 1fr 190px 150px; gap: 20px; align-items: center; padding: 16px;">
+      <div class="ph" style="height: 72px; border-radius: 3px;">[ФОТО]</div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <div style="font-size: 17px; font-weight: 600;">Покупки и доставка</div>
+        <div style="font-size: 14px; color: #56625C; line-height: 1.45;">IKEA, AKI, Conforama, Makro, OLX — заберём, привезём и занесём в квартиру.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 21px; font-weight: 600;">[ЦЕНА] €</span>
+        <span style="font-size: 13px; color: #6F7A80;">за поездку по Лиссабону</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: #067647; color: #FFFFFF; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; border-radius: 3px; cursor: pointer;">Выбрать</div>
+        <div style="text-align: center; font-size: 13px; color: #6F7A80;">Подробнее</div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E6E8; border-radius: 4px; display: grid; grid-template-columns: 96px 1fr 190px 150px; gap: 20px; align-items: center; padding: 16px;">
+      <div class="ph" style="height: 72px; border-radius: 3px;">[ФОТО]</div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <div style="font-size: 17px; font-weight: 600;">Погрузка и разгрузка</div>
+        <div style="font-size: 14px; color: #56625C; line-height: 1.45;">Только работа бригады и оборудование, если транспорт у вас свой.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 21px; font-weight: 600;">[ЦЕНА] €</span>
+        <span style="font-size: 13px; color: #6F7A80;">час, от [ЦЕНА] человек</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: #067647; color: #FFFFFF; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; border-radius: 3px; cursor: pointer;">Выбрать</div>
+        <div style="text-align: center; font-size: 13px; color: #6F7A80;">Подробнее</div>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E6E8; border-radius: 4px; display: grid; grid-template-columns: 96px 1fr 190px 150px; gap: 20px; align-items: center; padding: 16px;">
+      <div class="ph" style="height: 72px; border-radius: 3px;">[ФОТО]</div>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <div style="font-size: 17px; font-weight: 600;">Монтаж мебели, мелкий ремонт</div>
+        <div style="font-size: 14px; color: #56625C; line-height: 1.45;">Сборка любой сложности, обслуживание и мелкие работы на новом месте.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 21px; font-weight: 600;">[ЦЕНА] €</span>
+        <span style="font-size: 13px; color: #6F7A80;">час мастера</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="background: #067647; color: #FFFFFF; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; border-radius: 3px; cursor: pointer;">Выбрать</div>
+        <div style="text-align: center; font-size: 13px; color: #6F7A80;">Подробнее</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Что входит в цену -->
+  <div style="background: #FFFFFF; border-top: 1px solid #E2E6E8; padding: 36px 40px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; align-items: start; gap: 12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#067647" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <div><div style="font-size: 15px; font-weight: 600;">Все виды работ</div><div style="font-size: 14px; color: #6F7A80; margin-top: 3px;">уже в стоимости</div></div>
+    </div>
+    <div style="display: flex; align-items: start; gap: 12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#067647" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <div><div style="font-size: 15px; font-weight: 600;">Профессиональное оборудование</div><div style="font-size: 14px; color: #6F7A80; margin-top: 3px;">стрейч, ремни, тележки</div></div>
+    </div>
+    <div style="display: flex; align-items: start; gap: 12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#067647" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <div><div style="font-size: 15px; font-weight: 600;">Подготовленная бригада</div><div style="font-size: 14px; color: #6F7A80; margin-top: 3px;">ответственные работники</div></div>
+    </div>
+    <div style="display: flex; align-items: start; gap: 12px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#067647" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <div><div style="font-size: 15px; font-weight: 600;">Ноль доплат</div><div style="font-size: 14px; color: #6F7A80; margin-top: 3px;">лестница, выходные, праздники</div></div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

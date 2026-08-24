@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "Car-Go! — mudanças e transportes em Lisboa",
+    "description": "Mudanças residenciais e de escritório chave na mão em Lisboa e em todo o Portugal: embalagem, montagem e desmontagem de móveis, entregas. Preços transparentes, avaliação gratuita."
+  },
+  "nav": {
+    "services": "Serviços",
+    "prices": "Preços",
+    "works": "Trabalhos",
+    "contacts": "Contactos",
+    "about": "Sobre nós"
+  },
+  "hero": {
+    "eyebrow": "Lisboa · Mudanças & multi serviço",
+    "title": "A sua mudança tranquila começa connosco",
+    "subtitle": "Chegamos, embalamos, desmontamos, transportamos e montamos de novo. Apartamentos, escritórios e lojas — em Lisboa e em todo o território de Portugal."
+  },
+  "actions": {
+    "estimate": "Avaliação gratuita",
+    "whatsapp": "Escrever no WhatsApp",
+    "whatsappShort": "WhatsApp",
+    "call": "Ligar",
+    "getQuote": "Pedir orçamento"
+  },
+  "price": {
+    "title": "O que está incluído",
+    "includeWork": "Todos os tipos de serviços",
+    "includeEquipment": "Equipamento profissional",
+    "includeTeam": "Funcionários preparados e responsáveis",
+    "rowNoLift": "Prédio sem elevador",
+    "rowWeekend": "Fins de semana e feriados",
+    "zero": "0 €",
+    "note": "O tipo de carrinha não influencia o preço: pequena ou grande, o valor é o mesmo. O valor exato é indicado após a avaliação gratuita.",
+    "rowEstimate": "Avaliação do serviço",
+    "estimateFree": "gratuita"
+  },
+  "services": {
+    "title": "Serviços",
+    "all": "Todos os serviços e preços",
+    "homeTitle": "Mudanças residenciais",
+    "homeText": "Chave na mão: embalagem, filme aderente, desmontagem e montagem de móveis.",
+    "officeTitle": "Escritórios e lojas",
+    "officeText": "Mudança fora do horário de trabalho, sem parar o negócio.",
+    "deliveryTitle": "Compras e entregas",
+    "deliveryText": "IKEA, AKI, Conforama, Makro, OLX — levantamos, transportamos e subimos.",
+    "loadingTitle": "Carga e descarga",
+    "loadingText": "Equipa e equipamento, se o transporte já for seu.",
+    "assemblyTitle": "Montagem de móveis e reparos",
+    "assemblyText": "Montagem de qualquer complexidade e pequenos reparos no novo espaço.",
+    "customTitle": "Não encontrou o seu caso?",
+    "customText": "Descreva-o — calculamos e dizemos o preço antes de começar.",
+    "customAction": "Escrever no WhatsApp",
+    "more": "Saber mais"
+  },
+  "cta": {
+    "title": "Calculamos a sua mudança gratuitamente",
+    "text": "No dia e hora que lhe forem convenientes, sem compromisso. Respondemos numa hora.",
+    "button": "Pedir avaliação"
+  },
+  "footer": {
+    "tagline": "Mudanças e multi serviço em Lisboa e em todo o Portugal.",
+    "language": "Idioma",
+    "rights": "Todos os direitos reservados."
+  },
+  "theme": {
+    "toLight": "Tema claro",
+    "toDark": "Tema escuro"
+  },
+  "form": {
+    "label": "Telefone ou WhatsApp",
+    "placeholder": "O seu telefone ou WhatsApp",
+    "hint": "Respondemos numa hora. A avaliação não tem compromisso.",
+    "error": "Deixe um número onde possamos contactá-lo.",
+    "waPrefix": "Olá! Gostaria de uma avaliação gratuita da mudança. O meu número:"
+  },
+  "gallery": {
+    "title": "Os nossos trabalhos",
+    "subtitle": "Mudanças reais em Lisboa: embalagem, carga e montagem no novo espaço. As imagens vão mudando sozinhas.",
+    "all": "Ver todos os trabalhos",
+    "alt": {
+      "team": "Equipa Car-Go! no local",
+      "process": "Carga de bens na carrinha",
+      "packing": "Bens e caixas embalados",
+      "assembly": "Montagem de móveis no novo espaço",
+      "result": "Apartamento depois da mudança"
+    }
+  },
+  "about": {
+    "title": "Quem vai fazer a sua mudança",
+    "text": "Uma equipa fixa: as mesmas pessoas embalam, transportam e voltam a montar os móveis no novo espaço. Trabalhamos em Lisboa e em todo o Portugal, em quatro idiomas.",
+    "factYears": "Mais de cinco anos de experiência da equipa",
+    "factVans": "Carrinhas próprias e equipamento profissional",
+    "factLanguages": "Português · English · Русский · Українська",
+    "photosTitle": "Fotografias dos trabalhos",
+    "photosText": "Ver a galeria completa",
+    "videoTitle": "Vídeos dos trabalhos",
+    "videoText": "Estamos a selecionar os vídeos — aparecem aqui em breve.",
+    "videoSoon": "Em breve"
+  },
+  "works": {
+    "metaTitle": "Trabalhos Car-Go! — fotografias de mudanças em Lisboa",
+    "metaDescription": "Fotografias de mudanças reais, embalagem e montagem de móveis realizadas pela equipa Car-Go! em Lisboa e em Portugal.",
+    "title": "Os nossos trabalhos",
+    "subtitle": "Cada fotografia é de um trabalho real: como embalamos, como carregamos e como deixamos a casa.",
+    "back": "Voltar à página inicial"
+  }
+}

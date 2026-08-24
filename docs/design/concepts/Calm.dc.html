@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Karla:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; background: #F4EFE7; font-family: Karla, "Helvetica Neue", Arial, sans-serif; color: #1B2E27; }
+    a { color: #A9682A; text-decoration: none; }
+    a:hover { color: #7E4C1C; }
+    .ph { background: repeating-linear-gradient(135deg, #E7DFD2 0 14px, #DFD5C5 14px 28px); color: #857A68; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; letter-spacing: 0.04em; }
+  </style>
+</helmet>
+
+<div style="width: 1280px; background: #F4EFE7;">
+
+  <!-- Шапка -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 28px 72px;">
+    <div style="font-family: Newsreader, Georgia, serif; font-size: 24px; font-weight: 500; letter-spacing: -0.01em;">Car-Go<span style="color: #A9682A;">!!!</span></div>
+    <div style="display: flex; align-items: center; gap: 40px; font-size: 15px;">
+      <div style="display: flex; gap: 26px; color: #4C5C55;">
+        <span>Услуги</span>
+        <span>Как проходит</span>
+        <span>Цены</span>
+        <span>Контакты</span>
+      </div>
+      <div style="display: flex; gap: 14px; font-size: 13px; letter-spacing: 0.06em; color: #7B8A83;">
+        <span style="color: #1B2E27; font-weight: 600;">PT</span><span>EN</span><span>RU</span><span>UK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Первый экран -->
+  <div style="display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 72px; padding: 64px 72px 80px 72px; align-items: end;">
+    <h1 style="font-family: Newsreader, Georgia, serif; font-weight: 300; font-size: 84px; line-height: 1.02; letter-spacing: -0.025em; margin: 0; text-wrap: balance;">Ваш спокойный переезд <span style="font-style: italic; color: #A9682A;">начинается с нас</span></h1>
+    <div style="display: flex; flex-direction: column; gap: 26px; padding-bottom: 12px;">
+      <p style="font-size: 17px; line-height: 1.65; color: #46564F; margin: 0;">Мы приезжаем, пакуем, перевозим и расставляем — вы просто открываете дверь. Работаем в Лиссабоне и по всей Португалии.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: #1B2E27; color: #F4EFE7; text-align: center; padding: 17px 24px; font-size: 16px; font-weight: 600; letter-spacing: 0.01em; cursor: pointer;">Заказать бесплатную оценку</div>
+        <div style="text-align: center; font-size: 13px; color: #7B8A83;">В удобные вам день и час, без обязательств</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Широкое фото -->
+  <div class="ph" style="height: 420px; margin: 0 72px;">[ФОТО: команда выносит упакованный шкаф из подъезда, Лиссабон]</div>
+
+  <!-- Три обещания -->
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px; padding: 72px;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="font-family: Newsreader, Georgia, serif; font-size: 40px; font-weight: 300; color: #A9682A;">01</div>
+      <div style="font-size: 19px; font-weight: 600;">Приезжаем и смотрим</div>
+      <p style="font-size: 16px; line-height: 1.6; color: #46564F; margin: 0;">Бесплатная оценка на месте в удобное вам время. Называем точную цену до начала работ.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="font-family: Newsreader, Georgia, serif; font-size: 40px; font-weight: 300; color: #A9682A;">02</div>
+      <div style="font-size: 19px; font-weight: 600;">Пакуем и везём</div>
+      <p style="font-size: 16px; line-height: 1.6; color: #46564F; margin: 0;">Профессиональное оборудование, стрейч, разборка мебели. Отвечаем за каждую вещь.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="font-family: Newsreader, Georgia, serif; font-size: 40px; font-weight: 300; color: #A9682A;">03</div>
+      <div style="font-size: 19px; font-weight: 600;">Расставляем на месте</div>
+      <p style="font-size: 16px; line-height: 1.6; color: #46564F; margin: 0;">Собираем мебель, помогаем с мелким ремонтом. Уезжаем, когда вам уже удобно жить.</p>
+    </div>
+  </div>
+
+  <!-- Прозрачные цены -->
+  <div style="background: #1B2E27; color: #F4EFE7; padding: 72px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <h2 style="font-family: Newsreader, Georgia, serif; font-weight: 300; font-size: 46px; line-height: 1.1; letter-spacing: -0.02em; margin: 0;">Цена, которая не меняется в конце дня</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: #B7C6BF; margin: 0;">Тип фургона не влияет на стоимость. Малый или большой — цена одна.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #33463E;">
+        <span style="font-size: 17px;">Дом без лифта</span>
+        <span style="font-family: Newsreader, Georgia, serif; font-size: 26px; color: #D8A45E;">без доплат</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #33463E;">
+        <span style="font-size: 17px;">Выходные и праздники</span>
+        <span style="font-family: Newsreader, Georgia, serif; font-size: 26px; color: #D8A45E;">без доплат</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #33463E;">
+        <span style="font-size: 17px;">Час работы бригады</span>
+        <span style="font-family: Newsreader, Georgia, serif; font-size: 26px; color: #D8A45E;">[ЦЕНА] €</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 0;">
+        <span style="font-size: 17px;">Оценка стоимости</span>
+        <span style="font-family: Newsreader, Georgia, serif; font-size: 26px; color: #D8A45E;">бесплатно</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Отзыв -->
+  <div style="padding: 80px 160px; display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center;">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A9682A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v3H4"></path><path d="M19 7h-4a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v3h-3"></path></svg>
+    <p style="font-family: Newsreader, Georgia, serif; font-weight: 300; font-size: 32px; line-height: 1.35; letter-spacing: -0.01em; margin: 0; text-wrap: pretty;">[ОТЗЫВ КЛИЕНТА — 1–2 предложения о том, как прошёл переезд]</p>
+    <div style="font-size: 14px; color: #7B8A83; letter-spacing: 0.04em;">[ИМЯ], [РАЙОН ЛИССАБОНА]</div>
+  </div>
+
+  <!-- Контакты -->
+  <div style="background: #E9E1D4; padding: 56px 72px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-family: Newsreader, Georgia, serif; font-size: 30px; font-weight: 300;">Поговорим о вашем переезде</div>
+      <div style="font-size: 15px; color: #6C7A73;">Телефон и WhatsApp: +351 969 255 579 · Telegram: @PavelKyryliuk</div>
+    </div>
+    <div style="display: flex; gap: 12px;">
+      <div style="border: 1px solid #1B2E27; padding: 15px 26px; font-size: 15px; font-weight: 600; cursor: pointer;">WhatsApp</div>
+      <div style="background: #1B2E27; color: #F4EFE7; padding: 15px 26px; font-size: 15px; font-weight: 600; cursor: pointer;">Бесплатная оценка</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

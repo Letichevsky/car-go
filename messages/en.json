@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "Car-Go! — moving and transport services in Lisbon",
+    "description": "Full-service home and office moves in Lisbon and throughout Portugal: packing, furniture assembly, delivery help. Transparent pricing, free estimate."
+  },
+  "nav": {
+    "services": "Services",
+    "prices": "Pricing",
+    "works": "Our work",
+    "contacts": "Contact",
+    "about": "About"
+  },
+  "hero": {
+    "eyebrow": "Lisbon · Mudanças & multi serviço",
+    "title": "Your stress-free move starts with us",
+    "subtitle": "We arrive, pack, disassemble, transport and put everything back together. Apartments, offices and shops — in Lisbon and throughout Portugal."
+  },
+  "actions": {
+    "estimate": "Free estimate",
+    "whatsapp": "Message on WhatsApp",
+    "whatsappShort": "WhatsApp",
+    "call": "Call us",
+    "getQuote": "Get a quote"
+  },
+  "price": {
+    "title": "What the price includes",
+    "includeWork": "All types of work",
+    "includeEquipment": "Professional equipment",
+    "includeTeam": "Trained and responsible staff",
+    "rowNoLift": "Building without a lift",
+    "rowWeekend": "Weekends and public holidays",
+    "zero": "€0",
+    "note": "The type of van does not affect the price: small or large, the rate is the same. The exact figure comes after the free estimate.",
+    "rowEstimate": "Cost estimate",
+    "estimateFree": "free"
+  },
+  "services": {
+    "title": "Services",
+    "all": "All services and pricing",
+    "homeTitle": "Apartment moves",
+    "homeText": "Turnkey: packing, stretch wrap, furniture disassembly and assembly.",
+    "officeTitle": "Offices and shops",
+    "officeText": "Moving outside business hours, with no downtime.",
+    "deliveryTitle": "Shopping and delivery",
+    "deliveryText": "IKEA, AKI, Conforama, Makro, OLX — we collect, deliver and carry it in.",
+    "loadingTitle": "Loading and unloading",
+    "loadingText": "Crew and equipment when the transport is already yours.",
+    "assemblyTitle": "Furniture assembly and repairs",
+    "assemblyText": "Assembly of any complexity and minor repairs at the new place.",
+    "customTitle": "Something else in mind?",
+    "customText": "Describe it — we will calculate and name the price before we start.",
+    "customAction": "Message on WhatsApp",
+    "more": "Learn more"
+  },
+  "cta": {
+    "title": "We will quote your move for free",
+    "text": "At a day and time that suits you, with no obligation. We reply within an hour.",
+    "button": "Request an estimate"
+  },
+  "footer": {
+    "tagline": "Moving and multi serviço in Lisbon and throughout Portugal.",
+    "language": "Language",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "toLight": "Light theme",
+    "toDark": "Dark theme"
+  },
+  "form": {
+    "label": "Phone or WhatsApp",
+    "placeholder": "Your phone or WhatsApp",
+    "hint": "We reply within an hour. The estimate comes with no obligation.",
+    "error": "Please leave a number we can reach you on.",
+    "waPrefix": "Hello! I would like a free moving estimate. My number:"
+  },
+  "gallery": {
+    "title": "Our work",
+    "subtitle": "Real moves in Lisbon: packing, loading and reassembling at the new place. The tiles refresh on their own.",
+    "all": "See all our work",
+    "alt": {
+      "team": "The Car-Go! crew on site",
+      "process": "Loading belongings into the van",
+      "packing": "Wrapped belongings and boxes",
+      "assembly": "Assembling furniture at the new place",
+      "result": "The apartment after the move"
+    }
+  },
+  "about": {
+    "title": "Who will handle your move",
+    "text": "A permanent crew: the same people pack your things, drive them over and put the furniture back together at the new place. We work in Lisbon and throughout Portugal, in four languages.",
+    "factYears": "More than five years of crew experience",
+    "factVans": "Our own vans and professional equipment",
+    "factLanguages": "Português · English · Русский · Українська",
+    "photosTitle": "Photos of our work",
+    "photosText": "Browse the full gallery",
+    "videoTitle": "Videos from the job",
+    "videoText": "We are picking the clips — they will appear here.",
+    "videoSoon": "Coming soon"
+  },
+  "works": {
+    "metaTitle": "Car-Go! work — photos of moves in Lisbon",
+    "metaDescription": "Photos of real moves, packing and furniture assembly carried out by the Car-Go! crew in Lisbon and across Portugal.",
+    "title": "Our work",
+    "subtitle": "Every frame is from a real job: how we pack, how we load and how we leave the place behind.",
+    "back": "Back to the homepage"
+  }
+}

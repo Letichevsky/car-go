@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+/*
+ * Токены Car-Go. Ни один цвет, отступ или радиус не пишется в компоненте напрямую —
+ * только через эти переменные. Светлая тема — значения по умолчанию, тёмная перекрывает их
+ * в двух местах: по системной настройке и по явному выбору пользователя (data-theme).
+ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f7f9;
+  --color-surface-strong: #eef1f4;
+  --color-border: #e4e8ec;
+  --color-border-strong: #cbd3da;
+
+  --color-text: #101519;
+  --color-text-secondary: #47535f;
+  --color-text-muted: #64707c;
+  --color-text-inverse: #ffffff;
+
+  /* красный — действие: главные кнопки и ключевая выгода. Больше нигде */
+  --color-action: #dc2626;
+  --color-action-hover: #b91c1c;
+  --color-on-action: #ffffff;
+
+  /* синий — информация и навигация: ссылки, галочки, иконки услуг */
+  --color-info: #1652d4;
+  --color-info-hover: #0f3c9e;
+
+  /* серый — стрелки и шевроны списков, чтобы они не спорили с действием */
+  --color-chevron: #8a949e;
+
+  --shadow-card: 0 1px 2px rgb(16 21 25 / 0.04), 0 8px 24px rgb(16 21 25 / 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0b0d10;
+    --color-surface: #12171c;
+    --color-surface-strong: #171d23;
+    --color-border: #232a32;
+    --color-border-strong: #2c333b;
+
+    --color-text: #f1f3f6;
+    --color-text-secondary: #b9c2cc;
+    --color-text-muted: #8b95a0;
+    --color-text-inverse: #0b0d10;
+
+    --color-action: #f03a34;
+    --color-action-hover: #ff5b55;
+    --color-on-action: #ffffff;
+
+    --color-info: #3c7bf6;
+    --color-info-hover: #6e9bf9;
+
+    --color-chevron: #5a6570;
+
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0b0d10;
+  --color-surface: #12171c;
+  --color-surface-strong: #171d23;
+  --color-border: #232a32;
+  --color-border-strong: #2c333b;
+
+  --color-text: #f1f3f6;
+  --color-text-secondary: #b9c2cc;
+  --color-text-muted: #8b95a0;
+  --color-text-inverse: #0b0d10;
+
+  --color-action: #f03a34;
+  --color-action-hover: #ff5b55;
+  --color-on-action: #ffffff;
+
+  --color-info: #3c7bf6;
+  --color-info-hover: #6e9bf9;
+
+  --color-chevron: #5a6570;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.35);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-strong: var(--color-surface-strong);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
+
+  --color-action: var(--color-action);
+  --color-action-hover: var(--color-action-hover);
+  --color-on-action: var(--color-on-action);
+
+  --color-info: var(--color-info);
+  --color-info-hover: var(--color-info-hover);
+  --color-chevron: var(--color-chevron);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+
+  --shadow-card: var(--shadow-card);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Поля ввода не меньше 16px: иначе iOS Safari зумит страницу при фокусе */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-info);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Появление плиток галереи: сдвиг с масштабом даёт ощущение «выкладывания» мозаики */
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Кроссфейд при смене кадра в плитке */
+@keyframes tile-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes tile-flip-x {
+    from {
+      transform: none;
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes tile-flip-y {
+    from {
+      transform: none;
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes tile-in {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes tile-fade {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/*
+ * Переворот плитки при смене кадра. Ось выбирается по кадру:
+ * горизонтальный крутится вокруг горизонтальной оси, вертикальный — вокруг вертикальной,
+ * то есть всегда по длинной стороне снимка.
+ */
+@keyframes tile-flip-x {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes tile-flip-y {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}

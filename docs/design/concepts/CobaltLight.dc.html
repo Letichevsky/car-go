@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700;800&display=swap">
+  <style>
+    body { margin: 0; background: #FFFFFF; font-family: Manrope, "Helvetica Neue", Arial, sans-serif; color: #0E1319; }
+    a { color: #1652D4; text-decoration: none; }
+    a:hover { color: #0F3C9E; }
+    .ph { background: repeating-linear-gradient(135deg, #EDF0F4 0 16px, #E4E9EF 16px 32px); color: #78838F; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; letter-spacing: 0.04em; }
+  </style>
+</helmet>
+
+<div style="width: 1280px; background: #FFFFFF;">
+
+  <!-- Шапка -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px 64px; border-bottom: 1px solid #E3E8ED;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div class="ph" style="width: 40px; height: 40px; border-radius: 4px; font-size: 9px;">знак</div>
+      <div style="font-family: Anton, Impact, sans-serif; font-size: 25px;"><span style="color: #1652D4;">CAR-</span><span style="color: #DC2626; font-style: italic;">GO!</span></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 28px;">
+      <div style="display: flex; gap: 22px; font-size: 15px; font-weight: 500; color: #3D4A57;">
+        <span>Услуги</span><span>Цены</span><span>Как работаем</span><span>Контакты</span>
+      </div>
+      <div style="display: flex; gap: 14px; font-size: 13px; font-weight: 600; color: #8A95A1;">
+        <span style="color: #0E1319;">PT</span><span>EN</span><span>RU</span><span>UK</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 9px; background: #1652D4; color: #FFFFFF; padding: 11px 20px; border-radius: 4px; font-size: 14px; font-weight: 700; cursor: pointer;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
+        <span>+351 969 255 579</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Первый экран: фото + белая плашка -->
+  <div style="position: relative; height: 620px;">
+    <div class="ph" style="position: absolute; inset: 0;">[ФОТО НА ВЕСЬ ЭКРАН: бригада Car-Go выносит упакованную мебель, узкая улица Лиссабона]</div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.72) 42%, rgba(255,255,255,0.10) 78%);"></div>
+
+    <div style="position: absolute; inset: 0; display: flex; align-items: center; padding: 0 64px;">
+      <div style="display: flex; flex-direction: column; gap: 24px; max-width: 640px;">
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1652D4;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Mudanças &amp; multi serviço · Лиссабон</span>
+        </div>
+        <h1 style="font-family: Anton, Impact, sans-serif; font-size: 78px; line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase; margin: 0;">Ваш спокойный переезд <span style="color: #1652D4;">начинается с нас</span></h1>
+        <p style="font-size: 19px; line-height: 1.5; color: #46525F; margin: 0; max-width: 30em;">Приезжаем, пакуем, разбираем, везём и собираем заново. Квартиры, офисы и магазины — в Лиссабоне и по всей Португалии.</p>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div style="background: #1652D4; color: #FFFFFF; padding: 17px 32px; border-radius: 4px; font-size: 16px; font-weight: 800; cursor: pointer;">Бесплатная оценка</div>
+          <div style="border: 1px solid #C9D2DB; padding: 17px 32px; border-radius: 4px; font-size: 16px; font-weight: 700; cursor: pointer;">Написать в WhatsApp</div>
+        </div>
+        <div style="font-size: 15px; color: #6B7684;">Ответим в течение часа · оценка ни к чему не обязывает</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Полоса фактов -->
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid #E3E8ED; background: #F7F9FB;">
+    <div style="padding: 24px 32px 24px 64px; border-right: 1px solid #E3E8ED;">
+      <div style="font-family: Anton, Impact, sans-serif; font-size: 30px;">5+</div>
+      <div style="font-size: 14px; color: #6B7684; margin-top: 4px;">лет опыта у команды</div>
+    </div>
+    <div style="padding: 24px 32px; border-right: 1px solid #E3E8ED;">
+      <div style="font-family: Anton, Impact, sans-serif; font-size: 30px; color: #DC2626;">0 €</div>
+      <div style="font-size: 14px; color: #6B7684; margin-top: 4px;">доплат за лестницу и выходные</div>
+    </div>
+    <div style="padding: 24px 32px; border-right: 1px solid #E3E8ED;">
+      <div style="font-family: Anton, Impact, sans-serif; font-size: 30px;">1 цена</div>
+      <div style="font-size: 14px; color: #6B7684; margin-top: 4px;">малый и большой фургон</div>
+    </div>
+    <div style="padding: 24px 64px 24px 32px;">
+      <div style="font-family: Anton, Impact, sans-serif; font-size: 30px;">PT · ES</div>
+      <div style="font-size: 14px; color: #6B7684; margin-top: 4px;">вся Португалия, выезд за границу</div>
+    </div>
+  </div>
+
+  <!-- Услуги -->
+  <div style="padding: 60px 64px 40px 64px;">
+    <div style="display: flex; align-items: end; justify-content: space-between; margin-bottom: 26px;">
+      <h2 style="font-family: Anton, Impact, sans-serif; font-size: 40px; text-transform: uppercase; letter-spacing: -0.01em; margin: 0;">Что мы делаем</h2>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: #1652D4; cursor: pointer;">
+        <span>Все услуги и цены</span>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;">
+      <div style="border: 1px solid #E3E8ED; border-radius: 6px; overflow: hidden;">
+        <div class="ph" style="height: 190px;">[ФОТО: упакованная квартира]</div>
+        <div style="padding: 20px 24px; display: flex; align-items: end; justify-content: space-between; gap: 16px;">
+          <div>
+            <div style="font-family: Anton, Impact, sans-serif; font-size: 24px; text-transform: uppercase;">Квартирные переезды</div>
+            <div style="font-size: 15px; color: #5A6673; margin-top: 5px;">Под ключ: упаковка, стрейч, разборка и сборка</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1652D4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </div>
+      <div style="border: 1px solid #E3E8ED; border-radius: 6px; overflow: hidden;">
+        <div class="ph" style="height: 190px;">[ФОТО: офисный переезд]</div>
+        <div style="padding: 20px 24px; display: flex; align-items: end; justify-content: space-between; gap: 16px;">
+          <div>
+            <div style="font-family: Anton, Impact, sans-serif; font-size: 24px; text-transform: uppercase;">Офисы и магазины</div>
+            <div style="font-size: 15px; color: #5A6673; margin-top: 5px;">Переезд в нерабочие часы, без простоя</div>
+          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1652D4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </div>
+      <div style="border: 1px solid #E3E8ED; border-radius: 6px; display: flex; align-items: center; gap: 20px; padding: 18px 24px;">
+        <div class="ph" style="width: 96px; height: 76px; border-radius: 4px; flex-shrink: 0;">[ФОТО]</div>
+        <div>
+          <div style="font-family: Anton, Impact, sans-serif; font-size: 21px; text-transform: uppercase;">Покупки и доставка</div>
+          <div style="font-size: 14px; color: #5A6673; margin-top: 4px;">IKEA · AKI · Conforama · Makro · OLX</div>
+        </div>
+      </div>
+      <div style="border: 1px solid #E3E8ED; border-radius: 6px; display: flex; align-items: center; gap: 20px; padding: 18px 24px;">
+        <div class="ph" style="width: 96px; height: 76px; border-radius: 4px; flex-shrink: 0;">[ФОТО]</div>
+        <div>
+          <div style="font-family: Anton, Impact, sans-serif; font-size: 21px; text-transform: uppercase;">Монтаж и мелкий ремонт</div>
+          <div style="font-size: 14px; color: #5A6673; margin-top: 4px;">Сборка любой сложности, обслуживание</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin: 24px 64px 64px 64px; background: #0E1319; color: #FFFFFF; padding: 44px 52px; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: Anton, Impact, sans-serif; font-size: 38px; text-transform: uppercase; line-height: 1.05;">Скажем цену<br>до начала работ</div>
+      <div style="font-size: 16px; font-weight: 500; color: #B8C2CD;">Бесплатная оценка в удобные вам день и час. Без обязательств.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; min-width: 300px;">
+      <div style="background: #1652D4; color: #FFFFFF; text-align: center; padding: 17px; border-radius: 4px; font-size: 16px; font-weight: 800; cursor: pointer;">Заказать оценку</div>
+      <div style="text-align: center; font-size: 15px; font-weight: 700;">+351 969 255 579 · @PavelKyryliuk</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

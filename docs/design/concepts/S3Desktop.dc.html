@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #0C0E11; font-family: Onest, "Helvetica Neue", Arial, sans-serif; color: #EDEFF2; }
+    a { color: #3C7BF6; text-decoration: none; }
+    a:hover { color: #6E9BF9; }
+    .ph { background: repeating-linear-gradient(135deg, #171A1F 0 16px, #131619 16px 32px); color: #79838F; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; letter-spacing: 0.04em; }
+  </style>
+</helmet>
+
+<div style="width: 1280px; background: #0C0E11;">
+
+  <!-- Шапка -->
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 72px; border-bottom: 1px solid #1A1E23;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div class="ph" style="width: 36px; height: 36px; border-radius: 4px; font-size: 9px;">знак</div>
+      <div style="font-weight: 700; font-size: 20px; letter-spacing: -0.02em;">CAR-<span style="color: #E8352F;">GO!</span></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 30px;">
+      <div style="display: flex; gap: 26px; font-size: 15px; color: #AAB3BD;">
+        <span>Услуги</span><span>Цены</span><span>Работы</span><span>О команде</span><span>Контакты</span>
+      </div>
+      <div style="display: flex; gap: 13px; font-size: 13px; font-weight: 600; color: #78828D;">
+        <span style="color: #FFFFFF;">PT</span><span>EN</span><span>RU</span><span>UK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Первый экран: текст + вертикальная пара фото -->
+  <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 72px; padding: 80px 72px 64px 72px;">
+    <div style="display: flex; flex-direction: column; gap: 32px; padding-top: 8px;">
+      <h1 style="font-weight: 600; font-size: 58px; line-height: 1.1; letter-spacing: -0.035em; margin: 0; text-wrap: balance;">Приедем, упакуем, перевезём и соберём заново</h1>
+      <p style="font-size: 19px; line-height: 1.65; color: #A9B2BC; margin: 0; max-width: 30em;">Квартиры, офисы и магазины в Лиссабоне и по всей Португалии. Команда с опытом более пяти лет, собственные фургоны и оборудование.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #1A1E23;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #1A1E23;">
+          <span style="font-size: 16px; color: #A9B2BC;">Оценка стоимости</span>
+          <span style="font-size: 17px; font-weight: 600;">бесплатно, без обязательств</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #1A1E23;">
+          <span style="font-size: 16px; color: #A9B2BC;">Дом без лифта, выходные, праздники</span>
+          <span style="font-size: 17px; font-weight: 600; color: #E8352F;">без доплат</span>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #1A1E23;">
+          <span style="font-size: 16px; color: #A9B2BC;">Малый и большой фургон</span>
+          <span style="font-size: 17px; font-weight: 600;">одна цена</span>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="background: #E8352F; color: #FFFFFF; padding: 16px 30px; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer;">Заказать бесплатную оценку</div>
+        <div style="display: flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 500; color: #3C7BF6; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>или напишите в WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div class="ph" style="height: 340px; border-radius: 8px;">[ФОТО ВЕРТИКАЛЬНОЕ: бригада на лестнице]</div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+        <div class="ph" style="height: 160px; border-radius: 8px;">[ФОТО: упаковка]</div>
+        <div class="ph" style="height: 160px; border-radius: 8px;">[ФОТО: фургон]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Как проходит -->
+  <div style="padding: 24px 72px 72px 72px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #78828D; margin-bottom: 28px;">Как проходит переезд</div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E8352F; padding-top: 20px;">
+        <div style="font-size: 14px; font-weight: 600; color: #78828D;">01</div>
+        <div style="font-size: 20px; font-weight: 600;">Смотрим и считаем</div>
+        <p style="font-size: 16px; line-height: 1.6; color: #A9B2BC; margin: 0;">Приезжаем в удобное вам время, смотрим объём и называем точную цену до начала работ.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #1A1E23; padding-top: 20px;">
+        <div style="font-size: 14px; font-weight: 600; color: #78828D;">02</div>
+        <div style="font-size: 20px; font-weight: 600;">Пакуем и перевозим</div>
+        <p style="font-size: 16px; line-height: 1.6; color: #A9B2BC; margin: 0;">Стрейч, ремни, разборка мебели, аккуратная погрузка. Работает подготовленная бригада.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #1A1E23; padding-top: 20px;">
+        <div style="font-size: 14px; font-weight: 600; color: #78828D;">03</div>
+        <div style="font-size: 20px; font-weight: 600;">Собираем на месте</div>
+        <p style="font-size: 16px; line-height: 1.6; color: #A9B2BC; margin: 0;">Расставляем мебель, собираем обратно, помогаем с мелким ремонтом на новом месте.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Услуги -->
+  <div style="padding: 0 72px 72px 72px;">
+    <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 72px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <h2 style="font-weight: 600; font-size: 38px; letter-spacing: -0.03em; margin: 0; line-height: 1.15;">Пять направлений работы</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: #A9B2BC; margin: 0;">От одной коробки до полного переезда офиса. Каждое — с отдельной страницей, ценой и примерами работ.</p>
+        <div style="display: flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 500; color: #3C7BF6; cursor: pointer; margin-top: 4px;">
+          <span>Все услуги и цены</span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1A1E23;">
+          <div>
+            <div style="font-size: 19px; font-weight: 600;">Квартирные переезды</div>
+            <div style="font-size: 15px; color: #8D96A1; margin-top: 4px;">Под ключ: упаковка, стрейч, разборка и сборка мебели</div>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5A6570" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1A1E23;">
+          <div>
+            <div style="font-size: 19px; font-weight: 600;">Офисы, магазины, коммерция</div>
+            <div style="font-size: 15px; color: #8D96A1; margin-top: 4px;">Переезд в нерабочие часы, техника и документы под опись</div>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5A6570" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1A1E23;">
+          <div>
+            <div style="font-size: 19px; font-weight: 600;">Покупки и доставка</div>
+            <div style="font-size: 15px; color: #8D96A1; margin-top: 4px;">IKEA, AKI, Conforama, Makro, OLX — заберём, привезём, занесём</div>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5A6570" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1A1E23;">
+          <div>
+            <div style="font-size: 19px; font-weight: 600;">Погрузка и разгрузка</div>
+            <div style="font-size: 15px; color: #8D96A1; margin-top: 4px;">Бригада и оборудование, если транспорт у вас свой</div>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5A6570" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1A1E23;">
+          <div>
+            <div style="font-size: 19px; font-weight: 600;">Монтаж мебели и мелкий ремонт</div>
+            <div style="font-size: 15px; color: #8D96A1; margin-top: 4px;">Сборка любой сложности, обслуживание на новом месте</div>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5A6570" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Контакты -->
+  <div style="border-top: 1px solid #1A1E23; padding: 48px 72px; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em;">Поговорим о вашем переезде</div>
+      <div style="font-size: 16px; color: #8D96A1;">+351 969 255 579 · WhatsApp · Telegram @PavelKyryliuk</div>
+    </div>
+    <div style="background: #E8352F; color: #FFFFFF; padding: 16px 30px; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer;">Заказать оценку</div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
