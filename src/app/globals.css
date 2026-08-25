@@ -239,6 +239,12 @@
  */
 .marquee {
   --marquee-fade: 1.5rem;
+  /*
+   * Запас сверху и снизу, чтобы обрезка ленты не съедала свечение у крайних рядов.
+   * Отрицательный внешний отступ возвращает блок на прежнее место в потоке.
+   */
+  padding-block: 1.75rem;
+  margin-block: -1.75rem;
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -281,6 +287,16 @@
   transition:
     outline-color 160ms ease-out,
     box-shadow 160ms ease-out;
+}
+
+/* Кадр внутри плитки чуть наезжает: сама плитка размера не меняет */
+.tile-pickable img {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tile-pickable:hover img,
+.tile-pickable:focus-visible img {
+  transform: scale(1.08);
 }
 
 .tile-pickable:hover,
