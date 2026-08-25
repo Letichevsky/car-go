@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { GalleryTabs } from "@/components/site/GalleryTabs";
+import { GalleryFlow } from "@/components/site/GalleryFlow";
 import { Link } from "@/i18n/navigation";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
@@ -29,7 +29,7 @@ export function WorksSection() {
         </div>
       </Reveal>
 
-      <GalleryTabs />
+      <GalleryFlow />
     </section>
   );
 }

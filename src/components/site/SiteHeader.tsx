@@ -28,8 +28,8 @@ export function SiteHeader() {
 
         <nav className="text-text-secondary hidden items-center gap-6 text-[0.9375rem] font-medium lg:flex">
           {[
-            { href: "/#services", label: t("nav.services") },
             { href: "/#works", label: t("nav.works") },
+            { href: "/#services", label: t("nav.services") },
             { href: "/#about", label: t("nav.about") },
             { href: "/#contacts", label: t("nav.contacts") },
           ].map((link) => (
