@@ -96,8 +96,12 @@ export function PhotoLightbox({ index, onClose, onChange }: LightboxProps) {
             className="max-h-[78vh] w-auto max-w-full object-contain"
           />
         </picture>
-        <figcaption className="text-[0.8125rem] text-white/70">
-          {index + 1} / {allPhotos.length} · {t(`alt.${photo.category}`)}
+        {/* Только счётчик: описание кадра живёт в alt, дублировать его подписью незачем */}
+        <figcaption className="flex items-baseline gap-1.5 rounded-full bg-white/10 px-4 py-1.5 backdrop-blur">
+          <span className="text-lg font-bold text-white tabular-nums lg:text-xl">{index + 1}</span>
+          <span className="text-sm font-semibold text-white/55 tabular-nums lg:text-base">
+            / {allPhotos.length}
+          </span>
         </figcaption>
       </figure>
 
