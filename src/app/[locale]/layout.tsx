@@ -7,6 +7,7 @@ import { ConsentDefaults, GoogleTagManager } from "@/components/analytics/Analyt
 import { AnalyticsClient } from "@/components/analytics/AnalyticsClient";
 import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 import { AnchorScroll } from "@/components/site/AnchorScroll";
+import { BackToTop } from "@/components/site/BackToTop";
 import { gtmId } from "@/lib/analytics";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
@@ -81,6 +82,7 @@ export default async function LocaleLayout({
         <GoogleTagManager />
         <NextIntlClientProvider>
           {children}
+          <BackToTop />
           {gtmId ? <ConsentBanner /> : null}
         </NextIntlClientProvider>
         <AnalyticsClient />
