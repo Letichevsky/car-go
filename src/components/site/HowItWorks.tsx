@@ -27,11 +27,21 @@ export function HowItWorks() {
         <ol className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <Reveal key={step.title} from="up" delay={index * 70}>
-              <li className="group border-border-strong hover:border-action flex h-full gap-4 border-t-2 pt-4 transition-colors duration-300 ease-out">
-                {/* Номер шага: серый в покое, акцентный под курсором — заодно с линейкой */}
+              {/*
+                Ниже lg наведения нет, и секция осталась бы полностью серой —
+                поэтому там первый шаг подсвечен всегда. С lg подсветка целиком
+                отдана курсору.
+              */}
+              <li
+                className={`group border-border-strong hover:border-action flex h-full gap-4 border-t-2 pt-4 transition-colors duration-300 ease-out ${
+                  index === 0 ? "max-lg:border-action" : ""
+                }`}
+              >
                 <span
                   aria-hidden
-                  className="text-border-strong group-hover:text-action shrink-0 text-[2.5rem] leading-[0.85] font-bold tabular-nums transition-colors duration-300 ease-out select-none"
+                  className={`text-border-strong group-hover:text-action shrink-0 text-[2.5rem] leading-[0.85] font-bold tabular-nums transition-colors duration-300 ease-out select-none ${
+                    index === 0 ? "max-lg:text-action" : ""
+                  }`}
                 >
                   {index + 1}
                 </span>
