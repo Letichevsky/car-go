@@ -462,6 +462,10 @@
       {
         "q": "Do you move heavy or fragile items?",
         "a": "Yes. We have experience with large and delicate pieces and bring dollies, straps and blankets to move them."
+      },
+      {
+        "q": "Do you work on weekends and public holidays?",
+        "a": "Yes, weekends and public holidays included. The price does not change: the day of the week makes no difference."
       }
     ]
   },

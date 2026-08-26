@@ -74,9 +74,9 @@ export function Services() {
                 href={servicePath(locale, service.key)}
                 className="group border-border hover:border-info/60 hover:shadow-card rounded-card flex h-full cursor-pointer overflow-hidden border transition duration-300 ease-out hover:-translate-y-1.5"
               >
-                {/* Зона иконки во всю высоту карточки и такой же ширины — квадрат */}
-                <span className="bg-surface border-border flex aspect-square shrink-0 items-center justify-center border-r">
-                  <Icon className="text-info size-9 transition duration-300 ease-out group-hover:scale-110" />
+                {/* Зона иконки во всю высоту карточки, ширина одна на все карточки */}
+                <span className="bg-surface border-border flex w-20 shrink-0 items-center justify-center border-r sm:w-24">
+                  <Icon className="text-info size-8 transition duration-300 ease-out group-hover:scale-110" />
                 </span>
 
                 <span className="flex flex-1 flex-col gap-2 p-5 sm:p-6">

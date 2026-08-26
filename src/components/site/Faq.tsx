@@ -27,7 +27,7 @@ export function Faq() {
         </h2>
       </Reveal>
 
-      <div className="mx-auto flex max-w-4xl flex-col gap-3">
+      <div className="grid items-start gap-3 md:grid-cols-2">
         {items.map((item, index) => (
           <Reveal key={item.q} from="up" delay={index * 40}>
             <details
@@ -36,8 +36,9 @@ export function Faq() {
             >
               <summary className="group-hover:text-info flex cursor-pointer list-none items-center justify-between gap-5 p-5 text-[1.0625rem] leading-snug font-bold transition-colors duration-200 [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <span className="rounded-control border-border-strong text-chevron group-open:border-action group-open:bg-action group-open:text-on-action flex size-8 shrink-0 items-center justify-center border transition duration-300 ease-out group-open:rotate-45">
-                  <PlusIcon className="size-4" />
+                {/* Сам квадрат стоит на месте, поворачивается и краснеет только плюс */}
+                <span className="rounded-control border-border-strong group-open:border-action flex size-8 shrink-0 items-center justify-center border transition-colors duration-300 ease-out">
+                  <PlusIcon className="text-chevron group-open:text-action size-4 transition duration-300 ease-out group-open:rotate-45" />
                 </span>
               </summary>
 
