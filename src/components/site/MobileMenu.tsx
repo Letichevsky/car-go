@@ -10,6 +10,7 @@ import { PhoneText } from "@/components/ui/PhoneText";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { contactsPath } from "@/data/routes";
+import { serviceIcons } from "@/components/ui/serviceIcons";
 import { services, servicePath } from "@/data/services";
 import { contacts } from "@/lib/contacts";
 import { setMenuOpen } from "@/lib/menu";
@@ -137,16 +138,20 @@ export function MobileMenu() {
 
                 {servicesOpen && (
                   <div className="border-border flex flex-col border-b py-1">
-                    {services.map((service) => (
-                      <Link
-                        key={service.key}
-                        href={servicePath(locale, service.key)}
-                        onClick={close}
-                        className="text-text-secondary hover:text-info py-2.5 pl-4 text-[0.9375rem] font-medium transition-colors duration-200"
-                      >
-                        {t(`services.${service.key}Title`)}
-                      </Link>
-                    ))}
+                    {services.map((service) => {
+                      const Icon = serviceIcons[service.key];
+                      return (
+                        <Link
+                          key={service.key}
+                          href={servicePath(locale, service.key)}
+                          onClick={close}
+                          className="text-text-secondary hover:text-info flex items-center gap-3 py-2.5 pl-1 text-[0.9375rem] font-medium transition-colors duration-200"
+                        >
+                          <Icon className="text-info size-5 shrink-0" />
+                          {t(`services.${service.key}Title`)}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
 

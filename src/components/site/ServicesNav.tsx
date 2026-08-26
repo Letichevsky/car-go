@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ChevronRightIcon } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { serviceIcons } from "@/components/ui/serviceIcons";
 import { services, servicePath } from "@/data/services";
 
 /** Небольшая задержка на закрытие, чтобы панель не мигала при переходе к ней курсором */
@@ -60,17 +61,21 @@ export function ServicesNav() {
       </Link>
 
       {open && (
-        <div className="border-border bg-bg shadow-card rounded-card absolute top-full left-0 z-50 mt-2 grid w-[32rem] grid-cols-2 gap-1 border p-2">
-          {services.map((service) => (
-            <Link
-              key={service.key}
-              href={servicePath(locale, service.key)}
-              onClick={() => setOpen(false)}
-              className="rounded-control text-text-secondary hover:bg-surface hover:text-info px-3 py-2.5 text-[0.9375rem] font-medium transition-colors duration-150"
-            >
-              {t(`services.${service.key}Title`)}
-            </Link>
-          ))}
+        <div className="border-border bg-bg shadow-card rounded-card absolute top-full left-0 z-50 mt-2 flex w-[20rem] flex-col gap-0.5 border p-2">
+          {services.map((service) => {
+            const Icon = serviceIcons[service.key];
+            return (
+              <Link
+                key={service.key}
+                href={servicePath(locale, service.key)}
+                onClick={() => setOpen(false)}
+                className="rounded-control text-text-secondary hover:bg-surface hover:text-info flex items-center gap-3 px-3 py-2.5 text-[0.9375rem] font-medium transition-colors duration-150"
+              >
+                <Icon className="text-info size-5 shrink-0" />
+                {t(`services.${service.key}Title`)}
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>

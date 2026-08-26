@@ -2,8 +2,9 @@ import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * Шесть шагов переезда. Колонка под линейкой — как было, — но номер шага стал
- * крупной цифрой в фоне: последовательность видно сразу, а места он не занимает.
+ * Шесть шагов переезда. Колонка под линейкой, номер — крупной цифрой слева
+ * от заголовка. Под курсором линейка и цифра вместе загораются акцентом:
+ * так видно, какой шаг сейчас читаешь.
  */
 export function HowItWorks() {
   const t = useTranslations("how");
@@ -26,22 +27,21 @@ export function HowItWorks() {
         <ol className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <Reveal key={step.title} from="up" delay={index * 70}>
-              <li
-                className={`relative flex flex-col gap-2 border-t-2 pt-4 ${
-                  index === 0 ? "border-action" : "border-border-strong"
-                }`}
-              >
+              <li className="group border-border-strong hover:border-action flex h-full gap-4 border-t-2 pt-4 transition-colors duration-300 ease-out">
+                {/* Номер шага: серый в покое, акцентный под курсором — заодно с линейкой */}
                 <span
                   aria-hidden
-                  className="text-action/12 pointer-events-none absolute top-2 right-0 text-[4.5rem] leading-none font-bold tabular-nums select-none"
+                  className="text-border-strong group-hover:text-action shrink-0 text-[2.5rem] leading-[0.85] font-bold tabular-nums transition-colors duration-300 ease-out select-none"
                 >
-                  {String(index + 1).padStart(2, "0")}
+                  {index + 1}
                 </span>
 
-                <h3 className="relative text-lg font-bold">{step.title}</h3>
-                <p className="text-text-secondary relative text-[0.9375rem] leading-relaxed">
-                  {step.text}
-                </p>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-lg font-bold">{step.title}</h3>
+                  <p className="text-text-secondary text-[0.9375rem] leading-relaxed">
+                    {step.text}
+                  </p>
+                </div>
               </li>
             </Reveal>
           ))}

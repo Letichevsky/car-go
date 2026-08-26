@@ -36,9 +36,9 @@ export function Faq() {
             >
               <summary className="group-hover:text-info flex cursor-pointer list-none items-center justify-between gap-5 p-5 text-[1.0625rem] leading-snug font-bold transition-colors duration-200 [&::-webkit-details-marker]:hidden">
                 {item.q}
-                {/* Сам квадрат стоит на месте, поворачивается и краснеет только плюс */}
-                <span className="rounded-control border-border-strong group-open:border-action flex size-8 shrink-0 items-center justify-center border transition-colors duration-300 ease-out">
-                  <PlusIcon className="text-chevron group-open:text-action size-4 transition duration-300 ease-out group-open:rotate-45" />
+                {/* Квадрат стоит на месте, внутри поворачивается плюс — и всё */}
+                <span className="rounded-control border-border-strong flex size-8 shrink-0 items-center justify-center border">
+                  <PlusIcon className="text-chevron size-4 transition-transform duration-300 ease-out group-open:rotate-45" />
                 </span>
               </summary>
 

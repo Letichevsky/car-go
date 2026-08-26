@@ -1,31 +1,11 @@
 import { useLocale, useTranslations } from "next-intl";
-import {
-  ArrowRightIcon,
-  BoxIcon,
-  CartIcon,
-  HomeIcon,
-  KeyIcon,
-  MoversIcon,
-  OfficeIcon,
-  ToolsIcon,
-  TruckIcon,
-} from "@/components/ui/icons";
+import { ArrowRightIcon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import { services, servicePath, type ServiceKey } from "@/data/services";
+import { serviceIcons } from "@/components/ui/serviceIcons";
+import { services, servicePath } from "@/data/services";
 import { contactsPath } from "@/data/routes";
-
-const icons: Record<ServiceKey, typeof HomeIcon> = {
-  home: HomeIcon,
-  turnkey: KeyIcon,
-  office: OfficeIcon,
-  packing: BoxIcon,
-  assembly: ToolsIcon,
-  equipment: TruckIcon,
-  delivery: CartIcon,
-  loading: MoversIcon,
-};
 
 /**
  * Восемь направлений — восемь одинаковых карточек.
@@ -67,7 +47,7 @@ export function Services() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         {services.map((service, index) => {
-          const Icon = icons[service.key];
+          const Icon = serviceIcons[service.key];
           return (
             <Reveal key={service.key} from="up" delay={index * 50}>
               <Link
