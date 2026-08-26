@@ -1,4 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
+import { EngineeredBy } from "@/components/site/EngineeredBy";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
 import { Link } from "@/i18n/navigation";
 import { HomeLink } from "@/components/ui/HomeLink";
@@ -16,7 +17,7 @@ export function SiteFooter() {
 
   return (
     <footer data-analytics-zone="footer" className="border-border border-t">
-      <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 pb-28 lg:grid-cols-[1.2fr_1fr_0.8fr_0.8fr] lg:gap-10 lg:px-14 lg:pb-10">
+      <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 lg:grid-cols-[1.2fr_1fr_0.8fr_0.8fr] lg:gap-10 lg:px-14">
         <div className="flex flex-col gap-2">
           <HomeLink className="flex w-fit items-center">
             <LogoMark className="h-16" />
@@ -81,6 +82,8 @@ export function SiteFooter() {
           </p>
         </div>
       </div>
+
+      <EngineeredBy />
     </footer>
   );
 }

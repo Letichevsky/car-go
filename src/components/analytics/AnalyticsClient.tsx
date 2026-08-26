@@ -47,6 +47,8 @@ export function AnalyticsClient() {
       if (!(target instanceof Element)) return;
       const link = target.closest("a[href]");
       if (!(link instanceof HTMLAnchorElement)) return;
+      // ссылки с этой пометкой к заявкам отношения не имеют (например, подпись разработчика)
+      if (link.closest("[data-analytics-skip]")) return;
 
       const href = link.getAttribute("href") ?? "";
       const lead_location = zoneOf(link);
