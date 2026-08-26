@@ -9,6 +9,7 @@ import { PhoneText } from "@/components/ui/PhoneText";
 import { contactsPath } from "@/data/routes";
 import type { Locale } from "@/i18n/routing";
 import { contacts } from "@/lib/contacts";
+import brand from "@/data/brand.json";
 
 export function SiteHeader() {
   const t = useTranslations();
@@ -18,19 +19,32 @@ export function SiteHeader() {
     <StickyHeader>
       <header
         data-analytics-zone="header"
-        className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-14"
+        className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-14"
       >
-        <Link href="/" className="flex items-center gap-3">
-          {/* Место под знак из логотипа — ждём вектор от заказчика */}
-          <span
-            aria-hidden
-            className="rounded-control border-border text-text-muted flex size-9 items-center justify-center border text-xs font-bold"
-          >
-            CG
-          </span>
-          <span className="text-xl font-bold tracking-tight">
-            CAR-<span className="text-action">GO!</span>
-          </span>
+        {/*
+          ВРЕМЕННО (2026-08-26): знак из присланного логотипа вместо монограммы «CG»
+          и надписи CAR-GO!. Чтобы вернуть прежний вариант, достаточно заменить обе
+          картинки на два span — см. журнал §10.
+        */}
+        <Link href="/" aria-label="Car-Go!" className="flex items-center">
+          <picture>
+            <img
+              src="/brand/logo-light.png"
+              alt=""
+              width={brand.logo.width}
+              height={brand.logo.height}
+              className="logo-mark--light h-13 w-auto"
+            />
+          </picture>
+          <picture>
+            <img
+              src="/brand/logo-dark.png"
+              alt=""
+              width={brand.logo.width}
+              height={brand.logo.height}
+              className="logo-mark--dark h-13 w-auto"
+            />
+          </picture>
         </Link>
 
         <nav className="text-text-secondary hidden items-center gap-6 text-[0.9375rem] font-medium lg:flex">

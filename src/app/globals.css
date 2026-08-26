@@ -34,10 +34,15 @@
 
   /* Высота липкой шапки. От неё считается отступ при переходе по якорю. */
   --header-height: 4.75rem;
+
+  /* Фургон фоном первого экрана: на светлом фоне ему нужно больше плотности */
+  --bus-opacity: 0.34;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --bus-opacity: 0.26;
+
     --color-bg: #0b0d10;
     --color-surface: #12171c;
     --color-surface-strong: #171d23;
@@ -63,6 +68,8 @@
 }
 
 :root[data-theme="dark"] {
+  --bus-opacity: 0.26;
+
   --color-bg: #0b0d10;
   --color-surface: #12171c;
   --color-surface-strong: #171d23;
@@ -124,7 +131,7 @@
      * Резервируем её высоту плюс воздух — работает и для якорей, и для
      * scrollIntoView, и для перехода по ссылке с #.
      */
-    scroll-padding-top: calc(var(--header-height) + 1.25rem);
+    scroll-padding-top: var(--header-height);
   }
 
   body {
@@ -326,4 +333,74 @@
   .marquee {
     overflow-x: auto;
   }
+}
+
+/*
+ * Фургон фоном первого экрана. Снимок на прозрачном фоне, поэтому от текста его
+ * отделяют только прозрачность и маска: снизу он плотный, к тексту растворяется.
+ * На телефоне стоит по нижнему краю во всю ширину, на широком экране — справа,
+ * где под карточкой «что входит» остаётся свободное место.
+ */
+.hero-bus {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-bus img {
+  position: absolute;
+  right: -9%;
+  bottom: 0;
+  width: 118%;
+  max-width: none;
+  opacity: var(--bus-opacity);
+  -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 40%, transparent 100%);
+}
+
+@media (min-width: 1024px) {
+  .hero-bus img {
+    right: -4%;
+    width: 86%;
+    -webkit-mask-image: linear-gradient(to top, #000 45%, transparent 100%);
+    mask-image: linear-gradient(to top, #000 45%, transparent 100%);
+  }
+}
+
+/*
+ * ВРЕМЕННО (2026-08-26): знак из присланного логотипа вместо монограммы «CG»
+ * и надписи CAR-GO!. Тёмные части знака на тёмной теме не видны, поэтому у него
+ * два файла, и переключаются они здесь — Tailwind-вариант dark: смотрит только
+ * на системную настройку и не знает про наш data-theme.
+ */
+.logo-mark--dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-mark--light {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .logo-mark--dark {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .logo-mark--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .logo-mark--dark {
+  display: block;
+}
+
+:root[data-theme="light"] .logo-mark--light {
+  display: block;
+}
+
+:root[data-theme="light"] .logo-mark--dark {
+  display: none;
 }
