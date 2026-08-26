@@ -1,9 +1,9 @@
 import { useTranslations } from "next-intl";
+import { BusBackdrop } from "@/components/site/BusBackdrop";
 import { LeadForm } from "@/components/site/LeadForm";
 import { ChatIcon, CheckIcon, PhoneIcon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { contacts } from "@/lib/contacts";
-import brand from "@/data/brand.json";
 
 /**
  * Первый экран без фонового фото: грузится текст, а не картинка.
@@ -69,31 +69,6 @@ export function Hero() {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-/** Фургон фоном первого экрана. Украшение: из потока вынесен, для чтения невидим. */
-function BusBackdrop() {
-  const sizes = "(max-width: 1024px) 136vw, 68vw";
-  const srcSet = (format: string) =>
-    brand.bus.widths.map((width) => `/brand/bus-${width}.${format} ${width}w`).join(", ");
-
-  return (
-    <div aria-hidden className="hero-bus">
-      <picture>
-        <source type="image/avif" srcSet={srcSet("avif")} sizes={sizes} />
-        <img
-          src="/brand/bus-1600.webp"
-          srcSet={srcSet("webp")}
-          sizes={sizes}
-          alt=""
-          decoding="async"
-          fetchPriority="low"
-          width={brand.bus.width}
-          height={brand.bus.height}
-        />
-      </picture>
-    </div>
   );
 }
 

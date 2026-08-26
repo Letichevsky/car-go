@@ -366,12 +366,25 @@
   opacity: var(--bus-opacity);
   -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 100%);
   mask-image: linear-gradient(to top, #000 40%, transparent 100%);
+
+  /*
+   * Сдвиг при прокрутке. --bus-progress пишет BusBackdrop: 0 — первый экран
+   * на месте, 1 — прокручен целиком. --bus-travel подобран так, чтобы при
+   * единице правый край снимка ушёл ровно за левый край экрана: ширина 118%
+   * при отступе -9% значит, что правый край стоит на 109% ширины секции,
+   * а 109/118 ≈ 0.92 от собственной ширины снимка.
+   */
+  --bus-travel: -93%;
+  transform: translate3d(calc(var(--bus-progress, 0) * var(--bus-travel)), 0, 0);
+  will-change: transform;
 }
 
 @media (min-width: 1024px) {
   .hero-bus img {
     right: -4%;
     width: 86%;
+    /* 104% ширины секции при собственной ширине 86% — это 1.21 своей ширины */
+    --bus-travel: -121%;
     -webkit-mask-image: linear-gradient(to top, #000 45%, transparent 100%);
     mask-image: linear-gradient(to top, #000 45%, transparent 100%);
   }
