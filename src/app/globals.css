@@ -355,36 +355,67 @@
   z-index: -10;
   overflow: hidden;
   pointer-events: none;
+
+  /*
+   * Ход при прокрутке. --bus-progress пишет BusBackdrop: 0 — первый экран
+   * на месте, 1 — прокручен целиком.
+   *
+   * --bus-travel подобран так, чтобы при единице правый край снимка ушёл ровно
+   * за левый край экрана: ширина 118% при отступе -9% значит, что правый край
+   * стоит на 109% ширины секции, а 109/118 ≈ 0.93 собственной ширины снимка.
+   *
+   * --bus-spin — столько же, но в оборотах колеса: диаметр 9.99% ширины снимка,
+   * длина окружности π × 9.99 ≈ 31.4%, значит 93 / 31.4 ≈ 2.96 оборота. Влево
+   * колесо катится против часовой, отсюда минус.
+   */
+  --bus-travel: -93%;
+  --bus-spin: -1067deg;
 }
 
-.hero-bus img {
+.hero-bus-shot {
   position: absolute;
   right: -9%;
   bottom: 0;
   width: 118%;
-  max-width: none;
   opacity: var(--bus-opacity);
   -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 100%);
   mask-image: linear-gradient(to top, #000 40%, transparent 100%);
-
-  /*
-   * Сдвиг при прокрутке. --bus-progress пишет BusBackdrop: 0 — первый экран
-   * на месте, 1 — прокручен целиком. --bus-travel подобран так, чтобы при
-   * единице правый край снимка ушёл ровно за левый край экрана: ширина 118%
-   * при отступе -9% значит, что правый край стоит на 109% ширины секции,
-   * а 109/118 ≈ 0.92 от собственной ширины снимка.
-   */
-  --bus-travel: -93%;
   transform: translate3d(calc(var(--bus-progress, 0) * var(--bus-travel)), 0, 0);
   will-change: transform;
 }
 
+.hero-bus-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+.hero-bus-wheel {
+  position: absolute;
+  display: block;
+  transform: rotate(calc(var(--bus-progress, 0) * var(--bus-spin)));
+  will-change: transform;
+}
+
+.hero-bus-wheel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
 @media (min-width: 1024px) {
-  .hero-bus img {
+  .hero-bus {
+    /* 104% ширины секции при собственной ширине 86% — это 1.21 своей ширины,
+       и те же 121 / 31.4 ≈ 3.86 оборота колеса */
+    --bus-travel: -121%;
+    --bus-spin: -1388deg;
+  }
+
+  .hero-bus-shot {
     right: -4%;
     width: 86%;
-    /* 104% ширины секции при собственной ширине 86% — это 1.21 своей ширины */
-    --bus-travel: -121%;
     -webkit-mask-image: linear-gradient(to top, #000 45%, transparent 100%);
     mask-image: linear-gradient(to top, #000 45%, transparent 100%);
   }

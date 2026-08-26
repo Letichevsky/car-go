@@ -5,12 +5,14 @@ import brand from "@/data/brand.json";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const SIZES = "(max-width: 1024px) 118vw, 86vw";
+const WHEELS = ["front", "rear"] as const;
 
 /**
  * Фургон фоном первого экрана.
  *
  * По мере прокрутки уезжает влево и к тому моменту, когда первый экран пройден
- * целиком, полностью скрывается за левым краем. Доля пройденного пишется в
+ * целиком, полностью скрывается за левым краем. Колёса при этом крутятся ровно
+ * на столько, на сколько он проехал. Доля пройденного пишется в
  * CSS-переменную, а сдвиг считает уже CSS — трогаем только `transform`,
  * раскладка не пересчитывается и всё остаётся на видеокарте.
  *
@@ -69,19 +71,50 @@ export function BusBackdrop() {
 
   return (
     <div ref={ref} aria-hidden className="hero-bus">
-      <picture>
-        <source type="image/avif" srcSet={srcSet("avif")} sizes={SIZES} />
-        <img
-          src="/brand/bus-1600.webp"
-          srcSet={srcSet("webp")}
-          sizes={SIZES}
-          alt=""
-          decoding="async"
-          fetchPriority="low"
-          width={brand.bus.width}
-          height={brand.bus.height}
-        />
-      </picture>
+      <div className="hero-bus-shot">
+        <picture>
+          <source type="image/avif" srcSet={srcSet("avif")} sizes={SIZES} />
+          <img
+            className="hero-bus-photo"
+            src="/brand/bus-1600.webp"
+            srcSet={srcSet("webp")}
+            sizes={SIZES}
+            alt=""
+            decoding="async"
+            fetchPriority="low"
+            width={brand.bus.width}
+            height={brand.bus.height}
+          />
+        </picture>
+
+        {/*
+          Колёса — то же колесо, вырезанное из этого же снимка, положенное точно
+          поверх своих. Координаты и размер приходят из brand.json в процентах,
+          поэтому держатся на любой ширине. Круглая обрезка отсекает квадратные
+          углы вырезки с куском тени.
+        */}
+        {WHEELS.map((place) => (
+          <picture
+            key={place}
+            className="hero-bus-wheel"
+            style={{
+              left: `${brand.wheel[place].left}%`,
+              top: `${brand.wheel[place].top}%`,
+              width: `${brand.wheel.width}%`,
+            }}
+          >
+            <source type="image/avif" srcSet="/brand/wheel.avif" />
+            <img
+              src="/brand/wheel.webp"
+              alt=""
+              decoding="async"
+              fetchPriority="low"
+              width={brand.wheel.size}
+              height={brand.wheel.size}
+            />
+          </picture>
+        ))}
+      </div>
     </div>
   );
 }

@@ -19,6 +19,17 @@ const BUS_WIDTHS = [640, 1024, 1600, 2048];
 /** Высота логотипа в шапке × 3 — запас под плотные экраны */
 const LOGO_HEIGHT = 156;
 
+/** Колесо, вырезанное из того же снимка фургона */
+const WHEEL_SRC = "assets/brand/bus_wheel.png";
+/** Снимок фургона в Фигме — 1422×800, экспорт ×2 */
+const FIGMA_HEIGHT = 800;
+const FIGMA_SCALE = 2;
+/** Левый верхний угол каждого колеса в координатах Фигмы: слева и снизу кадра */
+const WHEEL_ANCHORS = {
+  front: { left: 194, bottom: 313 },
+  rear: { left: 987, bottom: 313 },
+};
+
 await mkdir(OUT, { recursive: true });
 
 // --- логотип ---------------------------------------------------------------
@@ -64,12 +75,12 @@ async function forDarkTheme(input) {
 }
 
 // --- фургон ----------------------------------------------------------------
-const bus = sharp("assets/brand/bus.png").trim();
-const busMeta = await sharp(await bus.clone().png().toBuffer()).metadata();
+const trimmedBus = await sharp("assets/brand/bus.png").trim().toBuffer({ resolveWithObject: true });
+const busMeta = await sharp(trimmedBus.data).metadata();
 
 for (const width of BUS_WIDTHS) {
   if (width > busMeta.width) continue;
-  const resized = sharp(await bus.clone().png().toBuffer()).resize({ width });
+  const resized = sharp(trimmedBus.data).resize({ width });
   await resized
     .clone()
     .avif({ quality: 55 })
@@ -80,6 +91,26 @@ for (const width of BUS_WIDTHS) {
     .toFile(path.join(OUT, `bus-${width}.webp`));
 }
 
+// --- колёса ----------------------------------------------------------------
+const wheelMeta = await sharp(WHEEL_SRC).metadata();
+await sharp(WHEEL_SRC).avif({ quality: 62 }).toFile(path.join(OUT, "wheel.avif"));
+await sharp(WHEEL_SRC).webp({ quality: 82 }).toFile(path.join(OUT, "wheel.webp"));
+
+/**
+ * Куда посадить колёса. Заказчик вырезал колесо из того же снимка и дал точки
+ * привязки в координатах Фигмы. Пересчитываем их в проценты от обрезанного
+ * снимка: обрезка съела прозрачные поля, поэтому вычитаем её смещение, а
+ * проценты не зависят от того, в какой ширине снимок потом покажется.
+ */
+const percent = (fraction) => Number((fraction * 100).toFixed(4));
+
+const wheels = { size: wheelMeta.width, width: percent(wheelMeta.width / busMeta.width) };
+for (const [key, anchor] of Object.entries(WHEEL_ANCHORS)) {
+  const x = anchor.left * FIGMA_SCALE + trimmedBus.info.trimOffsetLeft;
+  const y = (FIGMA_HEIGHT - anchor.bottom) * FIGMA_SCALE + trimmedBus.info.trimOffsetTop;
+  wheels[key] = { left: percent(x / busMeta.width), top: percent(y / busMeta.height) };
+}
+
 // Размеры нужны разметке, чтобы зарезервировать место и не дёргать раскладку
 await writeFile(
   "src/data/brand.json",
@@ -87,6 +118,7 @@ await writeFile(
     {
       logo: { width: logoMeta.width, height: logoMeta.height },
       bus: { width: busMeta.width, height: busMeta.height, widths: BUS_WIDTHS },
+      wheel: wheels,
     },
     null,
     2,
@@ -94,3 +126,4 @@ await writeFile(
 );
 
 console.log(`фургон: ${busMeta.width}×${busMeta.height} → ${BUS_WIDTHS.join(", ")}`);
+console.log(`колесо: ${wheelMeta.width}×${wheelMeta.height}`, wheels);
