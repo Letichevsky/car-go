@@ -48,7 +48,7 @@ export function BackToTop() {
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
       }}
-      className={`border-border bg-bg/90 text-text-secondary hover:border-info hover:text-info shadow-card fixed right-4 bottom-[calc(5.75rem+env(safe-area-inset-bottom))] z-40 flex size-12 cursor-pointer items-center justify-center rounded-full border backdrop-blur transition duration-300 ease-out lg:right-6 lg:bottom-6 ${
+      className={`border-border bg-bg/90 text-text-secondary hover:border-info hover:text-info shadow-card fixed right-4 bottom-[calc(var(--action-bar-space)+1.5rem)] z-40 flex size-12 cursor-pointer items-center justify-center rounded-full border backdrop-blur transition duration-300 ease-out lg:right-6 ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
       }`}
     >

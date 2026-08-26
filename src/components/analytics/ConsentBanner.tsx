@@ -21,7 +21,7 @@ export function ConsentBanner() {
     <div
       role="dialog"
       aria-label={t("title")}
-      className="border-border bg-surface shadow-card rounded-card fixed inset-x-4 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-[60] flex flex-col gap-3 border p-4 sm:inset-x-auto sm:right-4 sm:max-w-[26rem] lg:bottom-4"
+      className="border-border bg-surface shadow-card rounded-card fixed inset-x-4 bottom-[calc(var(--action-bar-space)+1rem)] z-[60] flex flex-col gap-3 border p-4 sm:inset-x-auto sm:right-4 sm:max-w-[26rem]"
     >
       <p className="text-text-secondary text-[0.875rem] leading-relaxed">{t("text")}</p>
       <div className="flex gap-2">

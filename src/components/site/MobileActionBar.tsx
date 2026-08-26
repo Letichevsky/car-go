@@ -46,6 +46,18 @@ export function MobileActionBar({ revealFrom }: { revealFrom?: string }) {
     };
   }, [revealFrom]);
 
+  // Баннер согласия и кнопка «наверх» встают над панелью, поэтому им нужно знать,
+  // выехала она или нет. Отметку читает CSS через --action-bar-space.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (visible) root.dataset.actionbar = "on";
+    else delete root.dataset.actionbar;
+
+    return () => {
+      delete root.dataset.actionbar;
+    };
+  }, [visible]);
+
   return (
     <div
       data-analytics-zone="mobile-bar"
