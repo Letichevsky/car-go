@@ -63,14 +63,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <main>
         <Hero />
         <Stats />
-        <WhyUs />
-        <HowItWorks />
         <Services />
-        <PromiseBlock />
+        <Areas />
         <WorksSection />
         <About />
+        <WhyUs />
+        <HowItWorks />
         <Reviews />
-        <Areas />
+        <PromiseBlock />
         <Faq />
         <CtaBanner />
       </main>

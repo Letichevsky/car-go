@@ -71,10 +71,10 @@ export function MobileMenu() {
 
   const links = [
     { href: "/#services", label: t("nav.services") },
-    { href: "/#how", label: t("nav.how") },
+    { href: "/#areas", label: t("nav.areas") },
     { href: "/#works", label: t("nav.works") },
     { href: "/#why", label: t("nav.why") },
-    { href: "/#areas", label: t("nav.areas") },
+    { href: "/#how", label: t("nav.how") },
     { href: "/#faq", label: t("nav.faq") },
     { href: contactsPath(locale), label: t("nav.contacts") },
   ];

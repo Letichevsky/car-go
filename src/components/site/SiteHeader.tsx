@@ -29,8 +29,8 @@ export function SiteHeader() {
         <nav className="text-text-secondary hidden items-center gap-5 text-[0.9375rem] font-medium lg:flex xl:gap-6">
           {[
             { href: "/#services", label: t("nav.services") },
-            { href: "/#how", label: t("nav.how") },
             { href: "/#works", label: t("nav.works") },
+            { href: "/#how", label: t("nav.how") },
             { href: "/#faq", label: t("nav.faq") },
             { href: contactsPath(locale), label: t("nav.contacts") },
           ].map((link) => (
