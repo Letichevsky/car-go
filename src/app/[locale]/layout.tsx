@@ -6,6 +6,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { ConsentDefaults, GoogleTagManager } from "@/components/analytics/Analytics";
 import { AnalyticsClient } from "@/components/analytics/AnalyticsClient";
 import { ConsentBanner } from "@/components/analytics/ConsentBanner";
+import { AnchorScroll } from "@/components/site/AnchorScroll";
 import { gtmId } from "@/lib/analytics";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
@@ -63,7 +64,10 @@ export default async function LocaleLayout({
   setRequestLocale(locale as Locale);
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    // data-scroll-behavior: у нас scroll-behavior: smooth, и без этого атрибута
+    // Next не гасит плавность на время перехода — прокрутка к началу новой
+    // страницы превращалась в анимацию через всю ленту и не доезжала до верха
+    <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {/* Дефолты Consent Mode — строго до загрузки любых тегов */}
@@ -80,6 +84,7 @@ export default async function LocaleLayout({
           {gtmId ? <ConsentBanner /> : null}
         </NextIntlClientProvider>
         <AnalyticsClient />
+        <AnchorScroll />
       </body>
     </html>
   );

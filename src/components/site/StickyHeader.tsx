@@ -2,11 +2,10 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
+import { HEADER_HIDE_AFTER } from "@/lib/header";
 
 /** Дрожание пальца на телефоне не должно прятать шапку — реагируем только на заметный сдвиг */
 const NOISE = 6;
-/** Первые пиксели прокрутки шапку не трогают: на первом экране она нужна всегда */
-const HIDE_AFTER = 120;
 
 /**
  * Шапка уезжает вверх, когда человек листает вниз, и возвращается на первом же
@@ -37,7 +36,7 @@ export function StickyHeader({ children }: { children: ReactNode }) {
       setScrolled(y > 8);
 
       if (Math.abs(delta) < NOISE) return;
-      setHidden(delta > 0 && y > HIDE_AFTER);
+      setHidden(delta > 0 && y > HEADER_HIDE_AFTER);
       last = y;
     };
 
