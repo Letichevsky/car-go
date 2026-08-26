@@ -4,8 +4,12 @@ import { Reveal } from "@/components/ui/Reveal";
 
 /**
  * Частые вопросы на нативных <details> — ноль JS, содержимое всегда в разметке,
- * поисковик видит ответы целиком. Плюс на «плюсике» поворачивается в крестик
- * средствами CSS через состояние open.
+ * поисковик видит ответы целиком.
+ *
+ * Атрибут `name` делает из них настоящую гармошку: открытие одного закрывает
+ * остальные. Браузеры без поддержки просто откроют несколько сразу — не поломка.
+ * Ответ появляется анимацией: у закрытого <details> содержимое не отрисовано,
+ * поэтому переходом высоту не оживить, а вот появление — можно.
  */
 export function Faq() {
   const t = useTranslations("faq");
@@ -18,20 +22,26 @@ export function Faq() {
       className="mx-auto w-full max-w-7xl px-5 py-14 lg:px-14 lg:py-16"
     >
       <Reveal from="up">
-        <h2 className="mb-7 text-[1.75rem] font-bold tracking-[-0.035em] lg:text-4xl">
+        <h2 className="mb-8 text-[1.75rem] font-bold tracking-[-0.035em] lg:text-4xl">
           {t("title")}
         </h2>
       </Reveal>
 
-      <div className="border-border border-t">
+      <div className="mx-auto flex max-w-4xl flex-col gap-3">
         {items.map((item, index) => (
-          <Reveal key={item.q} from="up" delay={index * 50}>
-            <details className="group border-border border-b">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-[1.0625rem] font-bold [&::-webkit-details-marker]:hidden">
+          <Reveal key={item.q} from="up" delay={index * 40}>
+            <details
+              name="faq"
+              className="group border-border bg-bg rounded-card open:border-info/50 open:shadow-card border transition-colors duration-200"
+            >
+              <summary className="group-hover:text-info flex cursor-pointer list-none items-center justify-between gap-5 p-5 text-[1.0625rem] leading-snug font-bold transition-colors duration-200 [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <PlusIcon className="text-chevron mt-0.5 size-5 shrink-0 transition-transform duration-300 ease-out group-open:rotate-45" />
+                <span className="rounded-control border-border-strong text-chevron group-open:border-action group-open:bg-action group-open:text-on-action flex size-8 shrink-0 items-center justify-center border transition duration-300 ease-out group-open:rotate-45">
+                  <PlusIcon className="size-4" />
+                </span>
               </summary>
-              <p className="text-text-secondary max-w-[52rem] pb-5 leading-relaxed">{item.a}</p>
+
+              <p className="faq-answer text-text-secondary px-5 pb-5 leading-relaxed">{item.a}</p>
             </details>
           </Reveal>
         ))}

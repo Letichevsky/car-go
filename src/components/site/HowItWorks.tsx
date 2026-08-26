@@ -2,8 +2,11 @@ import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/Reveal";
 
 /**
- * Шесть шагов переезда. Крупный номер и линия сверху — читается как маршрут,
- * а не как ещё один список преимуществ.
+ * Шесть шагов переезда.
+ *
+ * Крупный номер уходит в фон карточки: последовательность считывается сразу,
+ * а подписи не спорят с ним за внимание. Раньше шаги были просто колонками
+ * текста под тонкой линейкой и читались как ещё один список.
  */
 export function HowItWorks() {
   const t = useTranslations("how");
@@ -23,19 +26,23 @@ export function HowItWorks() {
           </div>
         </Reveal>
 
-        <ol className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <Reveal key={step.title} from="up" delay={index * 70}>
-              <li
-                className={`flex flex-col gap-2 border-t-2 pt-4 ${
-                  index === 0 ? "border-action" : "border-border-strong"
-                }`}
-              >
-                <span className="text-text-muted text-sm font-bold tabular-nums">
-                  {String(index + 1).padStart(2, "0")}
+            <Reveal key={step.title} from="up" delay={index * 60}>
+              <li className="border-border bg-bg rounded-card relative h-full overflow-hidden border p-6">
+                <span
+                  aria-hidden
+                  className="text-action/12 pointer-events-none absolute -top-4 right-4 text-[5.5rem] leading-none font-bold tabular-nums select-none"
+                >
+                  {index + 1}
                 </span>
-                <h3 className="text-lg font-bold">{step.title}</h3>
-                <p className="text-text-secondary text-[0.9375rem] leading-relaxed">{step.text}</p>
+
+                <div className="relative flex flex-col gap-2">
+                  <h3 className="text-lg font-bold">{step.title}</h3>
+                  <p className="text-text-secondary text-[0.9375rem] leading-relaxed">
+                    {step.text}
+                  </p>
+                </div>
               </li>
             </Reveal>
           ))}

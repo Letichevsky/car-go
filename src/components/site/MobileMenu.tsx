@@ -74,8 +74,8 @@ export function MobileMenu() {
   const links = [
     { href: "/#areas", label: t("nav.areas") },
     { href: "/#works", label: t("nav.works") },
-    { href: "/#why", label: t("nav.why") },
     { href: "/#how", label: t("nav.how") },
+    { href: "/#why", label: t("nav.why") },
     { href: "/#faq", label: t("nav.faq") },
     { href: contactsPath(locale), label: t("nav.contacts") },
   ];

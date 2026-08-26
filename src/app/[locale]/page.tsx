@@ -67,8 +67,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <Areas />
         <WorksSection />
         <About />
-        <WhyUs />
         <HowItWorks />
+        <WhyUs />
         <Reviews />
         <PromiseBlock />
         <Faq />

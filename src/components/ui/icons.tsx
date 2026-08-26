@@ -97,15 +97,6 @@ export function BoxIcon(props: IconProps) {
   );
 }
 
-export function ToolIcon(props: IconProps) {
-  return (
-    <svg {...base} strokeWidth={1.7} {...props}>
-      <path d="M14.7 6.3a4 4 0 0 1 5 5L9 22l-5-5z" />
-      <path d="m18 2 4 4" />
-    </svg>
-  );
-}
-
 export function SunIcon(props: IconProps) {
   return (
     <svg {...base} strokeWidth={2} {...props}>
@@ -233,6 +224,31 @@ export function TagIcon(props: IconProps) {
     <svg {...base} strokeWidth={1.8} {...props}>
       <path d="M12.6 3H21v8.4l-9.3 9.3a1.5 1.5 0 0 1-2.1 0l-6.3-6.3a1.5 1.5 0 0 1 0-2.1z" />
       <circle cx="17" cy="7" r="1.4" />
+    </svg>
+  );
+}
+
+/** Ключ с отвёрткой — сборка и разборка мебели */
+export function ToolsIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <path d="M20.6 3.9a4.6 4.6 0 0 1-5.9 5.9L9 15.5a2.1 2.1 0 0 1-3-3l5.7-5.7a4.6 4.6 0 0 1 5.9-5.9l-2.9 2.9.9 3 3 .9z" />
+      <path d="M4.2 3.6 6.6 6l-1.6 1.6L2.6 5.2z" />
+      <path d="M6.6 6 11 10.4" />
+    </svg>
+  );
+}
+
+/** Двое несут коробку — погрузка и разгрузка */
+export function MoversIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <circle cx="4.2" cy="6.2" r="1.8" />
+      <circle cx="19.8" cy="6.2" r="1.8" />
+      <path d="M4.2 8.3v4M19.8 8.3v4" />
+      <path d="M2.8 20.4 4.2 12.3l1.5 8.1M18.4 20.4l1.4-8.1 1.5 8.1" />
+      <path d="M7.6 10.4h8.8v5.4H7.6z" />
+      <path d="M5 10.9h2.6M16.4 10.9H19" />
     </svg>
   );
 }
