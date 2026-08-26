@@ -75,7 +75,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <CtaBanner />
       </main>
       <SiteFooter />
-      <MobileActionBar />
+      {/* На первом экране уже есть красная кнопка в форме — панель ждёт секции услуг */}
+      <MobileActionBar revealFrom="services" />
     </>
   );
 }
