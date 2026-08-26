@@ -40,7 +40,8 @@
     "zero": "€0",
     "note": "The type of van does not affect the price: small or large, the rate is the same. The exact figure comes after the free estimate.",
     "rowEstimate": "Cost estimate",
-    "estimateFree": "free"
+    "estimateFree": "free",
+    "sticker": "−15%\nnew\nclients"
   },
   "services": {
     "title": "Services",

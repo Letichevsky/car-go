@@ -99,8 +99,18 @@ function PriceCard() {
   return (
     <aside
       id="prices"
-      className="rounded-card border-border bg-surface shadow-card flex flex-col gap-5 border p-6"
+      className="rounded-card border-border bg-surface shadow-card relative flex flex-col gap-5 border p-6"
     >
+      {/*
+        Наклейка на углу. Текст живёт одной строкой в переводах: акцию можно
+        поменять или снять целиком, не трогая разметку.
+        ⚠️ Скидка новым клиентам — обещание, которое должен подтвердить заказчик
+        (§12 журнала).
+      */}
+      <span className="sticker bg-action text-on-action absolute -top-5 -right-3 flex size-24 rotate-[9deg] items-center justify-center px-4 text-center text-[0.6875rem] leading-tight font-bold tracking-wide whitespace-pre-line uppercase lg:-top-6 lg:-right-6 lg:size-28 lg:text-xs">
+        {t("price.sticker")}
+      </span>
+
       <h2 className="text-lg font-bold">{t("price.title")}</h2>
 
       <ul className="flex flex-col gap-3">
