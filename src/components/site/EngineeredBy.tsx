@@ -1,7 +1,7 @@
 import { VLMark } from "@/components/ui/VLMark";
 
-/** Подпись разработчика: та же ссылка, что в остальных проектах */
-const CONTACT = "https://t.me/vlcontact";
+/** Знак ведёт на сайт разработчика */
+const SITE = "https://letichevsky.com/";
 /** Не переводится: это подпись, она одинакова во всех локалях */
 const LABEL = "Engineered by";
 
@@ -16,15 +16,16 @@ const LABEL = "Engineered by";
  * Нижний запас берётся из `--action-bar-space`: пока липкая панель на телефоне
  * не выехала, подпись не висит над пустотой.
  *
- * Ссылка помечена `data-analytics-skip`: это адрес разработчика, а не канал
- * заявок, и в статистике переходов в Telegram ему делать нечего.
+ * Ссылка помечена `data-analytics-skip`: это переход к разработчику, а не заявка.
+ * Сейчас трекер её и так не считает, но пометка останется верной, даже если
+ * адрес однажды поменяют на мессенджер.
  */
 export function EngineeredBy() {
   return (
     <div className="border-border border-t">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-5 pt-14 pb-[calc(var(--action-bar-space)+3.5rem)] lg:px-14">
         <a
-          href={CONTACT}
+          href={SITE}
           target="_blank"
           rel="noopener noreferrer"
           data-analytics-skip
