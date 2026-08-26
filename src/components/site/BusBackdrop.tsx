@@ -10,9 +10,9 @@ const WHEELS = ["front", "rear"] as const;
 /**
  * Фургон фоном первого экрана.
  *
- * По мере прокрутки уезжает влево и к тому моменту, когда первый экран пройден
- * целиком, полностью скрывается за левым краем. Колёса при этом крутятся ровно
- * на столько, на сколько он проехал. Доля пройденного пишется в
+ * Трогается с первым же пикселем прокрутки и уезжает влево, полностью скрываясь
+ * за левым краем ровно к тому моменту, когда его верхний край доходит до верха
+ * экрана. Колёса крутятся ровно на столько, на сколько он проехал. Доля пройденного пишется в
  * CSS-переменную, а сдвиг считает уже CSS — трогаем только `transform`,
  * раскладка не пересчитывается и всё остаётся на видеокарте.
  *
@@ -28,15 +28,23 @@ export function BusBackdrop() {
   useEffect(() => {
     const node = ref.current;
     const hero = node?.closest("section");
-    if (!node || !hero || reduced) return;
+    const shot = node?.querySelector<HTMLElement>(".hero-bus-shot");
+    if (!node || !hero || !shot || reduced) return;
 
     let frame = 0;
 
     const apply = () => {
       frame = 0;
-      const rect = hero.getBoundingClientRect();
-      // 0 — первый экран на месте, 1 — прокручен ровно на свою высоту
-      const progress = Math.min(1, Math.max(0, -rect.top / rect.height));
+      const scrolled = window.scrollY;
+
+      /*
+       * Считаем от самого первого пикселя прокрутки — холостого хода в начале
+       * быть не должно. А заканчиваем там, где верхний край фургона доходит до
+       * верха экрана: дальше его срезает край, и уезжать было бы уже некуда.
+       * Так весь отъезд происходит, пока фургон виден целиком.
+       */
+      const finish = Math.max(1, shot.getBoundingClientRect().top + scrolled);
+      const progress = Math.min(1, Math.max(0, scrolled / finish));
       node.style.setProperty("--bus-progress", progress.toFixed(4));
     };
 
