@@ -16,8 +16,14 @@ export function Hero() {
   return (
     <section id="top" data-analytics-zone="hero" className="relative isolate overflow-hidden">
       <BusBackdrop />
+      {/*
+        Нижний отступ в vw, а не фиксированный: фургон занимает 118% ширины экрана,
+        то есть с ростом окна становится выше, и при постоянном отступе карточка
+        «что входит» наползала бы на него всё сильнее. 30vw держит долю перекрытия
+        такой же, какой она получилась на 375 px.
+      */}
 
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 pt-8 pb-28 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16 lg:px-14 lg:pt-16 lg:pb-36">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 pt-8 pb-[30vw] lg:grid-cols-[1.25fr_0.75fr] lg:gap-16 lg:px-14 lg:pt-16 lg:pb-36">
         <div className="flex flex-col gap-6">
           <Reveal immediate from="left">
             <p className="text-action flex items-center gap-3 text-xs font-bold tracking-[0.12em] uppercase">
