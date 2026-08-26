@@ -41,7 +41,9 @@
     "note": "O tipo de carrinha não influencia o preço: pequena ou grande, o valor é o mesmo. O valor exato é indicado após a avaliação gratuita.",
     "rowEstimate": "Avaliação do serviço",
     "estimateFree": "gratuita",
-    "sticker": "−15%\nnovos\nclientes"
+    "stickerTop": "novos clientes",
+    "stickerValue": "15%",
+    "stickerBottom": "desconto"
   },
   "services": {
     "title": "Serviços",

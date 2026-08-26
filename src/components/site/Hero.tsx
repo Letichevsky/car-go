@@ -102,13 +102,24 @@ function PriceCard() {
       className="rounded-card border-border bg-surface shadow-card relative flex flex-col gap-5 border p-6"
     >
       {/*
-        Наклейка на углу. Текст живёт одной строкой в переводах: акцию можно
-        поменять или снять целиком, не трогая разметку.
+        Наклейка на углу. Три строки разного кегля: кому — мелко, сколько — крупно,
+        чего — посередине. Все три живут в переводах, так что акцию можно поменять
+        или снять целиком, не трогая разметку.
         ⚠️ Скидка новым клиентам — обещание, которое должен подтвердить заказчик
         (§12 журнала).
       */}
-      <span className="sticker bg-action text-on-action absolute -top-5 -right-3 flex size-24 rotate-[9deg] items-center justify-center px-4 text-center text-[0.6875rem] leading-tight font-bold tracking-wide whitespace-pre-line uppercase lg:-top-6 lg:-right-6 lg:size-28 lg:text-xs">
-        {t("price.sticker")}
+      <span className="sticker bg-action text-on-action absolute -top-5 -right-3 flex size-24 rotate-[9deg] flex-col items-center justify-center px-3 text-center leading-none font-bold uppercase lg:-top-6 lg:-right-6 lg:size-28">
+        {/* Межстрочные интервалы заданы явно: строки должны стоять кучно,
+            а у крупного кегля собственный интерлиньяж развёл бы их */}
+        <span className="text-[0.5rem] leading-[1.15] tracking-[0.08em] lg:text-[0.5625rem]">
+          {t("price.stickerTop")}
+        </span>
+        <span className="text-2xl leading-[0.95] tracking-tight lg:text-[1.75rem]">
+          {t("price.stickerValue")}
+        </span>
+        <span className="text-[0.625rem] leading-none tracking-[0.06em] lg:text-[0.6875rem]">
+          {t("price.stickerBottom")}
+        </span>
       </span>
 
       <h2 className="text-lg font-bold">{t("price.title")}</h2>
