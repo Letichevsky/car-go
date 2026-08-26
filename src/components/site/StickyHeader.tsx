@@ -3,6 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { HEADER_HIDE_AFTER } from "@/lib/header";
+import { useMenuOpen } from "@/lib/menu";
 
 /** Дрожание пальца на телефоне не должно прятать шапку — реагируем только на заметный сдвиг */
 const NOISE = 6;
@@ -16,6 +17,15 @@ export function StickyHeader({ children }: { children: ReactNode }) {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [shownFor, setShownFor] = useState(pathname);
+  const menuOpen = useMenuOpen();
+  const [menuWas, setMenuWas] = useState(menuOpen);
+
+  // Меню открылось или закрылось — шапка на месте. Иначе, открыв меню в середине
+  // страницы, человек получил бы вверху пустую полосу без кнопки закрытия.
+  if (menuWas !== menuOpen) {
+    setMenuWas(menuOpen);
+    setHidden(false);
+  }
 
   // На новой странице шапка обязана быть видимой: React переиспользует этот
   // компонент между переходами, и спрятанное состояние переехало бы вместе с ним —

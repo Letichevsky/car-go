@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
 import { Link } from "@/i18n/navigation";
+import { HomeLink } from "@/components/ui/HomeLink";
 import { LogoMark } from "@/components/ui/LogoMark";
 import { PhoneText } from "@/components/ui/PhoneText";
 import { contactsPath } from "@/data/routes";
@@ -17,9 +18,9 @@ export function SiteFooter() {
     <footer data-analytics-zone="footer" className="border-border border-t">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 pb-28 lg:grid-cols-[1.2fr_1fr_0.8fr_0.8fr] lg:gap-10 lg:px-14 lg:pb-10">
         <div className="flex flex-col gap-2">
-          <Link href="/" aria-label="Car-Go!" className="flex w-fit items-center">
+          <HomeLink className="flex w-fit items-center">
             <LogoMark className="h-16" />
-          </Link>
+          </HomeLink>
           <p className="text-text-muted max-w-[26rem] text-[0.9375rem]">{t("footer.tagline")}</p>
         </div>
 

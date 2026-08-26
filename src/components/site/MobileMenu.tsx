@@ -11,6 +11,7 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { contactsPath } from "@/data/routes";
 import { contacts } from "@/lib/contacts";
+import { setMenuOpen } from "@/lib/menu";
 
 /** Столько длится выезд панели — столько же держим её в разметке при закрытии */
 const CLOSE_MS = 240;
@@ -43,11 +44,9 @@ export function MobileMenu() {
     };
 
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      setMenuOpen(false);
     };
   }, [isOpen]);
 
@@ -55,16 +54,17 @@ export function MobileMenu() {
 
   function open() {
     window.clearTimeout(closeTimer.current);
+    setMenuOpen(true);
     setState("open");
   }
 
   /**
    * Прокрутку разблокируем прямо здесь, а не в очистке эффекта: состояние
    * применится только после обработчика, а переход по якорю случится внутри
-   * него — при заблокированном body прыжок к секции не сработает.
+   * него — при заблокированной странице прыжок к секции не сработает.
    */
   function close() {
-    document.body.style.overflow = "";
+    setMenuOpen(false);
     setState("closing");
     closeTimer.current = window.setTimeout(() => setState("closed"), CLOSE_MS);
   }

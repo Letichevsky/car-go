@@ -5,6 +5,7 @@ import { StickyHeader } from "@/components/site/StickyHeader";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { PhoneIcon } from "@/components/ui/icons";
+import { HomeLink } from "@/components/ui/HomeLink";
 import { LogoMark } from "@/components/ui/LogoMark";
 import { PhoneText } from "@/components/ui/PhoneText";
 import { contactsPath } from "@/data/routes";
@@ -21,9 +22,9 @@ export function SiteHeader() {
         data-analytics-zone="header"
         className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-14"
       >
-        <Link href="/" aria-label="Car-Go!" className="flex shrink-0 items-center">
+        <HomeLink className="flex shrink-0 items-center">
           <LogoMark />
-        </Link>
+        </HomeLink>
 
         <nav className="text-text-secondary hidden items-center gap-5 text-[0.9375rem] font-medium lg:flex xl:gap-6">
           {[
