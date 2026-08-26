@@ -45,7 +45,12 @@ export function Hero() {
           </Reveal>
 
           <Reveal immediate from="up" delay={280}>
-            <div className="flex max-w-[34rem] flex-col gap-4">
+            {/*
+              Форма и кнопки собраны в одну карточку: под ними проезжает фургон,
+              и на просвет подписи читались плохо. Плотная подложка снимает вопрос
+              и заодно связывает три способа связаться в один блок.
+            */}
+            <div className="border-border bg-surface shadow-card rounded-card flex max-w-[34rem] flex-col gap-4 border p-5">
               <LeadForm buttonLabel={t("actions.getQuote")} />
               {/* Три пути к заявке рядом: форма, мессенджер и звонок */}
               <div className="flex flex-col gap-2.5 sm:flex-row">
