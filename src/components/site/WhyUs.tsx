@@ -47,12 +47,13 @@ export function WhyUs() {
           const accent = index === ACCENT;
 
           return (
-            <Reveal key={item.title} from="up" delay={index * 50}>
-              <li
-                className={`rounded-card flex h-full flex-col gap-3 border p-5 ${
-                  accent ? "border-action/40 bg-action/5" : "border-border"
-                }`}
-              >
+            <li
+              key={item.title}
+              className={`rounded-card h-full border p-5 ${
+                accent ? "border-action/40 bg-action/5" : "border-border"
+              }`}
+            >
+              <Reveal from="up" delay={index * 50} className="flex h-full flex-col gap-3">
                 <span
                   className={`rounded-control flex size-11 items-center justify-center ${
                     accent ? "bg-action text-on-action" : "bg-surface-strong text-info"
@@ -62,8 +63,8 @@ export function WhyUs() {
                 </span>
                 <h3 className="text-[1.0625rem] leading-snug font-bold">{item.title}</h3>
                 <p className="text-text-muted text-[0.9375rem] leading-relaxed">{item.text}</p>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           );
         })}
       </ul>

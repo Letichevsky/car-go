@@ -530,6 +530,41 @@
 }
 
 /*
+ * Шаги переезда. По умолчанию горит первый — иначе секция стоит совсем серой.
+ * Как только курсор заходит на список, подсветка уходит с первого и достаётся
+ * тому шагу, на который навели; курсор ушёл — снова горит первый.
+ *
+ * Всё под `hover: hover`: на сенсорном экране наведения нет, и там первый шаг
+ * подсвечен всегда.
+ */
+.steps > li:first-child {
+  border-color: var(--color-action);
+}
+
+.steps > li:first-child .steps-number {
+  color: var(--color-action);
+}
+
+@media (hover: hover) {
+  .steps:hover > li:first-child {
+    border-color: var(--color-border-strong);
+  }
+
+  .steps:hover > li:first-child .steps-number {
+    color: var(--color-text-muted);
+  }
+
+  /* Идёт после — при равной специфичности выигрывает тот шаг, на котором курсор */
+  .steps:hover > li:hover {
+    border-color: var(--color-action);
+  }
+
+  .steps:hover > li:hover .steps-number {
+    color: var(--color-action);
+  }
+}
+
+/*
  * Ответ в частых вопросах появляется, а не возникает рывком. Анимация, а не
  * переход: у закрытого <details> содержимое вообще не отрисовано, и переходить
  * там не от чего.
