@@ -123,6 +123,13 @@
 
 @layer base {
   html {
+    /*
+     * Горизонтальной прокрутки на сайте быть не должно. Берём clip, а не hidden:
+     * hidden сделал бы html контейнером прокрутки и сломал бы липкую шапку.
+     * overscroll-behavior-x убирает упругий сдвиг вбок на macOS и жест «назад».
+     */
+    overflow-x: clip;
+    overscroll-behavior-x: none;
     scroll-behavior: smooth;
     color-scheme: light dark;
     /*
@@ -135,6 +142,7 @@
   }
 
   body {
+    overflow-x: clip;
     background-color: var(--color-bg);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
@@ -403,4 +411,95 @@
 
 :root[data-theme="light"] .logo-mark--dark {
   display: none;
+}
+
+/*
+ * Бургер превращается в крестик на месте: сама кнопка в шапке не двигается,
+ * поэтому при частых нажатиях ничего не прыгает.
+ */
+.burger {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 0.875rem;
+}
+
+.burger span {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 140ms ease-out;
+}
+
+.burger span:nth-child(1) {
+  top: 0;
+}
+
+.burger span:nth-child(2) {
+  top: calc(50% - 1px);
+}
+
+.burger span:nth-child(3) {
+  bottom: 0;
+}
+
+.burger[data-open="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger[data-open="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[data-open="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Панель меню выезжает из-за правого края и уезжает обратно */
+@keyframes menu-panel-in {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes menu-panel-out {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes menu-scrim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-panel[data-state="open"] {
+  animation: menu-panel-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-panel[data-state="closing"] {
+  animation: menu-panel-out 240ms cubic-bezier(0.55, 0, 0.55, 0.2) both;
+}
+
+.menu-scrim[data-state="open"] {
+  animation: menu-scrim-in 260ms ease-out both;
+}
+
+.menu-scrim[data-state="closing"] {
+  animation: menu-scrim-in 240ms ease-in reverse both;
 }

@@ -1,55 +1,72 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useLocale, useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
-import { ChatIcon, CloseIcon, MenuIcon, PhoneIcon } from "@/components/ui/icons";
+import { ChatIcon, PhoneIcon } from "@/components/ui/icons";
 import { PhoneText } from "@/components/ui/PhoneText";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { contactsPath } from "@/data/routes";
 import { contacts } from "@/lib/contacts";
 
+/** Столько длится выезд панели — столько же держим её в разметке при закрытии */
+const CLOSE_MS = 240;
+
+type State = "closed" | "open" | "closing";
+
 /**
- * Меню для телефона. В шапке на узком экране не помещается ничего, кроме знака,
- * поэтому пункты, выбор языка и переключатель темы уезжают сюда.
+ * Меню для телефона.
  *
- * Панель рисуется порталом в body: у шапки есть backdrop-filter, а он создаёт
- * содержащий блок — position: fixed внутри неё считался бы от самой шапки,
- * и панель не заняла бы весь экран. Плюс шапка ещё и уезжает вверх при прокрутке.
+ * Кнопка никуда не двигается: она живёт в шапке и на месте превращается из
+ * бургера в крестик. Панель выезжает из-за правого края **под** шапкой —
+ * поэтому она и затемнение начинаются от нижней кромки шапки и её не перекрывают.
+ *
+ * Панель рисуется порталом в body: у шапки backdrop-filter, а он создаёт
+ * содержащий блок, и position: fixed внутри считался бы от самой шапки.
  */
 export function MobileMenu() {
   const t = useTranslations();
   const locale = useLocale() as Locale;
-  const [open, setOpen] = useState(false);
+  const [state, setState] = useState<State>("closed");
+  const closeTimer = useRef<number | undefined>(undefined);
+
+  const isOpen = state === "open";
 
   useEffect(() => {
-    if (!open) return;
+    if (!isOpen) return;
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") close();
     };
 
     document.addEventListener("keydown", onKey);
-    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [isOpen]);
+
+  useEffect(() => () => window.clearTimeout(closeTimer.current), []);
+
+  function open() {
+    window.clearTimeout(closeTimer.current);
+    setState("open");
+  }
 
   /**
-   * Закрытие. Прокрутку разблокируем прямо здесь, а не в очистке эффекта:
-   * состояние применится только после обработчика, а переход по якорю случится
-   * внутри него — при заблокированном body прыжок к секции просто не сработает.
+   * Прокрутку разблокируем прямо здесь, а не в очистке эффекта: состояние
+   * применится только после обработчика, а переход по якорю случится внутри
+   * него — при заблокированном body прыжок к секции не сработает.
    */
   function close() {
     document.body.style.overflow = "";
-    setOpen(false);
+    setState("closing");
+    closeTimer.current = window.setTimeout(() => setState("closed"), CLOSE_MS);
   }
 
   const links = [
@@ -66,41 +83,37 @@ export function MobileMenu() {
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={isOpen ? close : open}
         aria-label={t("nav.menu")}
-        aria-expanded={open}
-        className="rounded-control border-border text-text-secondary flex size-11 cursor-pointer items-center justify-center border transition-colors duration-200 lg:hidden"
+        aria-expanded={isOpen}
+        className="rounded-control border-border text-text-secondary relative z-10 flex size-11 cursor-pointer items-center justify-center border transition-colors duration-200 lg:hidden"
       >
-        <MenuIcon className="size-5" />
+        <span aria-hidden className="burger" data-open={isOpen}>
+          <span />
+          <span />
+          <span />
+        </span>
       </button>
 
-      {open &&
+      {state !== "closed" &&
         createPortal(
           <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={t("nav.menu")}
             data-analytics-zone="mobile-menu"
-            className="fixed inset-0 z-[70] lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-[70] lg:hidden"
+            style={{ top: "var(--header-height)" }}
           >
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={close} />
+            <div
+              data-state={state}
+              onClick={close}
+              className="menu-scrim absolute inset-0 bg-black/50 backdrop-blur-sm"
+            />
 
-            <div className="bg-bg absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col gap-6 overflow-y-auto p-5">
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-xl font-bold tracking-tight">
-                  CAR-<span className="text-action">GO!</span>
-                </span>
-                <button
-                  type="button"
-                  onClick={close}
-                  aria-label={t("gallery.close")}
-                  className="rounded-control border-border text-text-secondary flex size-11 cursor-pointer items-center justify-center border"
-                >
-                  <CloseIcon className="size-5" />
-                </button>
-              </div>
-
-              <nav className="flex flex-col">
+            <nav
+              aria-label={t("nav.menu")}
+              data-state={state}
+              className="menu-panel bg-bg absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col gap-6 overflow-y-auto p-5"
+            >
+              <div className="flex flex-col">
                 {links.map((link) => (
                   <Link
                     key={link.href}
@@ -111,7 +124,7 @@ export function MobileMenu() {
                     {link.label}
                   </Link>
                 ))}
-              </nav>
+              </div>
 
               <div className="flex items-center justify-between gap-4">
                 <LocaleSwitcher className="text-base" />
@@ -136,7 +149,7 @@ export function MobileMenu() {
                   {t("actions.whatsappShort")}
                 </a>
               </div>
-            </div>
+            </nav>
           </div>,
           document.body,
         )}
