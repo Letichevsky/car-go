@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { LeadForm } from "@/components/site/LeadForm";
+import { ChatIcon, PhoneIcon } from "@/components/ui/icons";
 import { PhoneText } from "@/components/ui/PhoneText";
 import { Reveal } from "@/components/ui/Reveal";
 import { contacts } from "@/lib/contacts";
@@ -9,7 +10,11 @@ export function CtaBanner() {
   const t = useTranslations();
 
   return (
-    <section id="contacts" className="mx-auto w-full max-w-7xl px-5 pb-14 lg:px-14 lg:pb-16">
+    <section
+      id="contacts"
+      data-analytics-zone="cta"
+      className="mx-auto w-full max-w-7xl px-5 pb-14 lg:px-14 lg:pb-16"
+    >
       <Reveal from="up">
         <div className="bg-action text-on-action rounded-card flex flex-col gap-8 p-8 lg:flex-row lg:items-center lg:justify-between lg:p-12">
           <div className="flex flex-col gap-2 lg:max-w-[24rem]">
@@ -21,20 +26,24 @@ export function CtaBanner() {
 
           <div className="flex w-full flex-col gap-3 lg:w-[32rem]">
             <LeadForm tone="onAction" buttonLabel={t("cta.button")} />
-            <p className="text-center text-[0.9375rem] font-semibold lg:text-right">
-              <a href={contacts.phoneHref} className="hover:underline">
-                <PhoneText />
-              </a>
-              <span aria-hidden> · </span>
+            <div className="flex flex-col gap-2.5 sm:flex-row">
               <a
-                href={contacts.telegramHref}
+                href={contacts.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="rounded-control border-on-action/40 hover:bg-on-action/10 inline-flex h-[3.25rem] flex-1 items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200"
               >
-                {contacts.telegram}
+                <ChatIcon className="size-[1.125rem]" />
+                {t("actions.whatsappShort")}
               </a>
-            </p>
+              <a
+                href={contacts.phoneHref}
+                className="rounded-control border-on-action/40 hover:bg-on-action/10 inline-flex h-[3.25rem] flex-1 items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200"
+              >
+                <PhoneIcon className="size-[1.125rem]" />
+                <PhoneText />
+              </a>
+            </div>
           </div>
         </div>
       </Reveal>

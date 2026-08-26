@@ -1,18 +1,24 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
 import { StickyHeader } from "@/components/site/StickyHeader";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { PhoneIcon } from "@/components/ui/icons";
 import { PhoneText } from "@/components/ui/PhoneText";
+import { contactsPath } from "@/data/routes";
+import type { Locale } from "@/i18n/routing";
 import { contacts } from "@/lib/contacts";
 
 export function SiteHeader() {
   const t = useTranslations();
+  const locale = useLocale() as Locale;
 
   return (
     <StickyHeader>
-      <header className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-14">
+      <header
+        data-analytics-zone="header"
+        className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-14"
+      >
         <Link href="/" className="flex items-center gap-3">
           {/* Место под знак из логотипа — ждём вектор от заказчика */}
           <span
@@ -28,10 +34,11 @@ export function SiteHeader() {
 
         <nav className="text-text-secondary hidden items-center gap-6 text-[0.9375rem] font-medium lg:flex">
           {[
-            { href: "/#works", label: t("nav.works") },
             { href: "/#services", label: t("nav.services") },
-            { href: "/#about", label: t("nav.about") },
-            { href: "/#contacts", label: t("nav.contacts") },
+            { href: "/#how", label: t("nav.how") },
+            { href: "/#works", label: t("nav.works") },
+            { href: "/#faq", label: t("nav.faq") },
+            { href: contactsPath(locale), label: t("nav.contacts") },
           ].map((link) => (
             <Link
               key={link.href}

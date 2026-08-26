@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { ChatIcon } from "@/components/ui/icons";
+import { ChatIcon, PhoneIcon } from "@/components/ui/icons";
 import { contacts } from "@/lib/contacts";
 
 /**
@@ -10,11 +10,21 @@ export function MobileActionBar() {
   const t = useTranslations();
 
   return (
-    <div className="border-border bg-bg/95 fixed inset-x-0 bottom-0 z-50 border-t backdrop-blur lg:hidden">
+    <div
+      data-analytics-zone="mobile-bar"
+      className="border-border bg-bg/95 fixed inset-x-0 bottom-0 z-50 border-t backdrop-blur lg:hidden"
+    >
       <div
-        className="grid grid-cols-[3.5rem_1fr] gap-3 px-5 py-3"
+        className="grid grid-cols-[3.25rem_3.25rem_1fr] gap-2.5 px-5 py-3"
         style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}
       >
+        <a
+          href={contacts.phoneHref}
+          aria-label={t("actions.callNow")}
+          className="rounded-control border-border-strong text-info flex h-[3.25rem] items-center justify-center border"
+        >
+          <PhoneIcon className="size-[1.375rem]" />
+        </a>
         <a
           href={contacts.whatsappHref}
           target="_blank"

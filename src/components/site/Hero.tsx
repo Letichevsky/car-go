@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { LeadForm } from "@/components/site/LeadForm";
-import { ChatIcon, CheckIcon } from "@/components/ui/icons";
+import { ChatIcon, CheckIcon, PhoneIcon } from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { contacts } from "@/lib/contacts";
 
@@ -13,7 +13,11 @@ export function Hero() {
   const t = useTranslations();
 
   return (
-    <section id="top" className="mx-auto w-full max-w-7xl px-5 pt-8 pb-14 lg:px-14 lg:pt-16">
+    <section
+      id="top"
+      data-analytics-zone="hero"
+      className="mx-auto w-full max-w-7xl px-5 pt-8 pb-14 lg:px-14 lg:pt-16"
+    >
       <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
         <div className="flex flex-col gap-6">
           <Reveal immediate from="left">
@@ -38,15 +42,25 @@ export function Hero() {
           <Reveal immediate from="up" delay={280}>
             <div className="flex max-w-[34rem] flex-col gap-4">
               <LeadForm buttonLabel={t("actions.getQuote")} />
-              <a
-                href={contacts.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-info hover:text-info-hover inline-flex w-fit items-center gap-2 text-[0.9375rem] font-semibold transition-colors duration-200"
-              >
-                <ChatIcon className="size-[1.125rem]" />
-                {t("actions.whatsapp")}
-              </a>
+              {/* Три пути к заявке рядом: форма, мессенджер и звонок */}
+              <div className="flex flex-col gap-2.5 sm:flex-row">
+                <a
+                  href={contacts.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-[3.25rem] flex-1 items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200"
+                >
+                  <ChatIcon className="size-[1.125rem]" />
+                  {t("actions.whatsappShort")}
+                </a>
+                <a
+                  href={contacts.phoneHref}
+                  className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-[3.25rem] flex-1 items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200"
+                >
+                  <PhoneIcon className="size-[1.125rem]" />
+                  {t("actions.callNow")}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>

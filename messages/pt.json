@@ -8,19 +8,25 @@
     "works": "Trabalhos",
     "contacts": "Contactos",
     "about": "Sobre nós",
-    "home": "Início"
+    "home": "Início",
+    "why": "Porquê nós",
+    "how": "Como decorre",
+    "faq": "Perguntas",
+    "areas": "Onde trabalhamos"
   },
   "hero": {
-    "eyebrow": "Lisboa · Mudanças & multi serviço",
-    "title": "A sua mudança tranquila começa connosco",
-    "subtitle": "Chegamos, embalamos, desmontamos, transportamos e montamos de novo. Apartamentos, escritórios e lojas — em Lisboa e em todo o território de Portugal."
+    "eyebrow": "A sua mudança tranquila começa connosco",
+    "title": "Mudanças e transportes em Lisboa e em todo o Portugal",
+    "subtitle": "Embalagem, desmontagem, transporte, carga, descarga e montagem. Tratamos de todo o processo, do primeiro contacto à última peça no lugar."
   },
   "actions": {
     "estimate": "Avaliação gratuita",
     "whatsapp": "Escrever no WhatsApp",
     "whatsappShort": "WhatsApp",
     "call": "Ligar",
-    "getQuote": "Pedir orçamento"
+    "getQuote": "Pedir orçamento",
+    "callNow": "Ligar agora",
+    "toContacts": "Contactos"
   },
   "price": {
     "title": "O que está incluído",
@@ -37,20 +43,28 @@
   "services": {
     "title": "Serviços",
     "all": "Pedir orçamento",
-    "homeTitle": "Mudanças residenciais",
-    "homeText": "Chave na mão: embalagem, filme aderente, desmontagem e montagem de móveis.",
+    "homeTitle": "Mudanças de apartamentos e casas",
+    "homeText": "Mudança residencial completa, do primeiro contacto à montagem no novo espaço.",
     "officeTitle": "Escritórios e lojas",
     "officeText": "Mudança fora do horário de trabalho, sem parar o negócio.",
     "deliveryTitle": "Compras e entregas",
     "deliveryText": "IKEA, AKI, Conforama, Makro, OLX — levantamos, transportamos e subimos.",
     "loadingTitle": "Carga e descarga",
     "loadingText": "Equipa e equipamento, se o transporte já for seu.",
-    "assemblyTitle": "Montagem de móveis e reparos",
-    "assemblyText": "Montagem de qualquer complexidade e pequenos reparos no novo espaço.",
+    "assemblyTitle": "Desmontagem e montagem",
+    "assemblyText": "Móveis, cozinhas e equipamentos — desmontamos e voltamos a montar.",
     "customTitle": "Não encontrou o seu caso?",
     "customText": "Descreva-o — calculamos e dizemos o preço antes de começar.",
     "customAction": "Escrever no WhatsApp",
-    "more": "Saber mais"
+    "more": "Saber mais",
+    "subtitle": "Escolha o que precisa — ou peça a mudança completa e não trate de nada.",
+    "secondaryTitle": "Também fazemos",
+    "turnkeyTitle": "Mudança chave na mão",
+    "turnkeyText": "Entrega a responsabilidade e nós tratamos de tudo, do início ao fim.",
+    "packingTitle": "Embalagem e preparação",
+    "packingText": "Materiais nossos e embalagem peça a peça, incluindo o que é delicado.",
+    "equipmentTitle": "Transporte de equipamentos",
+    "equipmentText": "Máquinas e mobiliário técnico de restaurantes, cafés, lojas e escritórios."
   },
   "cta": {
     "title": "Calculamos a sua mudança gratuitamente",
@@ -130,9 +144,9 @@
     },
     "items": {
       "home": {
-        "title": "Mudanças residenciais chave na mão",
-        "lead": "Levamos os nossos materiais, desmontamos os móveis, transportamos tudo e montamos no novo espaço. A si resta abrir a porta e dizer onde fica cada coisa.",
-        "metaTitle": "Mudanças residenciais em Lisboa — Car-Go!",
+        "title": "Mudanças de apartamentos e casas",
+        "lead": "Levamos os nossos materiais, desmontamos os móveis, transportamos tudo e voltamos a montar na morada nova.",
+        "metaTitle": "Mudanças de casa e apartamento em Lisboa — Car-Go!",
         "metaDescription": "Mudanças de casa chave na mão em Lisboa e em Portugal: embalagem, desmontagem e montagem de móveis, carga, transporte e arrumação. Avaliação gratuita.",
         "includes": [
           "Embalagem de bens, loiça e eletrodomésticos, filme e cantoneiras",
@@ -238,6 +252,72 @@
             "a": "Conferimos tudo antes de começar. Se faltar alguma coisa, ajudamos a tratar disso na loja e voltamos quando a peça chegar."
           }
         ]
+      },
+      "turnkey": {
+        "title": "Mudança chave na mão",
+        "lead": "Entrega-nos a responsabilidade e não trata de nada: levamos os materiais, embalamos, desmontamos, transportamos, montamos e colocamos tudo no lugar.",
+        "metaTitle": "Mudança chave na mão em Lisboa — Car-Go!",
+        "metaDescription": "Mudança completa chave na mão em Lisboa e em todo o Portugal: embalagem, desmontagem, transporte, montagem e arrumação. Avaliação gratuita.",
+        "includes": [
+          "Materiais de embalagem incluídos: caixas, filme aderente, papel, mantas e cintas",
+          "Desmontagem e montagem dos móveis nas duas moradas",
+          "Carga, transporte e descarga com equipa e equipamento próprios",
+          "Arrumação no novo espaço e recolha das embalagens"
+        ],
+        "faq": [
+          {
+            "q": "Preciso de estar presente durante a mudança?",
+            "a": "Basta abrir a porta no início e conferir no fim. O resto fica connosco, com uma pessoa de contacto sempre disponível."
+          },
+          {
+            "q": "Com que antecedência devo marcar?",
+            "a": "Quanto mais cedo melhor, sobretudo em fins de semana e no fim do mês. A data fica combinada na avaliação gratuita."
+          }
+        ]
+      },
+      "packing": {
+        "title": "Embalagem e preparação da mudança",
+        "lead": "Levamos os materiais e embalamos peça a peça: loiça, roupa, quadros, eletrónica e tudo o que pede cuidado extra.",
+        "metaTitle": "Embalagem para mudanças em Lisboa — Car-Go!",
+        "metaDescription": "Serviço de embalagem para mudanças em Lisboa: caixas, filme aderente, papel e proteção de móveis e eletrodomésticos. Tudo ou apenas o mais delicado.",
+        "includes": [
+          "Caixas, filme aderente, papel e fita — material incluído",
+          "Proteção de móveis, colchões e eletrodomésticos",
+          "Embalagem separada para loiça, vidros e quadros",
+          "Caixas identificadas por divisão, para abrir pela ordem certa"
+        ],
+        "faq": [
+          {
+            "q": "Posso pedir a embalagem só de uma parte?",
+            "a": "Sim. Muitos clientes tratam da roupa e dos livros e deixam connosco a loiça, os quadros e a eletrónica."
+          },
+          {
+            "q": "O material é cobrado à parte?",
+            "a": "Não. O material entra no valor combinado antes de começarmos."
+          }
+        ]
+      },
+      "equipment": {
+        "title": "Transporte de equipamentos e máquinas",
+        "lead": "Equipamento de restaurantes, cafés, lojas e escritórios: fornos, arcas, máquinas de café, servidores e mobiliário técnico.",
+        "metaTitle": "Transporte de equipamentos em Lisboa — Car-Go!",
+        "metaDescription": "Transporte de equipamentos pesados para restaurantes, cafés, lojas e escritórios em Lisboa: desmontagem, carga com equipamento próprio e colocação no lugar.",
+        "includes": [
+          "Porta-cargas, cintas e mantas para peças pesadas",
+          "Desmontagem prévia quando o equipamento não passa nas portas",
+          "Carga fixada e transporte em carrinha própria",
+          "Colocação no lugar definitivo na morada de destino"
+        ],
+        "faq": [
+          {
+            "q": "Trabalham fora do horário de funcionamento?",
+            "a": "Sim. Combinamos a noite ou o fim de semana para o negócio não parar, sem alteração do valor."
+          },
+          {
+            "q": "Fazem a ligação do equipamento?",
+            "a": "Colocamos no lugar e montamos a parte mecânica. Ligações de gás, água e eletricidade ficam para o técnico certificado."
+          }
+        ]
       }
     }
   },
@@ -246,5 +326,161 @@
     "movesLabel": "mudanças realizadas",
     "extrasLabel": "de custos extra por escadas, fins de semana ou feriados",
     "clientsLabel": "clientes satisfeitos"
+  },
+  "why": {
+    "title": "Porquê a Car-Go!",
+    "subtitle": "O que recebe quando a mudança fica connosco.",
+    "items": [
+      {
+        "title": "Equipa com mais de 5 anos de experiência",
+        "text": "Uma equipa fixa: as mesmas pessoas embalam, transportam e voltam a montar."
+      },
+      {
+        "title": "Embalagem de qualidade",
+        "text": "Materiais nossos — caixas, filme aderente, mantas e cintas — para cada tipo de bem."
+      },
+      {
+        "title": "Transporte firme",
+        "text": "Carrinhas próprias, carga arrumada e amarrada para a viagem."
+      },
+      {
+        "title": "Peças difíceis e pesadas",
+        "text": "Cofres, pianos, aquários, máquinas de restaurante e mobiliário de grande porte."
+      },
+      {
+        "title": "Equipa à medida do trabalho",
+        "text": "Mais trabalhadores e mais do que uma carrinha quando o volume assim o pede."
+      },
+      {
+        "title": "Todo o Portugal",
+        "text": "Base em Lisboa e serviço em todo o país, combinado no orçamento."
+      },
+      {
+        "title": "Serviço completo",
+        "text": "Do primeiro telefonema à montagem no novo espaço, sempre com a nossa equipa."
+      },
+      {
+        "title": "Sem custos extra",
+        "text": "Prédio sem elevador, fim de semana ou feriado não mudam o valor. O tamanho da carrinha também não."
+      }
+    ]
+  },
+  "how": {
+    "title": "Como decorre a mudança",
+    "subtitle": "Seis passos, do primeiro contacto à última peça montada.",
+    "steps": [
+      {
+        "title": "Contacto",
+        "text": "Conta-nos o que precisa de mudar — por WhatsApp, telefone ou pelo formulário."
+      },
+      {
+        "title": "Avaliação",
+        "text": "Vemos o volume, as moradas, os andares, os elevadores e os serviços extra. É gratuita e sem compromisso."
+      },
+      {
+        "title": "Preparação",
+        "text": "Embalamos e, quando é preciso, desmontamos móveis e equipamentos."
+      },
+      {
+        "title": "Transporte",
+        "text": "Carregamos, fixamos a carga e levamos tudo para a morada nova."
+      },
+      {
+        "title": "Entrega",
+        "text": "Descarregamos e colocamos tudo dentro de casa, divisão a divisão."
+      },
+      {
+        "title": "Montagem",
+        "text": "Voltamos a montar os móveis e tratamos dos últimos detalhes."
+      }
+    ]
+  },
+  "promise": {
+    "title": "Você entrega-nos a responsabilidade. Nós tratamos do resto.",
+    "text": "Não precisa de organizar a mudança, procurar caixas, alugar carrinha nem coordenar pessoas. Combinamos o dia, chegamos com tudo o que é preciso e devolvemos-lhe a casa pronta.",
+    "points": [
+      "Um interlocutor do princípio ao fim",
+      "Materiais, equipamento e equipa incluídos",
+      "Avaliação gratuita no dia e hora que lhe der jeito"
+    ]
+  },
+  "reviews": {
+    "title": "Avaliações dos nossos clientes",
+    "subtitle": "O que dizem as pessoas depois da mudança.",
+    "sampleNote": "Exemplo de apresentação. As avaliações reais entram aqui assim que estiverem confirmadas.",
+    "samples": [
+      {
+        "author": "Ana M.",
+        "city": "Lisboa",
+        "text": "Mudança de um T3 em Alvalade num dia. Embalaram tudo, desmontaram os armários e à noite já estava tudo montado em casa nova."
+      },
+      {
+        "author": "Ricardo S.",
+        "city": "Cascais",
+        "text": "Precisávamos de mudar o café sem fechar. Vieram numa segunda de manhã cedo, levaram as máquinas e às onze estávamos abertos."
+      },
+      {
+        "author": "Olena K.",
+        "city": "Oeiras",
+        "text": "Equipa pontual e cuidadosa. Trataram da loiça e dos quadros melhor do que eu teria tratado."
+      }
+    ]
+  },
+  "areas": {
+    "title": "Onde trabalhamos",
+    "subtitle": "Base em Lisboa, serviço em todo o país.",
+    "all": "e todo o Portugal",
+    "note": "Fora da região de Lisboa combinamos as condições na avaliação gratuita."
+  },
+  "faq": {
+    "title": "Perguntas frequentes",
+    "items": [
+      {
+        "q": "Quanto custa uma mudança?",
+        "a": "Não temos tabela de preços: cada mudança é diferente. Fazemos uma avaliação gratuita e dizemos o valor antes de começar."
+      },
+      {
+        "q": "De que depende o preço?",
+        "a": "Do volume, das moradas e dos andares, de haver ou não elevador, dos serviços que escolher — embalagem, desmontagem, montagem — e da distância."
+      },
+      {
+        "q": "Fazem desmontagem e montagem?",
+        "a": "Sim. Desmontamos na morada antiga e voltamos a montar na nova, no lugar que indicar."
+      },
+      {
+        "q": "Fazem embalagem?",
+        "a": "Sim, com materiais nossos: caixas, filme aderente, papel e mantas. Pode ser tudo ou apenas o que é mais delicado."
+      },
+      {
+        "q": "Quantas pessoas podem enviar?",
+        "a": "Ajustamos a equipa ao trabalho: mais trabalhadores e mais do que uma carrinha quando o volume o exige."
+      },
+      {
+        "q": "Trabalham fora de Lisboa?",
+        "a": "Sim, em todo o Portugal. Fora da região de Lisboa as condições ficam combinadas na avaliação."
+      },
+      {
+        "q": "Transportam objetos pesados ou frágeis?",
+        "a": "Sim. Temos experiência com peças grandes e delicadas e levamos porta-cargas, cintas e mantas para as mover."
+      }
+    ]
+  },
+  "consent": {
+    "title": "Cookies",
+    "text": "Usamos cookies de estatística e de publicidade para perceber como o site é encontrado. Sem o seu consentimento não são ativados.",
+    "accept": "Aceitar",
+    "decline": "Recusar"
+  },
+  "contactsPage": {
+    "metaTitle": "Contactos — Car-Go! mudanças em Lisboa",
+    "metaDescription": "Fale connosco por WhatsApp, telefone ou Telegram. Avaliação gratuita da sua mudança em Lisboa e em todo o Portugal.",
+    "title": "Contactos",
+    "lead": "Escreva ou ligue — respondemos no mesmo dia e marcamos a avaliação gratuita.",
+    "formTitle": "Deixe o seu número",
+    "channelsTitle": "Falar connosco",
+    "scheduleTitle": "Horário",
+    "scheduleText": "Combinamos o dia e a hora consigo. Trabalhamos também aos fins de semana e feriados, sem alterar o valor.",
+    "languagesTitle": "Idiomas",
+    "languagesText": "Português · English · Русский · Українська"
   }
 }

@@ -1,20 +1,34 @@
 import type { MetadataRoute } from "next";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
+import { contactsSlugs, worksSlug } from "@/data/routes";
 import { services } from "@/data/services";
 import { siteUrl } from "@/lib/site";
 
-/** Карта сайта: каждая страница на каждом из четырёх языков, с перекрёстными hreflang. */
-export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/works", ...services.map((service) => `/services/${service.slug}`)];
+/**
+ * Карта сайта: каждая страница на каждом из четырёх языков, с перекрёстными hreflang.
+ * Адреса локализованы, поэтому путь считается функцией от локали, а не константой.
+ */
+type Entry = { path: (locale: Locale) => string; priority: number };
 
+const pages: Entry[] = [
+  { path: () => "", priority: 1 },
+  { path: (locale) => `/${contactsSlugs[locale]}`, priority: 0.7 },
+  { path: () => `/${worksSlug}`, priority: 0.6 },
+  ...services.map((service) => ({
+    path: (locale: Locale) => `/${service.slugs[locale]}`,
+    priority: 0.8,
+  })),
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return routing.locales.flatMap((locale) =>
-    paths.map((path) => ({
-      url: `${siteUrl}/${locale}${path}`,
+    pages.map((page) => ({
+      url: `${siteUrl}/${locale}${page.path(locale)}`,
       changeFrequency: "monthly" as const,
-      priority: path === "" ? 1 : 0.8,
+      priority: page.priority,
       alternates: {
         languages: Object.fromEntries(
-          routing.locales.map((item) => [item, `${siteUrl}/${item}${path}`]),
+          routing.locales.map((item) => [item, `${siteUrl}/${item}${page.path(item)}`]),
         ),
       },
     })),

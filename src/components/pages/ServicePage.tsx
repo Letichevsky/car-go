@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { LeadForm } from "@/components/site/LeadForm";
 import { MobileActionBar } from "@/components/site/MobileActionBar";
@@ -10,61 +8,29 @@ import { Photo } from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRightIcon, CheckIcon, ChevronRightIcon } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
-import { routing, type Locale } from "@/i18n/routing";
-import { findService, services } from "@/data/services";
+import type { Locale } from "@/i18n/routing";
+import { serviceByKey, servicePath, services, type ServiceKey } from "@/data/services";
 import { photosByCategory } from "@/lib/photos";
+import { siteUrl } from "@/lib/site";
 
-type PageParams = { locale: string; slug: string };
-
-export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    services.map((service) => ({ locale, slug: service.slug })),
-  );
-}
-
-export async function generateMetadata({
-  params,
+/** Страница одной услуги. Адрес локализован, поэтому путь всегда считаем от локали. */
+export async function ServicePage({
+  locale,
+  serviceKey,
 }: {
-  params: Promise<PageParams>;
-}): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const service = findService(slug);
-  if (!service) return {};
-
-  const t = await getTranslations({ locale, namespace: `servicePages.items.${service.key}` });
-  const languages = Object.fromEntries(
-    routing.locales.map((item) => [item, `/${item}/services/${slug}`]),
-  );
-
-  return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    alternates: { canonical: `/${locale}/services/${slug}`, languages },
-    openGraph: {
-      title: t("metaTitle"),
-      description: t("metaDescription"),
-      locale,
-      type: "website",
-    },
-  };
-}
-
-export default async function ServicePage({ params }: { params: Promise<PageParams> }) {
-  const { locale, slug } = await params;
-  const service = findService(slug);
-  if (!service) notFound();
-
-  setRequestLocale(locale as Locale);
-
+  locale: Locale;
+  serviceKey: ServiceKey;
+}) {
+  const service = serviceByKey(serviceKey);
   const t = await getTranslations({ locale });
-  const item = (key: string) => t(`servicePages.items.${service.key}.${key}`);
+  const item = (key: string) => t(`servicePages.items.${serviceKey}.${key}`);
 
-  const includes = t.raw(`servicePages.items.${service.key}.includes`) as string[];
-  const faq = t.raw(`servicePages.items.${service.key}.faq`) as { q: string; a: string }[];
+  const includes = t.raw(`servicePages.items.${serviceKey}.includes`) as string[];
+  const faq = t.raw(`servicePages.items.${serviceKey}.faq`) as { q: string; a: string }[];
   const steps = t.raw("servicePages.common.steps") as { title: string; text: string }[];
 
   const gallery = photosByCategory(service.photos).slice(0, 4);
-  const others = services.filter((other) => other.slug !== service.slug);
+  const others = services.filter((other) => other.key !== serviceKey);
 
   // Разметка услуги и вопросов: расширенный сниппет в поиске тянется именно отсюда
   const jsonLd = [
@@ -74,6 +40,7 @@ export default async function ServicePage({ params }: { params: Promise<PagePara
       name: item("title"),
       description: item("metaDescription"),
       serviceType: item("title"),
+      url: `${siteUrl}/${locale}${servicePath(locale, serviceKey)}`,
       areaServed: [
         { "@type": "City", name: "Lisboa" },
         { "@type": "Country", name: "Portugal" },
@@ -101,7 +68,10 @@ export default async function ServicePage({ params }: { params: Promise<PagePara
 
       <main>
         {/* Первый экран услуги: обещание, заявка и один кадр с работы */}
-        <section className="mx-auto w-full max-w-7xl px-5 pt-6 pb-12 lg:px-14 lg:pt-10 lg:pb-16">
+        <section
+          data-analytics-zone="service-hero"
+          className="mx-auto w-full max-w-7xl px-5 pt-6 pb-12 lg:px-14 lg:pt-10 lg:pb-16"
+        >
           <nav
             aria-label="breadcrumb"
             className="text-text-muted mb-6 flex items-center gap-2 text-[0.8125rem]"
@@ -245,9 +215,9 @@ export default async function ServicePage({ params }: { params: Promise<PagePara
           </Reveal>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {others.map((other, index) => (
-              <Reveal key={other.slug} from="up" delay={index * 70}>
+              <Reveal key={other.key} from="up" delay={index * 60}>
                 <Link
-                  href={`/services/${other.slug}`}
+                  href={servicePath(locale, other.key)}
                   className="group border-border hover:border-info hover:shadow-card rounded-card flex h-full cursor-pointer flex-col justify-between gap-6 border p-5 transition duration-300 ease-out hover:-translate-y-1.5"
                 >
                   <span className="text-[1.0625rem] leading-snug font-bold">

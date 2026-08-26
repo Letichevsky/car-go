@@ -8,19 +8,25 @@
     "works": "Our work",
     "contacts": "Contact",
     "about": "About",
-    "home": "Home"
+    "home": "Home",
+    "why": "Why us",
+    "how": "How it works",
+    "faq": "FAQ",
+    "areas": "Where we work"
   },
   "hero": {
-    "eyebrow": "Lisbon · Mudanças & multi serviço",
-    "title": "Your stress-free move starts with us",
-    "subtitle": "We arrive, pack, disassemble, transport and put everything back together. Apartments, offices and shops — in Lisbon and throughout Portugal."
+    "eyebrow": "Your calm move starts with us",
+    "title": "Moving and transport in Lisbon and across Portugal",
+    "subtitle": "Packing, dismantling, transport, loading, unloading and assembly. We handle the whole process, from the first call to the last item in place."
   },
   "actions": {
     "estimate": "Free estimate",
     "whatsapp": "Message on WhatsApp",
     "whatsappShort": "WhatsApp",
     "call": "Call us",
-    "getQuote": "Get a quote"
+    "getQuote": "Get a quote",
+    "callNow": "Call now",
+    "toContacts": "Contacts"
   },
   "price": {
     "title": "What the price includes",
@@ -37,20 +43,28 @@
   "services": {
     "title": "Services",
     "all": "Get a quote",
-    "homeTitle": "Apartment moves",
-    "homeText": "Turnkey: packing, stretch wrap, furniture disassembly and assembly.",
+    "homeTitle": "House and apartment moves",
+    "homeText": "A complete residential move, from the first call to assembly in the new place.",
     "officeTitle": "Offices and shops",
     "officeText": "Moving outside business hours, with no downtime.",
     "deliveryTitle": "Shopping and delivery",
     "deliveryText": "IKEA, AKI, Conforama, Makro, OLX — we collect, deliver and carry it in.",
     "loadingTitle": "Loading and unloading",
     "loadingText": "Crew and equipment when the transport is already yours.",
-    "assemblyTitle": "Furniture assembly and repairs",
-    "assemblyText": "Assembly of any complexity and minor repairs at the new place.",
+    "assemblyTitle": "Dismantling and assembly",
+    "assemblyText": "Furniture, kitchens and appliances — taken apart and put back together.",
     "customTitle": "Something else in mind?",
     "customText": "Describe it — we will calculate and name the price before we start.",
     "customAction": "Message on WhatsApp",
-    "more": "Learn more"
+    "more": "Learn more",
+    "subtitle": "Pick what you need — or hand over the whole move and do nothing at all.",
+    "secondaryTitle": "We also do",
+    "turnkeyTitle": "Full-service move",
+    "turnkeyText": "You hand over the responsibility, we take care of everything from start to finish.",
+    "packingTitle": "Packing and preparation",
+    "packingText": "Our materials, packed item by item — including the fragile things.",
+    "equipmentTitle": "Equipment transport",
+    "equipmentText": "Machines and technical furniture for restaurants, cafés, shops and offices."
   },
   "cta": {
     "title": "We will quote your move for free",
@@ -130,9 +144,9 @@
     },
     "items": {
       "home": {
-        "title": "Full-service apartment moves",
-        "lead": "We arrive with our own materials, take the furniture apart, carry it out, drive it over and put it back together at the new place. You open the door and say where things go.",
-        "metaTitle": "Apartment moves in Lisbon — Car-Go!",
+        "title": "House and apartment moves",
+        "lead": "We bring our own materials, dismantle the furniture, move everything and put it back together at the new address.",
+        "metaTitle": "House and apartment moving in Lisbon — Car-Go!",
         "metaDescription": "Full-service home moves in Lisbon and across Portugal: packing, furniture disassembly and assembly, loading, transport and arranging. Free estimate.",
         "includes": [
           "Packing of belongings, dishes and appliances, stretch wrap and corner guards",
@@ -238,6 +252,72 @@
             "a": "We check the contents before starting. If something is missing, we help sort it with the shop and come back once the part arrives."
           }
         ]
+      },
+      "turnkey": {
+        "title": "Full-service move",
+        "lead": "Hand over the responsibility and do nothing at all: we bring the materials, pack, dismantle, transport, assemble and put everything in its place.",
+        "metaTitle": "Full-service moving in Lisbon — Car-Go!",
+        "metaDescription": "A complete turnkey move in Lisbon and across Portugal: packing, dismantling, transport, assembly and unpacking. Free survey.",
+        "includes": [
+          "Packing materials included: boxes, stretch film, paper, blankets and straps",
+          "Dismantling and assembly of furniture at both addresses",
+          "Loading, transport and unloading with our own crew and equipment",
+          "Setting everything up in the new place and taking the packaging away"
+        ],
+        "faq": [
+          {
+            "q": "Do I need to be there during the move?",
+            "a": "Just open the door at the start and check at the end. The rest is on us, with one contact person available throughout."
+          },
+          {
+            "q": "How far in advance should I book?",
+            "a": "The earlier the better, especially for weekends and the end of the month. The date is fixed during the free survey."
+          }
+        ]
+      },
+      "packing": {
+        "title": "Packing and move preparation",
+        "lead": "We bring the materials and pack item by item: dishes, clothes, pictures, electronics and everything that needs extra care.",
+        "metaTitle": "Packing service for moves in Lisbon — Car-Go!",
+        "metaDescription": "Packing service for moves in Lisbon: boxes, stretch film, paper and protection for furniture and appliances. Everything, or just the fragile part.",
+        "includes": [
+          "Boxes, stretch film, paper and tape — materials included",
+          "Protection for furniture, mattresses and appliances",
+          "Separate packing for dishes, glass and pictures",
+          "Boxes labelled by room, so you unpack in the right order"
+        ],
+        "faq": [
+          {
+            "q": "Can I ask for packing of just part of it?",
+            "a": "Yes. Many clients handle clothes and books themselves and leave us the dishes, pictures and electronics."
+          },
+          {
+            "q": "Are the materials charged separately?",
+            "a": "No. Materials are part of the price agreed before we start."
+          }
+        ]
+      },
+      "equipment": {
+        "title": "Equipment and machinery transport",
+        "lead": "Equipment for restaurants, cafés, shops and offices: ovens, freezers, coffee machines, servers and technical furniture.",
+        "metaTitle": "Equipment transport in Lisbon — Car-Go!",
+        "metaDescription": "Transport of heavy equipment for restaurants, cafés, shops and offices in Lisbon: dismantling, loading with proper gear and placement on site.",
+        "includes": [
+          "Dollies, straps and blankets for heavy pieces",
+          "Dismantling first when the equipment will not fit through the doors",
+          "Secured load in our own van",
+          "Placement in its final spot at the destination"
+        ],
+        "faq": [
+          {
+            "q": "Do you work outside business hours?",
+            "a": "Yes. We agree on a night or a weekend so the business keeps running, at the same price."
+          },
+          {
+            "q": "Do you connect the equipment?",
+            "a": "We place it and assemble the mechanical part. Gas, water and electrical connections are for a certified technician."
+          }
+        ]
       }
     }
   },
@@ -246,5 +326,161 @@
     "movesLabel": "completed moves",
     "extrasLabel": "in surcharges for stairs, weekends or holidays",
     "clientsLabel": "happy customers"
+  },
+  "why": {
+    "title": "Why Car-Go!",
+    "subtitle": "What you get when the move is ours to run.",
+    "items": [
+      {
+        "title": "A team with 5+ years of experience",
+        "text": "One steady crew: the same people pack, drive and put everything back together."
+      },
+      {
+        "title": "Proper packing",
+        "text": "Our own materials — boxes, stretch film, blankets and straps — for every kind of item."
+      },
+      {
+        "title": "Secured transport",
+        "text": "Our own vans, with the load arranged and strapped down for the drive."
+      },
+      {
+        "title": "Heavy and awkward items",
+        "text": "Safes, pianos, aquariums, restaurant machines and oversized furniture."
+      },
+      {
+        "title": "A crew sized to the job",
+        "text": "More movers and more than one van whenever the volume calls for it."
+      },
+      {
+        "title": "All of Portugal",
+        "text": "Based in Lisbon, working across the country — agreed in the quote."
+      },
+      {
+        "title": "End-to-end service",
+        "text": "From the first call to assembly in the new place, always with our own team."
+      },
+      {
+        "title": "No extra charges",
+        "text": "No lift, weekends and public holidays do not change the price. Neither does van size."
+      }
+    ]
+  },
+  "how": {
+    "title": "How the move goes",
+    "subtitle": "Six steps, from the first message to the last piece assembled.",
+    "steps": [
+      {
+        "title": "Get in touch",
+        "text": "Tell us what needs moving — by WhatsApp, phone or through the form."
+      },
+      {
+        "title": "Free survey",
+        "text": "We look at the volume, the addresses, the floors, the lifts and any extra work. Free and with no obligation."
+      },
+      {
+        "title": "Preparation",
+        "text": "We pack and, where needed, dismantle furniture and appliances."
+      },
+      {
+        "title": "Transport",
+        "text": "We load, secure the cargo and drive it to the new address."
+      },
+      {
+        "title": "Delivery",
+        "text": "We unload and carry everything inside, room by room."
+      },
+      {
+        "title": "Assembly",
+        "text": "We put the furniture back together and finish the last details."
+      }
+    ]
+  },
+  "promise": {
+    "title": "You hand over the responsibility. We take care of the rest.",
+    "text": "No organising, no hunting for boxes, no van to rent, no people to coordinate. We agree on a day, arrive with everything needed and hand you back a finished home.",
+    "points": [
+      "One person in charge from start to finish",
+      "Materials, equipment and crew included",
+      "Free survey at a day and time that suits you"
+    ]
+  },
+  "reviews": {
+    "title": "What our clients say",
+    "subtitle": "Feedback from people after their move.",
+    "sampleNote": "Sample layout. Real reviews go here once they are confirmed.",
+    "samples": [
+      {
+        "author": "Ana M.",
+        "city": "Lisbon",
+        "text": "A three-bedroom flat in Alvalade moved in one day. They packed everything, took the wardrobes apart, and by the evening it was all back together in the new place."
+      },
+      {
+        "author": "Ricardo S.",
+        "city": "Cascais",
+        "text": "We had to move the café without closing. They came early on a Monday, took the machines across, and we opened at eleven."
+      },
+      {
+        "author": "Olena K.",
+        "city": "Oeiras",
+        "text": "On time and careful. They handled the dishes and the pictures better than I would have myself."
+      }
+    ]
+  },
+  "areas": {
+    "title": "Where we work",
+    "subtitle": "Based in Lisbon, working across the country.",
+    "all": "and all of Portugal",
+    "note": "Outside the Lisbon area the terms are agreed during the free survey."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "q": "How much does a move cost?",
+        "a": "There is no price list: every move is different. We do a free survey and tell you the price before we start."
+      },
+      {
+        "q": "What does the price depend on?",
+        "a": "The volume, the addresses and floors, whether there is a lift, the services you choose — packing, dismantling, assembly — and the distance."
+      },
+      {
+        "q": "Do you dismantle and assemble furniture?",
+        "a": "Yes. We take it apart at the old address and put it back together at the new one, wherever you want it."
+      },
+      {
+        "q": "Do you do the packing?",
+        "a": "Yes, with our own materials: boxes, stretch film, paper and blankets. Everything, or just the fragile part."
+      },
+      {
+        "q": "How many people can you send?",
+        "a": "We size the crew to the job: more movers and more than one van when the volume calls for it."
+      },
+      {
+        "q": "Do you work outside Lisbon?",
+        "a": "Yes, across Portugal. Outside the Lisbon area the terms are agreed during the survey."
+      },
+      {
+        "q": "Do you move heavy or fragile items?",
+        "a": "Yes. We have experience with large and delicate pieces and bring dollies, straps and blankets to move them."
+      }
+    ]
+  },
+  "consent": {
+    "title": "Cookies",
+    "text": "We use analytics and advertising cookies to understand how people find this site. Nothing is switched on without your consent.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "contactsPage": {
+    "metaTitle": "Contacts — Car-Go! movers in Lisbon",
+    "metaDescription": "Reach us on WhatsApp, by phone or on Telegram. Free survey of your move in Lisbon and across Portugal.",
+    "title": "Contacts",
+    "lead": "Write or call — we answer the same day and book the free survey.",
+    "formTitle": "Leave your number",
+    "channelsTitle": "Talk to us",
+    "scheduleTitle": "When we work",
+    "scheduleText": "We agree the day and time with you. Weekends and public holidays included, at the same price.",
+    "languagesTitle": "Languages",
+    "languagesText": "Português · English · Русский · Українська"
   }
 }
