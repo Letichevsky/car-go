@@ -1,8 +1,27 @@
 import { useTranslations } from "next-intl";
-import { CheckIcon } from "@/components/ui/icons";
+import {
+  AwardIcon,
+  BoxIcon,
+  CheckIcon,
+  PinIcon,
+  RouteIcon,
+  TagIcon,
+  TruckIcon,
+  UsersIcon,
+  WeightIcon,
+} from "@/components/ui/icons";
 import { Reveal } from "@/components/ui/Reveal";
 
-/** Восемь причин — конкретика вместо «мы профессионалы». */
+/**
+ * Восемь причин.
+ *
+ * Порядок иконок совпадает с порядком `why.items` в переводах — если менять
+ * список, менять надо оба места. Последний пункт про отсутствие доплат выделен:
+ * это самая сильная выгода из всех, и в плоском списке она терялась.
+ */
+const icons = [AwardIcon, BoxIcon, TruckIcon, WeightIcon, UsersIcon, PinIcon, RouteIcon, TagIcon];
+const ACCENT = icons.length - 1;
+
 export function WhyUs() {
   const t = useTranslations("why");
   const items = t.raw("items") as { title: string; text: string }[];
@@ -22,20 +41,31 @@ export function WhyUs() {
         </div>
       </Reveal>
 
-      <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map((item, index) => (
-          <Reveal key={item.title} from="up" delay={index * 60}>
-            <li className="flex flex-col gap-2">
-              <span className="flex items-start gap-2.5">
-                <CheckIcon className="text-info mt-1 size-[1.125rem] shrink-0" />
-                <span className="text-[1.0625rem] leading-snug font-bold">{item.title}</span>
-              </span>
-              <p className="text-text-muted pl-[1.625rem] text-[0.9375rem] leading-relaxed">
-                {item.text}
-              </p>
-            </li>
-          </Reveal>
-        ))}
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {items.map((item, index) => {
+          const Icon = icons[index] ?? CheckIcon;
+          const accent = index === ACCENT;
+
+          return (
+            <Reveal key={item.title} from="up" delay={index * 50}>
+              <li
+                className={`rounded-card flex h-full flex-col gap-3 border p-5 ${
+                  accent ? "border-action/40 bg-action/5" : "border-border"
+                }`}
+              >
+                <span
+                  className={`rounded-control flex size-11 items-center justify-center ${
+                    accent ? "bg-action text-on-action" : "bg-surface-strong text-info"
+                  }`}
+                >
+                  <Icon className="size-[1.375rem]" />
+                </span>
+                <h3 className="text-[1.0625rem] leading-snug font-bold">{item.title}</h3>
+                <p className="text-text-muted text-[0.9375rem] leading-relaxed">{item.text}</p>
+              </li>
+            </Reveal>
+          );
+        })}
       </ul>
     </section>
   );

@@ -2,6 +2,7 @@ import { useLocale, useTranslations } from "next-intl";
 import {
   ArrowRightIcon,
   BoxIcon,
+  CartIcon,
   HomeIcon,
   KeyIcon,
   OfficeIcon,
@@ -21,20 +22,21 @@ const icons: Record<ServiceKey, typeof HomeIcon> = {
   packing: BoxIcon,
   assembly: ToolIcon,
   equipment: TruckIcon,
-  delivery: BoxIcon,
-  loading: TruckIcon,
+  delivery: CartIcon,
+  loading: BoxIcon,
 };
 
 /**
- * Шесть основных направлений карточками, остальные — строкой ниже.
- * Полотном на главной услуги не расписываем: подробности живут на своих страницах.
+ * Восемь направлений — восемь одинаковых карточек.
+ *
+ * Раньше две услуги стояли строкой под сеткой и читались как второсортные,
+ * хотя это такие же услуги. Карточка горизонтальная: слева плитка с иконкой,
+ * справа текст — так восемь штук помещаются в две колонки и не превращаются
+ * в узкие столбики с переносами на каждом слове.
  */
 export function Services() {
   const t = useTranslations();
   const locale = useLocale() as Locale;
-
-  const primary = services.filter((service) => service.primary);
-  const secondary = services.filter((service) => !service.primary);
 
   return (
     <section
@@ -62,48 +64,34 @@ export function Services() {
         </div>
       </Reveal>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {primary.map((service, index) => {
+      <div className="grid gap-4 lg:grid-cols-2">
+        {services.map((service, index) => {
           const Icon = icons[service.key];
           return (
-            <Reveal key={service.key} from="up" delay={index * 70}>
+            <Reveal key={service.key} from="up" delay={index * 50}>
               <Link
                 href={servicePath(locale, service.key)}
-                className="group border-border hover:border-info/60 hover:shadow-card rounded-card flex h-full cursor-pointer flex-col gap-3 border p-6 transition duration-300 ease-out hover:-translate-y-1.5"
+                className="group border-border hover:border-info/60 hover:shadow-card rounded-card flex h-full cursor-pointer overflow-hidden border transition duration-300 ease-out hover:-translate-y-1.5"
               >
-                <Icon className="text-info size-[1.625rem] transition duration-300 ease-out group-hover:scale-110" />
-                <h3 className="text-lg font-bold">{t(`services.${service.key}Title`)}</h3>
-                <p className="text-text-muted text-[0.9375rem] leading-relaxed">
-                  {t(`services.${service.key}Text`)}
-                </p>
-                <span className="text-info mt-auto inline-flex items-center gap-2 pt-2 text-[0.875rem] font-semibold">
-                  {t("services.more")}
-                  <ArrowRightIcon className="size-4 transition duration-300 ease-out group-hover:translate-x-1" />
+                <span className="bg-surface border-border flex w-20 shrink-0 items-center justify-center border-r sm:w-24">
+                  <Icon className="text-info size-8 transition duration-300 ease-out group-hover:scale-110" />
+                </span>
+
+                <span className="flex flex-1 flex-col gap-2 p-5 sm:p-6">
+                  <span className="text-lg font-bold">{t(`services.${service.key}Title`)}</span>
+                  <span className="text-text-muted text-[0.9375rem] leading-relaxed">
+                    {t(`services.${service.key}Text`)}
+                  </span>
+                  <span className="text-info mt-auto inline-flex items-center gap-2 pt-2 text-[0.875rem] font-semibold">
+                    {t("services.more")}
+                    <ArrowRightIcon className="size-4 transition duration-300 ease-out group-hover:translate-x-1" />
+                  </span>
                 </span>
               </Link>
             </Reveal>
           );
         })}
       </div>
-
-      {/* Остальные услуги — строкой: важны, но на главной не должны спорить с шестью основными */}
-      <Reveal from="up" delay={primary.length * 70}>
-        <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="text-text-muted text-[0.9375rem] font-semibold">
-            {t("services.secondaryTitle")}
-          </span>
-          {secondary.map((service) => (
-            <Link
-              key={service.key}
-              href={servicePath(locale, service.key)}
-              className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex items-center gap-2 border px-3.5 py-2 text-[0.9375rem] font-semibold transition-colors duration-200"
-            >
-              {t(`services.${service.key}Title`)}
-              <ArrowRightIcon className="size-4" />
-            </Link>
-          ))}
-        </div>
-      </Reveal>
     </section>
   );
 }

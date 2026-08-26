@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
 import { MobileMenu } from "@/components/site/MobileMenu";
+import { ServicesNav } from "@/components/site/ServicesNav";
 import { StickyHeader } from "@/components/site/StickyHeader";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
@@ -27,8 +28,10 @@ export function SiteHeader() {
         </HomeLink>
 
         <nav className="text-text-secondary hidden items-center gap-5 text-[0.9375rem] font-medium lg:flex xl:gap-6">
+          {/* У «Услуг» свой пункт: по наведению раскрывается список направлений */}
+          <ServicesNav />
+
           {[
-            { href: "/#services", label: t("nav.services") },
             { href: "/#works", label: t("nav.works") },
             { href: "/#how", label: t("nav.how") },
             { href: "/#faq", label: t("nav.faq") },

@@ -5,11 +5,12 @@ import { createPortal } from "react-dom";
 import { useLocale, useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
-import { ChatIcon, PhoneIcon } from "@/components/ui/icons";
+import { ChatIcon, PhoneIcon, PlusIcon } from "@/components/ui/icons";
 import { PhoneText } from "@/components/ui/PhoneText";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { contactsPath } from "@/data/routes";
+import { services, servicePath } from "@/data/services";
 import { contacts } from "@/lib/contacts";
 import { setMenuOpen } from "@/lib/menu";
 
@@ -32,6 +33,7 @@ export function MobileMenu() {
   const t = useTranslations();
   const locale = useLocale() as Locale;
   const [state, setState] = useState<State>("closed");
+  const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<number | undefined>(undefined);
 
   const isOpen = state === "open";
@@ -70,7 +72,6 @@ export function MobileMenu() {
   }
 
   const links = [
-    { href: "/#services", label: t("nav.services") },
     { href: "/#areas", label: t("nav.areas") },
     { href: "/#works", label: t("nav.works") },
     { href: "/#why", label: t("nav.why") },
@@ -114,6 +115,41 @@ export function MobileMenu() {
               className="menu-panel bg-bg absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col gap-6 overflow-y-auto p-5"
             >
               <div className="flex flex-col">
+                {/*
+                  «Услуги» на телефоне не ведут на секцию, а раскрывают список
+                  направлений: с телефона удобнее попасть сразу на нужную страницу,
+                  чем сначала прокручивать главную.
+                */}
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen((value) => !value)}
+                  aria-expanded={servicesOpen}
+                  className="border-border hover:text-info flex cursor-pointer items-center justify-between gap-4 border-b py-4 text-lg font-semibold transition-colors duration-200"
+                >
+                  {t("nav.services")}
+                  <PlusIcon
+                    aria-hidden
+                    className={`text-chevron size-5 shrink-0 transition-transform duration-300 ease-out ${
+                      servicesOpen ? "rotate-45" : ""
+                    }`}
+                  />
+                </button>
+
+                {servicesOpen && (
+                  <div className="border-border flex flex-col border-b py-1">
+                    {services.map((service) => (
+                      <Link
+                        key={service.key}
+                        href={servicePath(locale, service.key)}
+                        onClick={close}
+                        className="text-text-secondary hover:text-info py-2.5 pl-4 text-[0.9375rem] font-medium transition-colors duration-200"
+                      >
+                        {t(`services.${service.key}Title`)}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
                 {links.map((link) => (
                   <Link
                     key={link.href}

@@ -188,3 +188,51 @@ export function PlusIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function AwardIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <circle cx="12" cy="9" r="5.5" />
+      <path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5" />
+    </svg>
+  );
+}
+
+export function UsersIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <circle cx="9" cy="8" r="3.2" />
+      <path d="M3.5 19.5c0-3 2.5-5 5.5-5s5.5 2 5.5 5" />
+      <path d="M16 5.6a3.2 3.2 0 0 1 0 6.3" />
+      <path d="M17.5 14.9c1.9.6 3.2 2.3 3.2 4.6" />
+    </svg>
+  );
+}
+
+export function WeightIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <circle cx="12" cy="5" r="2.4" />
+      <path d="M8.6 8.5h6.8l3.1 12H5.5z" />
+    </svg>
+  );
+}
+
+export function RouteIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <circle cx="5.5" cy="5.5" r="2.5" />
+      <circle cx="18.5" cy="18.5" r="2.5" />
+      <path d="M8 5.5h6.5a3.5 3.5 0 0 1 0 7h-5a3.5 3.5 0 0 0 0 7H16" />
+    </svg>
+  );
+}
+
+export function TagIcon(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={1.8} {...props}>
+      <path d="M12.6 3H21v8.4l-9.3 9.3a1.5 1.5 0 0 1-2.1 0l-6.3-6.3a1.5 1.5 0 0 1 0-2.1z" />
+      <circle cx="17" cy="7" r="1.4" />
+    </svg>
+  );
+}

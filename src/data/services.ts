@@ -9,8 +9,7 @@ import type { PhotoCategory } from "@/lib/photos";
  * Для en/ru/uk берём один английский адрес: кириллица в URL плохо переживает
  * пересылку в мессенджерах, а SEO-вес этих локалей несопоставим с pt.
  *
- * `key` — ключ в переводах, `photos` — из какой категории брать кадры,
- * `primary` — показывать ли карточкой в основной сетке на главной.
+ * `key` — ключ в переводах, `photos` — из какой категории брать кадры для страницы.
  */
 export type ServiceKey =
   "home" | "turnkey" | "office" | "packing" | "assembly" | "equipment" | "delivery" | "loading";
@@ -19,7 +18,6 @@ export type Service = {
   key: ServiceKey;
   slugs: Record<Locale, string>;
   photos: PhotoCategory;
-  primary: boolean;
 };
 
 /** pt-адрес отдельно, для остальных языков — общий английский */
@@ -32,49 +30,41 @@ export const services: Service[] = [
     key: "home",
     slugs: slugs("mudancas", "house-moves"),
     photos: "result",
-    primary: true,
   },
   {
     key: "turnkey",
     slugs: slugs("mudancas-chave-na-mao", "full-service-moves"),
     photos: "team",
-    primary: true,
   },
   {
     key: "office",
     slugs: slugs("mudancas-escritorios", "office-moves"),
     photos: "process",
-    primary: true,
   },
   {
     key: "packing",
     slugs: slugs("embalagem", "packing"),
     photos: "packing",
-    primary: true,
   },
   {
     key: "assembly",
     slugs: slugs("desmontagem-montagem", "furniture-assembly"),
     photos: "assembly",
-    primary: true,
   },
   {
     key: "equipment",
     slugs: slugs("transporte-equipamentos", "equipment-transport"),
     photos: "process",
-    primary: true,
   },
   {
     key: "delivery",
     slugs: slugs("entregas-e-compras", "delivery"),
     photos: "result",
-    primary: false,
   },
   {
     key: "loading",
     slugs: slugs("cargas-e-descargas", "loading"),
     photos: "process",
-    primary: false,
   },
 ];
 
