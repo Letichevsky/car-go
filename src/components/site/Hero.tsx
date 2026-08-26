@@ -48,14 +48,14 @@ export function Hero() {
                   href={contacts.whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-[3.25rem] flex-1 items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200"
+                  className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-[3.25rem] items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200 sm:flex-1"
                 >
                   <ChatIcon className="size-[1.125rem]" />
                   {t("actions.whatsappShort")}
                 </a>
                 <a
                   href={contacts.phoneHref}
-                  className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-[3.25rem] flex-1 items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200"
+                  className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-[3.25rem] items-center justify-center gap-2 border text-base font-semibold transition-colors duration-200 sm:flex-1"
                 >
                   <PhoneIcon className="size-[1.125rem]" />
                   {t("actions.callNow")}

@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/LocaleSwitcher";
+import { MobileMenu } from "@/components/site/MobileMenu";
 import { StickyHeader } from "@/components/site/StickyHeader";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
@@ -51,15 +52,19 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <LocaleSwitcher />
-          <ThemeToggle />
-          <a
-            href={contacts.phoneHref}
-            className="rounded-control border-border-strong hover:border-info hover:text-info hidden h-11 items-center gap-2 border px-4 text-sm leading-none font-semibold transition-colors duration-200 lg:inline-flex"
-          >
-            <PhoneIcon className="size-4 shrink-0" />
-            <PhoneText />
-          </a>
+          {/* На телефоне язык, тема и меню живут в панели за бургером */}
+          <div className="hidden items-center gap-3 lg:flex">
+            <LocaleSwitcher />
+            <ThemeToggle />
+            <a
+              href={contacts.phoneHref}
+              className="rounded-control border-border-strong hover:border-info hover:text-info inline-flex h-11 items-center gap-2 border px-4 text-sm leading-none font-semibold transition-colors duration-200"
+            >
+              <PhoneIcon className="size-4 shrink-0" />
+              <PhoneText />
+            </a>
+          </div>
+          <MobileMenu />
         </div>
       </header>
     </StickyHeader>
