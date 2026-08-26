@@ -12,7 +12,7 @@ export function MobileActionBar() {
   return (
     <div
       data-analytics-zone="mobile-bar"
-      className="border-border bg-bg/95 fixed inset-x-0 bottom-0 z-50 border-t backdrop-blur lg:hidden"
+      className="mobile-action-bar border-border bg-bg/95 fixed inset-x-0 bottom-0 z-50 border-t backdrop-blur lg:hidden"
     >
       <div
         className="grid grid-cols-[3.25rem_3.25rem_1fr] gap-2.5 px-5 py-3"

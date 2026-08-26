@@ -21,7 +21,8 @@ const WHEELS = ["front", "rear"] as const;
 /**
  * Фургон фоном первого экрана.
  *
- * Трогается с первым же пикселем прокрутки и уезжает влево, полностью скрываясь
+ * На широком экране трогается с первым же пикселем прокрутки, на телефоне —
+ * когда выйдет из-под нижней панели действий целиком. Уезжает влево, полностью скрываясь
  * за левым краем к тому моменту, когда сам почти весь ушёл за верхний край
  * экрана. Колёса крутятся ровно на столько, на сколько он проехал. Доля пройденного пишется в
  * CSS-переменную, а сдвиг считает уже CSS — трогаем только `transform`,
@@ -48,11 +49,24 @@ export function BusBackdrop() {
       frame = 0;
       const scrolled = window.scrollY;
 
-      // Считаем от самого первого пикселя прокрутки — холостого хода в начале
-      // быть не должно. Финиш — см. FINISH_AT.
       const rect = shot.getBoundingClientRect();
-      const finish = Math.max(1, rect.top + scrolled + rect.height * FINISH_AT);
-      const progress = Math.min(1, Math.max(0, scrolled / finish));
+
+      /*
+       * Старт. На широком экране фургон виден сразу, и трогаться он должен с
+       * первого же пикселя прокрутки. На телефоне и планшете он лежит ниже
+       * сгиба, да ещё и снизу висит панель действий — там ждём, пока он выйдет
+       * из-под неё целиком, вместе с колёсами. Высоту панели меряем у неё самой:
+       * на широком экране она скрыта и даёт ноль, то есть правило само
+       * выключается.
+       */
+      const bar = document.querySelector(".mobile-action-bar");
+      const barHeight = bar?.getBoundingClientRect().height ?? 0;
+      const start =
+        barHeight > 0 ? Math.max(0, rect.bottom + scrolled + barHeight - window.innerHeight) : 0;
+
+      // Финиш — см. FINISH_AT
+      const finish = Math.max(start + 1, rect.top + scrolled + rect.height * FINISH_AT);
+      const progress = Math.min(1, Math.max(0, (scrolled - start) / (finish - start)));
       node.style.setProperty("--bus-progress", progress.toFixed(4));
     };
 
