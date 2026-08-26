@@ -19,3 +19,17 @@ export const localeNames: Record<Locale, string> = {
   ru: "Русский",
   uk: "Українська",
 };
+
+/**
+ * Подписи в переключателе языка.
+ *
+ * Код локали остаётся `uk` — это ISO 639-1 для украинского, он живёт в адресе,
+ * в атрибуте lang и в hreflang, и менять его нельзя. А вот показывать его людям
+ * нельзя тоже: «UK» читается как United Kingdom. Для глаз — `UA`.
+ */
+export const localeLabels: Record<Locale, string> = {
+  pt: "PT",
+  en: "EN",
+  ru: "RU",
+  uk: "UA",
+};
