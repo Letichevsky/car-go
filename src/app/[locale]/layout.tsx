@@ -3,6 +3,10 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { ConsentDefaults, GoogleTagManager } from "@/components/analytics/Analytics";
+import { AnalyticsClient } from "@/components/analytics/AnalyticsClient";
+import { ConsentBanner } from "@/components/analytics/ConsentBanner";
+import { gtmId } from "@/lib/analytics";
 import { routing, type Locale } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 import "../globals.css";
@@ -62,13 +66,20 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Дефолты Consent Mode — строго до загрузки любых тегов */}
+        <ConsentDefaults />
         {/* Без JS появления не сработают — показываем содержимое сразу */}
         <noscript>
           <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
         </noscript>
       </head>
       <body className={`${jakarta.variable} font-sans`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <GoogleTagManager />
+        <NextIntlClientProvider>
+          {children}
+          {gtmId ? <ConsentBanner /> : null}
+        </NextIntlClientProvider>
+        <AnalyticsClient />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import { useId, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
+import { pushEvent, zoneOf } from "@/lib/analytics";
 import { contacts } from "@/lib/contacts";
 
 type Tone = "default" | "onAction";
@@ -39,6 +40,7 @@ export function LeadForm({ tone = "default", buttonLabel }: { tone?: Tone; butto
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     const value = phone.trim();
 
     // хотя бы шесть цифр — иначе связаться всё равно не получится
@@ -48,6 +50,13 @@ export function LeadForm({ tone = "default", buttonLabel }: { tone?: Tone; butto
     }
 
     setInvalid(false);
+    // главная конверсия сайта: место отправки берём из секции-зоны над формой
+    pushEvent({
+      event: "lead_form_submit",
+      lead_location: zoneOf(form),
+      lead_method: "whatsapp",
+    });
+
     const text = `${t("waPrefix")} ${value}`;
     window.open(`${contacts.whatsappHref}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
   }
